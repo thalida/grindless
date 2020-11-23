@@ -1,1 +1,0 @@
-scoreboard players set @p[scores={Grind_Timer=300..}] Grind_Timer 0 

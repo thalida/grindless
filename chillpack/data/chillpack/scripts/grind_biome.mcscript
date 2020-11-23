@@ -1,2 +1,0 @@
-/execute if entity @p[scores={Grind_Timer=200..}] run execute if predicate chillpack:forest run function chillpack:biome/forest
-/execute if predicate chillpack:badlands run function chillpack:biome/badlands
