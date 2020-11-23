@@ -12,6 +12,9 @@ scoreboard objectives add START_TIME dummy "START_TIME"
 scoreboard players set START_TIME START_TIME 0
 
 scoreboard objectives add elapsed_time dummy "elapsed_time"
-scoreboard players operation @p elapsed_time = START_TIME START_TIME
+scoreboard players operation @p elapsed_time = WAIT_TICKS WAIT_TICKS
+
+scoreboard objectives add item_damage dummy "item_damage"
 
 scoreboard objectives setdisplay sidebar elapsed_time
+scoreboard objectives setdisplay sidebar item_damage
