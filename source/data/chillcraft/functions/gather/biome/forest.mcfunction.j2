@@ -1,0 +1,50 @@
+{% macro target(type) -%}
+{% if type == "no_tool" -%}
+    {id: "<<workbench.item>>", CustomName: '{"text":"<<workbench.name>>"}', Items: []}
+{%- elif type == "any_tool" -%}
+    {id: "<<workbench.item>>", CustomName: '{"text":"<<workbench.name>>"}', Items: [{}]}
+{%- else -%}
+    {id: "<<workbench.item>>", CustomName: '{"text":"<<workbench.name>>"}', Items: [{id:"<<type>>", Slot:<<workbench.slot>>b}]}
+{%- endif %}
+{%- endmacro %}
+
+scoreboard players set <<scoreboards.gathering>> <<scoreboards.gathering>> 1
+
+# ===========
+# Show Title & subtitle
+# ---------------------------------------------------------------------------
+title @s times 5 100 5
+execute if data block <<workbench.coords>> <<target('no_tool')>> run title @s title { "text":"Forest Gathering", "bold":true }
+execute if data block <<workbench.coords>> <<target('any_tool')>> run title @s title { "text":"Forest Gathering", "bold":true }
+{% for tool in supported_tools.axes %}
+execute if data block <<workbench.coords>> <<target(tool)>> run title @s subtitle { "text":"Tool: <<tool|replace("minecraft:","")|replace("_", " ")>>", "italic":true }
+{% endfor %}
+
+# ===========
+# Save Damage
+# ---------------------------------------------------------------------------
+scoreboard players set cc_item_damage cc_item_damage 0
+execute if data block ~ ~-1 ~ <<target('any_tool')>> store result score cc_item_damage cc_item_damage run data get block ~ ~-1 ~ Items[0].tag.Damage 1
+
+# ===========
+# Do Gathering
+# ---------------------------------------------------------------------------
+{% for tool, gives in gives.forest.items() %}
+{% for item, amount in gives["items"].items() %}
+execute if data block <<workbench.coords>> <<target(tool)>> run give @s <<item>> <<amount>>
+{% endfor %}
+execute if data block <<workbench.coords>> <<target(tool)>> run scoreboard players add cc_item_damage cc_item_damage <<gives["damage"]>>
+{% endfor %}
+
+# ===========
+# Update Damage
+# ---------------------------------------------------------------------------
+execute if data block <<workbench.coords>> <<target('any_tool')>> store result block <<workbench.coords>> Items[<<workbench["slot"]>>].tag.Damage int 1 run scoreboard players get cc_item_damage cc_item_damage
+
+# ===========
+# Start Wait...
+# ---------------------------------------------------------------------------
+execute if data block ~ ~-1 ~ <<target('no_tool')>> run scoreboard players set <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> 0
+execute if data block ~ ~-1 ~ <<target('any_tool')>> run scoreboard players set <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> 0
+
+scoreboard players set <<scoreboards.gathering>> <<scoreboards.gathering>> 0

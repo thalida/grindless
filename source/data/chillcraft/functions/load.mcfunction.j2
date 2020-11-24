@@ -1,4 +1,8 @@
-scoreboard objectives add is_grinding dummy "is_grinding"
-scoreboard objectives add elapsed_time dummy "elapsed_time"
-scoreboard players set is_grinding is_grinding 0
-scoreboard players set elapsed_time elapsed_time <<settings['wait_ticks']>>
+scoreboard objectives add <<scoreboards.gathering>> dummy "<<scoreboards.gathering>>"
+scoreboard players set <<scoreboards.gathering>> <<scoreboards.gathering>> 0
+
+scoreboard objectives add <<scoreboards.item_damage>> dummy "<<scoreboards.item_damage>>"
+scoreboard players set <<scoreboards.item_damage>> <<scoreboards.item_damage>> 0
+
+scoreboard objectives add <<scoreboards.elapsed_time>> dummy "<<scoreboards.elapsed_time>>"
+scoreboard players set <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> <<wait_ticks>>

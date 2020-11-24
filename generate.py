@@ -11,6 +11,8 @@ env = Environment(
     comment_start_string='/*',
     comment_end_string='*/',
     autoescape=False,
+    trim_blocks=True,
+    lstrip_blocks=True,
     loader=FileSystemLoader(config.SOURCE_DIR),
 )
 
@@ -30,7 +32,7 @@ for (dirpath, dirnames, filenames) in os.walk(config.SOURCE_DIR):
         
         output_file = f.replace('.j2', '')
         output_path = os.path.join(output_dir, output_file)
-        output = template.render(settings=config.datapack_settings)
+        output = template.render(**config.datapack_settings)
 
         with open(output_path, "w") as fh:
             fh.write(output)
