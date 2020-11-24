@@ -60,7 +60,7 @@ execute store result block ~ ~-1 ~ Items[0].tag.Damage int 1 run scoreboard play
 # ===========
 # Start Wait...
 # ---------------------------------------------------------------------------
-scoreboard players operation @p elapsed_time = START_TIME START_TIME
+scoreboard players set @p elapsed_time 0
 
 
 

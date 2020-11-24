@@ -1,0 +1,10 @@
+execute if score @p elapsed_time matches ..<<settings['wait_ticks']>> run scoreboard players add @p elapsed_time 1
+execute if score @p elapsed_time matches <<settings['wait_ticks']>> run say you can grind
+
+{% for x in range(0, settings['button']['activation_radius'] + 1) %}
+{% for y in range(0, settings['button']['activation_radius'] + 1) %}
+{% for z in range(0, settings['button']['activation_radius'] + 1) %}
+execute as @p at @p if block ^<<x>> ^<<y>> ^<<z>> minecraft:stone_button[powered=true] run function chillcraft:grind_biome
+{% endfor %}
+{% endfor %}
+{% endfor %}
