@@ -1,2 +1,2 @@
-execute if score @p elapsed_time matches <<settings['wait_ticks']>>.. if predicate chillcraft:forest run function chillcraft:biome/forest
-execute if score @p elapsed_time matches <<settings['wait_ticks']>>.. if predicate chillcraft:badlands run function chillcraft:biome/badlands
+execute if score is_grinding is_grinding matches 0 if score elapsed_time elapsed_time matches <<settings['wait_ticks']>>.. if predicate chillcraft:forest run function chillcraft:biome/forest
+execute if score is_grinding is_grinding matches 0 if score elapsed_time elapsed_time matches <<settings['wait_ticks']>>.. if predicate chillcraft:badlands run function chillcraft:biome/badlands

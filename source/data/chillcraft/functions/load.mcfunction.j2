@@ -1,2 +1,4 @@
+scoreboard objectives add is_grinding dummy "is_grinding"
 scoreboard objectives add elapsed_time dummy "elapsed_time"
-scoreboard players set @p elapsed_time <<settings['wait_ticks']>>
+scoreboard players set is_grinding is_grinding 0
+scoreboard players set elapsed_time elapsed_time <<settings['wait_ticks']>>
