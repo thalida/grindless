@@ -1,1 +1,0 @@
-give @s minecraft:barrel{display:{Name:"\"Chillcraft Workbench\"",Lore:["\"Gathers resources through magic\""]},BlockEntityTag:{Items:[{Slot:0,id:"minecraft:stone_button",Count:1}]}} 1

@@ -1,0 +1,48 @@
+{% import "templates/macros.jinja" as macros with context %}
+scoreboard players set <<scoreboards.gathering>> <<scoreboards.gathering>> 1
+
+# ===========
+# Show Title & subtitle
+# ---------------------------------------------------------------------------
+title @s times 5 100 5
+execute if <<workstation_check()>> run title @s title { "text":"<<biome.display_name>> Gathering", "bold":true }
+{% for tool in biome.supported_tools %}
+execute if <<workstation_check(item=tool)>> run title @s subtitle { "text":"Tool: <<tool|replace("minecraft:","")|replace("_", " ")>>", "italic":true }
+{% endfor %}
+
+# ===========
+# Save Damage
+# ---------------------------------------------------------------------------
+scoreboard players set <<scoreboards.item_damage>> <<scoreboards.item_damage>> 0
+execute if <<workstation_check(item='tool_slot')>> store result score <<scoreboards.item_damage>> <<scoreboards.item_damage>> run data get block <<workstation.coords>> Items[<<workstation.slot>>].tag.Damage 1
+
+# ===========
+# Do Gathering
+# ---------------------------------------------------------------------------
+{% for tool, options in biome.resources.items() -%}
+    {%- for option in options -%}
+        {% set gives = workstation_gives(option, options) %}
+        {% set gives_condition = workstation_condition(tool, option, options, usage="items") %}
+        {% if gives_condition|length > 0 -%}
+            {% for item, amount in gives['items'].items() -%}
+                execute <<gives_condition>> run give @s <<item>> <<amount>>
+            {% endfor -%}
+        {% endif %}
+        {% set damage_condition = workstation_condition(tool, option, options, usage="damage") %}
+        {% if damage_condition|length > 0 -%}
+            execute <<damage_condition>> run scoreboard players add <<scoreboards.item_damage>> <<scoreboards.item_damage>> <<gives["damage"]>>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+# ===========
+# Update Damage
+# ---------------------------------------------------------------------------
+execute if <<workstation_check(item='tool_slot')>> store result block <<workstation.coords>> Items[<<workstation["slot"]>>].tag.Damage int 1 run scoreboard players get <<scoreboards.item_damage>> <<scoreboards.item_damage>>
+
+# ===========
+# Start Wait...
+# ---------------------------------------------------------------------------
+execute if <<workstation_check()>> run scoreboard players set <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> 0
+
+scoreboard players set <<scoreboards.gathering>> <<scoreboards.gathering>> 0
