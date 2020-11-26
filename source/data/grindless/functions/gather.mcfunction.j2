@@ -1,0 +1,3 @@
+{% import "templates/macros.jinja" as macros with context %}
+execute if data block <<workstation.coords>> <<macros.target_workstation()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<wait_ticks>>.. if predicate <<namespace>>:forest run function <<namespace>>:regions/forest
+execute if data block <<workstation.coords>> <<macros.target_workstation()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<wait_ticks>>.. if predicate <<namespace>>:badlands run function <<namespace>>:regions/badlands

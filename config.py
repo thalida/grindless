@@ -11,13 +11,15 @@ DIST_DIR = os.path.realpath(DIST_FOLDER)
 TEMPLATES_DIR = os.path.join(SOURCE_DIR, 'templates')
 
 datapack_settings = {
+    "namespace": "grindless",
     "ticks_per_second": 20,
     "wait_seconds": 10,
     "scoreboards": {
-        "gathering": "cc_gathering",
-        "item_damage": "cc_item_damage",
-        "elapsed_time": "cc_elapsed_time",
-        "workstation": "cc_workstation",
+        "gathering": "gl_gathering",
+        "item_damage": "gl_item_damage",
+        "elapsed_time": "gl_elapsed_time",
+        "help": "grindless_help",
+        "kit": "grindless_kit",
     },
     "activation": {
         "item": "minecraft:stone_button",
@@ -25,8 +27,8 @@ datapack_settings = {
     },
     "workstation": {
         "item": "minecraft:barrel",
-        "name": "Chillcraft Workstation",
-        "lore": "Gathers biome resources with magic",
+        "name": "Grindless Workstation",
+        "lore": "Gather resources through magic",
         "give_items": [{"Slot":0, "id":"minecraft:stone_button", "Count":1}],
         "coords": "~ ~-1 ~",
         "slot": 0,
@@ -35,13 +37,12 @@ datapack_settings = {
         "axes": ["minecraft:wooden_axe", "minecraft:stone_axe", "minecraft:iron_axe", "minecraft:gold_axe", "minecraft:diamond_axe", "minecraft:netherite_axe"],
         "pickaxes": ["minecraft:wooden_pickaxe", "minecraft:stone_pickaxe", "minecraft:iron_pickaxe", "minecraft:gold_pickaxe", "minecraft:diamond_pickaxe", "minecraft:netherite_pickaxe"]
     },
-    "biomes": {},
 }
 
 datapack_settings['wait_ticks'] = datapack_settings.get('ticks_per_second', 20) * datapack_settings.get('wait_seconds', 0)
 
-
-datapack_settings["biomes"]["forest"] = {
+datapack_settings["regions"] = {}
+datapack_settings["regions"]["forest"] = {
     "id": "forest",
     "display_name": "Forest",
     "resources": {
@@ -205,4 +206,4 @@ datapack_settings["biomes"]["forest"] = {
     },
     "supported_tools": None,
 }
-datapack_settings["biomes"]["forest"]["supported_tools"] = [tool for tool in datapack_settings["biomes"]["forest"]["resources"].keys() if tool != "0+"]
+datapack_settings["regions"]["forest"]["supported_tools"] = [tool for tool in datapack_settings["regions"]["forest"]["resources"].keys() if tool != "0+"]

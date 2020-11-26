@@ -16,7 +16,7 @@ def set_enchantment(block_dict, enchatment):
     return block_dict
 
 
-def workstation_check(item="0+", enchantment=None, force_slot=False):
+def workstation_state(item="0+", enchantment=None, force_slot=False):
     workstation_settings = config.datapack_settings['workstation']
     mcitem = 'minecraft:stone'
     block_dict = {
@@ -45,7 +45,7 @@ def workstation_check(item="0+", enchantment=None, force_slot=False):
     conditonal = f'data block {workstation_settings["coords"]} {block_dict_str}'
     return conditonal
 
-def workstation_condition(tool, opt_key, options, usage="items"):
+def workstation_conditional(tool, opt_key, options, usage="items"):
     condition = ''
     opt_gives = options[opt_key]
 
@@ -56,11 +56,11 @@ def workstation_condition(tool, opt_key, options, usage="items"):
     unlesses = []
 
     if opt_key == 'default':
-        ifs.append(workstation_check(item=tool))
+        ifs.append(workstation_state(item=tool))
     elif opt_gives['type'] == 'enchantment':
         if tool == '0+':
             tool = 'tool_slot'
-        ifs.append(workstation_check(item=tool, enchantment=opt_key))
+        ifs.append(workstation_state(item=tool, enchantment=opt_key))
 
     all_curr_opt_keys = opt_gives.keys()
     for opt in options:
@@ -73,9 +73,9 @@ def workstation_condition(tool, opt_key, options, usage="items"):
             continue
 
         if options[opt]['type'] == 'item':
-            unlesses.append(workstation_check(item=opt))
+            unlesses.append(workstation_state(item=opt))
         elif options[opt]['type'] == 'enchantment':
-            unlesses.append(workstation_check(item='tool_slot', enchantment=opt))
+            unlesses.append(workstation_state(item='tool_slot', enchantment=opt))
 
     ifs_str = ' if '.join(ifs)
     unlesses_str = ' unless '.join(unlesses)
@@ -87,7 +87,7 @@ def workstation_condition(tool, opt_key, options, usage="items"):
 
     return condition
 
-def workstation_gives(opt_key, options):
+def region_gives(opt_key, options):
     extended_options = dict(options["default"], **options[opt_key])
     return extended_options
         
@@ -104,9 +104,9 @@ env = Environment(
     lstrip_blocks=True,
     loader=FileSystemLoader(config.SOURCE_DIR),
 )
-env.globals['workstation_check'] = workstation_check
-env.globals['workstation_condition'] = workstation_condition
-env.globals['workstation_gives'] = workstation_gives
+env.globals['workstation_state'] = workstation_state
+env.globals['workstation_conditional'] = workstation_conditional
+env.globals['region_gives'] = region_gives
 
 if os.path.isdir(config.DIST_DIR):
     shutil.rmtree(config.DIST_DIR)

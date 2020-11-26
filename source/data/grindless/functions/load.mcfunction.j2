@@ -7,6 +7,10 @@ scoreboard players set <<scoreboards.item_damage>> <<scoreboards.item_damage>> 0
 scoreboard objectives add <<scoreboards.elapsed_time>> dummy "<<scoreboards.elapsed_time>>"
 scoreboard players set <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> <<wait_ticks>>
 
-scoreboard objectives add <<scoreboards.workstation>> trigger
-scoreboard players enable @a <<scoreboards.workstation>>
-scoreboard players set @a <<scoreboards.workstation>> 0
+scoreboard objectives add <<scoreboards.help>> trigger
+scoreboard players enable @a <<scoreboards.help>>
+scoreboard players set @a <<scoreboards.help>> 0
+
+scoreboard objectives add <<scoreboards.kit>> trigger
+scoreboard players enable @a <<scoreboards.kit>>
+scoreboard players set @a <<scoreboards.kit>> 0

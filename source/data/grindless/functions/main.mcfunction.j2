@@ -1,11 +1,13 @@
 {% import "templates/macros.jinja" as macros with context %}
-execute as @a if score @s <<scoreboards.workstation>> matches 1 run function chillcraft:give_workstation
+execute as @a if score @s <<scoreboards.help>> matches 1.. run function <<namespace>>:trigger/help
+execute as @a if score @s <<scoreboards.kit>> matches 1.. run function <<namespace>>:trigger/kit
+
 execute if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches ..<<wait_ticks>> run scoreboard players add <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> 1
 
 {% for x in range(0, activation.radius + 1) %}
 {% for y in range(0, activation.radius + 1) %}
 {% for z in range(0, activation.radius + 1) %}
-execute as @a at @a if data block <<workstation.coords>> <<macros.target_workstation()>> if block ^<<x>> ^<<y>> ^<<z>> <<activation.item>>[powered=true] run function chillcraft:gather
+execute as @a at @a if data block <<workstation.coords>> <<macros.target_workstation()>> if block ^<<x>> ^<<y>> ^<<z>> <<activation.item>>[powered=true] run function <<namespace>>:gather
 {% endfor %}
 {% endfor %}
 {% endfor %}
