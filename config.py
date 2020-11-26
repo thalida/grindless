@@ -14,29 +14,33 @@ datapack_settings = {
     "namespace": "grindless",
     "ticks_per_second": 20,
     "wait_seconds": 10,
-    "scoreboards": {
-        "gathering": "gl_gathering",
-        "item_damage": "gl_item_damage",
-        "elapsed_time": "gl_elapsed_time",
-        "help": "grindless_help",
-        "kit": "grindless_kit",
-    },
-    "activation": {
-        "item": "minecraft:stone_button",
-        "radius": 4,
-    },
-    "workstation": {
-        "item": "minecraft:barrel",
-        "name": "Grindless Workstation",
-        "lore": "Gather resources through magic",
-        "give_items": [{"Slot":0, "id":"minecraft:stone_button", "Count":1}],
-        "coords": "~ ~-1 ~",
-        "slot": 0,
-    },
-    "supported_tools": {
-        "axes": ["minecraft:wooden_axe", "minecraft:stone_axe", "minecraft:iron_axe", "minecraft:gold_axe", "minecraft:diamond_axe", "minecraft:netherite_axe"],
-        "pickaxes": ["minecraft:wooden_pickaxe", "minecraft:stone_pickaxe", "minecraft:iron_pickaxe", "minecraft:gold_pickaxe", "minecraft:diamond_pickaxe", "minecraft:netherite_pickaxe"]
-    },
+
+}
+
+datapack_settings["scoreboards"] = {
+    "gathering": "gl_gathering",
+    "item_damage": "gl_item_damage",
+    "elapsed_time": "gl_elapsed_time",
+    "help": "grindless_help",
+    "kit": "grindless_kit",
+}
+
+datapack_settings["activation"] = {
+    "item": "minecraft:warped_button",
+    "radius": 4,
+}
+
+datapack_settings["workstation"] = {
+    "item": "minecraft:barrel",
+    "name": "Grindless Workstation",
+    "lore": "Gather resources through magic",
+    "give_items": [{
+        "Slot": 0,
+        "id": datapack_settings["activation"]["item"],
+        "Count": 1
+    }],
+    "coords": "~ ~-1 ~",
+    "slot": 0,
 }
 
 datapack_settings['wait_ticks'] = datapack_settings.get('ticks_per_second', 20) * datapack_settings.get('wait_seconds', 0)
