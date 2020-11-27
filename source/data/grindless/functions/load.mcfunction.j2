@@ -5,7 +5,10 @@ scoreboard objectives add <<scoreboards.item_damage>> dummy "<<scoreboards.item_
 scoreboard players set <<scoreboards.item_damage>> <<scoreboards.item_damage>> 0
 
 scoreboard objectives add <<scoreboards.elapsed_time>> dummy "<<scoreboards.elapsed_time>>"
-scoreboard players set <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> <<wait_ticks>>
+scoreboard players set <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> <<gather.wait_ticks>>
+
+scoreboard objectives add <<scoreboards.yaxis>> dummy "<<scoreboards.yaxis>>"
+scoreboard players enable @a <<scoreboards.yaxis>>
 
 scoreboard objectives add <<scoreboards.help>> trigger
 scoreboard players enable @a <<scoreboards.help>>
