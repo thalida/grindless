@@ -32,7 +32,7 @@ class SoulSandValley(BaseRegion):
                     'minecraft:soul_sand': 1,
                     'minecraft:soul_soil': 0.5,
                     'minecraft:gravel': 0.5,
-                    'minecraft:fint': 0.2,
+                    'minecraft:flint': 0.2,
                 },
                 'damage': 0.25
             },

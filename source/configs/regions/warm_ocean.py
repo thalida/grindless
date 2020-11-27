@@ -13,7 +13,7 @@ class WarmOcean(Ocean):
                     'minecraft:sand': 0.4,
                     'minecraft:dirt': 0.4,
                     'minecraft:gravel': 0.2,
-                    'minecraft:fint': 0.1,
+                    'minecraft:flint': 0.1,
                     'minecraft:clay_ball': 0.2,
                 },
                 'damage': 0.25

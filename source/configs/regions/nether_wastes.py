@@ -10,8 +10,8 @@ class NetherWastes(BaseRegion):
             'default': {
                 'items': {
                     'minecraft:netherrack': 1,
-                    'minecraft:nether_quartz': 0.5,
-                    'minecraft:gold_nuggets': 0.5,
+                    'minecraft:quartz': 0.5,
+                    'minecraft:gold_nugget': 0.5,
                     'minecraft:magma_block': 0.4,
                     'minecraft:blackstone': 0.2,
                     'minecraft:glowstone_dust': 0.5,

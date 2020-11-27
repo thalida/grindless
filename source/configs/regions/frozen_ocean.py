@@ -12,7 +12,7 @@ class FrozenOcean(Ocean):
                     'minecraft:snowball': 1,
                     'minecraft:sand': 0.5,
                     'minecraft:gravel': 0.4,
-                    'minecraft:fint': 0.2,
+                    'minecraft:flint': 0.2,
                     'minecraft:clay_ball': 0.2,
                     'minecraft:dirt': 0.1,
                 },
@@ -64,7 +64,7 @@ class FrozenOcean(Ocean):
                 'items': {
                     'minecraft:sand': 1,
                     'minecraft:gravel': 0.4,
-                    'minecraft:fint': 0.2,
+                    'minecraft:flint': 0.2,
                     'minecraft:clay_ball': 0.2,
                     'minecraft:dirt': 0.1,
                 },

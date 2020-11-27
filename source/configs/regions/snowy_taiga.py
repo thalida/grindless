@@ -41,7 +41,7 @@ class SnowyTaiga(Taiga):
             'default': {
                 'items': {
                     "minecraft:dirt": 1,
-                    "minecraft:snow_ball": 0.5,
+                    "minecraft:snowball": 0.5,
                     "minecraft:wheat_seeds": 0.2,
                 },
                 'damage': 0.25
@@ -80,7 +80,7 @@ class SnowyTaiga(Taiga):
                     'minecraft:spruce_log': 1,
                     'minecraft:spruce_sapling': 0.3,
                     "minecraft:sweet_berries": 0.3,
-                    "minecraft:snow_ball": 0.5,
+                    "minecraft:snowball": 0.5,
                 },
                 'damage': 0.25
             },

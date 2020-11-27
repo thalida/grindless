@@ -11,7 +11,7 @@ class DeepFrozenOcean(Ocean):
                 'items': {
                     'minecraft:snowball': 1,
                     'minecraft:gravel': 0.4,
-                    'minecraft:fint': 0.2,
+                    'minecraft:flint': 0.2,
                 },
                 'damage': 0.25
             },
@@ -55,7 +55,7 @@ class DeepFrozenOcean(Ocean):
             'default': {
                 'items': {
                     'minecraft:gravel': 0.4,
-                    'minecraft:fint': 0.2,
+                    'minecraft:flint': 0.2,
                 },
                 'damage': 0.25
             },

@@ -51,7 +51,7 @@ class BambooJungle(BaseRegion):
             'minecraft:silk_touch': {
                 'items': {
                     "minecraft:grass_block": 1,
-                    "minecraft:podzol_block": 0.8,
+                    "minecraft:podzol": 0.8,
                     "minecraft:wheat_seeds": 0.25,
                 },
             },
@@ -63,7 +63,7 @@ class BambooJungle(BaseRegion):
         self.resources_by_tool['shears'] = {
             'default': {
                 'items': {
-                    "minecraft:vines": 2,
+                    "minecraft:vine": 2,
                     "minecraft:jungle_leaves": 2,
                 },
                 'damage': 1.5

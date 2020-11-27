@@ -10,7 +10,7 @@ class GravellyMountains(BaseRegion):
             'default': {
                 'items': {
                     'minecraft:gravel': 2,
-                    'minecraft:fint': 1,
+                    'minecraft:flint': 1,
                 },
                 'damage': 0.25
             },

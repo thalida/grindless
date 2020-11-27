@@ -60,7 +60,7 @@ class Mountains(BaseRegion):
             'default': {
                 'items': {
                     "minecraft:dirt": 1,
-                    "minecraft:snow_ball": 0.5,
+                    "minecraft:snowball": 0.5,
                     "minecraft:wheat_seeds": 0.2,
                 },
                 'damage': 0.25
@@ -98,7 +98,7 @@ class Mountains(BaseRegion):
                     'minecraft:spruce_sapling': 0.3,
                     'minecraft:oak_log': 1,
                     'minecraft:oak_sapling': 0.3,
-                    "minecraft:snow_ball": 0.5,
+                    "minecraft:snowball": 0.5,
                 },
                 'damage': 0.25
             },

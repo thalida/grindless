@@ -69,7 +69,7 @@ class Swamp(BaseRegion):
             'default': {
                 'items': {
                     "minecraft:oak_leaves": 8,
-                    "minecraft:vines": 6,
+                    "minecraft:vine": 6,
                     "minecraft:dead_bush": 1,
                     "minecraft:seagrass": 0.5,
                 },

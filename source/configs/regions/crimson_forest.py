@@ -53,7 +53,7 @@ class CrimsonForest(BaseRegion):
             'default': {
                 'items': {
                     'minecraft:nether_wart_block': 1,
-                    'minecraft:shroom_light': 0.5,
+                    'minecraft:shroomlight': 0.5,
                     'minecraft:crimson_roots': 0.5,
                     'minecraft:crimson_fungus': 0.5,
                     'minecraft:warped_fungus': 0.4,
@@ -85,7 +85,7 @@ class CrimsonForest(BaseRegion):
                 'items': {
                     'minecraft:netherrack': 1,
                     'minecraft:crimson_stem': 1,
-                    'minecraft:shroom_light': 0.5,
+                    'minecraft:shroomlight': 0.5,
                     'minecraft:crimson_roots': 0.5,
                     'minecraft:crimson_fungus': 0.5,
                     'minecraft:warped_fungus': 0.4,

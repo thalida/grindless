@@ -62,7 +62,7 @@ class Jungle(BaseRegion):
         self.resources_by_tool['shears'] = {
             'default': {
                 'items': {
-                    "minecraft:vines": 2,
+                    "minecraft:vine": 2,
                     "minecraft:jungle_leaves": 2,
                 },
                 'damage': 1.5

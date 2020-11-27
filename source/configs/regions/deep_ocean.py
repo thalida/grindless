@@ -11,7 +11,7 @@ class DeepOcean(Ocean):
                 'items': {
                     'minecraft:sand': 1,
                     'minecraft:gravel': 0.5,
-                    'minecraft:fint': 0.2,
+                    'minecraft:flint': 0.2,
                     "minecraft:kelp": 1,
                 },
                 'damage': 0.25
