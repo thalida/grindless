@@ -46,7 +46,7 @@ class DeepFrozenOcean(Ocean):
                     'minecraft:packed_ice': 1,
                     'minecraft:blue_ice': 0.5,
                     'minecraft:magma_block': 0.2,
-                }
+                },
                 'damage': 0.25
             }
         }

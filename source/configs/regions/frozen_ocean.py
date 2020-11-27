@@ -54,7 +54,7 @@ class FrozenOcean(Ocean):
                     'minecraft:ice': 1,
                     'minecraft:packed_ice': 1,
                     'minecraft:blue_ice': 0.5,
-                }
+                },
                 'damage': 0.25
             }
         }

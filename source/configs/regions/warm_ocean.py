@@ -65,7 +65,7 @@ class WarmOcean(Ocean):
                     'minecraft:bubble_coral_block': 0.5,
                     'minecraft:fire_coral_block': 0.5,
                     'minecraft:horn_coral_block': 0.5,
-                }
+                },
                 'damage': 0.25
             }
         }

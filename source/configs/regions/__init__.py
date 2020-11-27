@@ -1,11 +1,8 @@
-from .forest import Forest
-from .dark_forest import DarkForest
-from .badlands import Badlands
-from .badlands_plateau import BadlandsPlateau
+import os
 
-region_classes = {
-    'forest': Forest,
-    'dark_forest': DarkForest,
-    'badlands': Badlands,
-    'badlands_plateau': BadlandsPlateau
-}
+for module in os.listdir(os.path.dirname(__file__)):
+    if module == '__init__.py' or module == 'base_region.py' or module[-3:] != '.py':
+        continue
+    __import__(module[:-3], locals(), globals(), [], 1)
+
+del module

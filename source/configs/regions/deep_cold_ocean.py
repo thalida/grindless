@@ -1,4 +1,4 @@
-from .ocean import DeepOcean
+from .deep_ocean import DeepOcean
 
 class DeepColdOcean(DeepOcean):
     def __init__(self):

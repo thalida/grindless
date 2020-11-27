@@ -1,7 +1,7 @@
 import os
 import yaml
 import pathlib
-from inspect import getmembers, isclass
+from inspect import getmembers, ismodule
 
 import config
 import source.configs.regions as region_configs
@@ -27,9 +27,17 @@ def get_datapack_configs():
     datapack_configs["gather"]["wait_ticks"] = datapack_configs['gather']['wait_seconds'] * datapack_configs['datapack']['ticks_per_second']
 
     if "enabled_regions" not in datapack_configs["gather"]:
-        datapack_configs["gather"]["enabled_regions"] = list(region_configs.region_classes.keys())
+        datapack_configs["gather"]["enabled_regions"] = [module_name for module_name, module in getmembers(region_configs, ismodule) if module_name != 'os' and module_name != 'base_region']
 
     for region in datapack_configs["gather"]["enabled_regions"]:
-        datapack_configs['regions'][region] = region_configs.region_classes[region]().get_config()
+        region_module = getattr(region_configs, region)
+        region_classname = region.replace("_", "")
+        region_class_member = list(filter(lambda module: module[0].lower() == region_classname.lower(), getmembers(region_module)))
+        
+        if len(region_class_member) == 0:
+            continue
+
+        region_class = region_class_member[0][1]
+        datapack_configs['regions'][region] = region_class().get_config()
 
     return datapack_configs
