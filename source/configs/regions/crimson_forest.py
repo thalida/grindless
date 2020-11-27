@@ -96,7 +96,7 @@ class CrimsonForest(BaseRegion):
                 'items': {
                     'minecraft:weeping_vines': 0.2,
                 },
-            }
+            },
             'minecraft:unbreaking': {
                 'damage': 0.125
             }

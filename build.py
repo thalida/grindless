@@ -8,6 +8,9 @@ import config
 import helpers
 import source.templates.methods as methods
 
+
+datapack_configs = helpers.get_datapack_configs()
+
 env = Environment(
     variable_start_string='<<',
     variable_end_string='>>',
@@ -22,14 +25,7 @@ env = Environment(
 for func_name, fn in getmembers(methods, isfunction):
     env.globals[func_name] = fn
 
-if __name__ == '__main__': 
-    datapack_configs = helpers.get_datapack_configs()
-
-    if os.path.isdir(config.DIST_DIR):
-        shutil.rmtree(config.DIST_DIR)
-
-    pathlib.Path(config.DIST_DIR).mkdir(parents=True, exist_ok=True)
-
+def build_general():
     for (dirpath, dirnames, filenames) in os.walk(config.SOURCE_DIR):
         if (config.TEMPLATES_DIR in dirpath) or (config.CONFIGS_DIR in dirpath):
             continue
@@ -48,3 +44,27 @@ if __name__ == '__main__':
 
             with open(output_path, "w") as fh:
                 fh.write(output)
+
+def build_regions():
+    region_template_path = config.REGION_TEMPLATE_PATH.replace(f"{config.SOURCE_DIR}/", '')
+    region_template = env.get_template(region_template_path)
+
+    pathlib.Path(config.DIST_REGION_FNS_DIR).mkdir(parents=True, exist_ok=True)
+    for region in datapack_configs['gather']['enabled_regions']:
+        output_path = os.path.join(config.DIST_REGION_FNS_DIR, f'{region}.mcfunction')
+        output = region_template.render(**datapack_configs, region=datapack_configs['regions'][region])
+
+        with open(output_path, "w") as fh:
+            fh.write(output)
+
+def run_build():
+    if os.path.isdir(config.DIST_DIR):
+        shutil.rmtree(config.DIST_DIR)
+
+    pathlib.Path(config.DIST_DIR).mkdir(parents=True, exist_ok=True)
+
+    build_general()
+    build_regions()
+
+if __name__ == '__main__': 
+    run_build()

@@ -1,4 +1,4 @@
-from .base_region import Taiga
+from .taiga import Taiga
 
 class GiantTreeTaiga(Taiga):
     def __init__(self):

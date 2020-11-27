@@ -1,4 +1,4 @@
-from .taiga import SnowyTaiga
+from .snowy_taiga import SnowyTaiga
 
 class SnowyTaigaMountains(SnowyTaiga):
     def __init__(self):

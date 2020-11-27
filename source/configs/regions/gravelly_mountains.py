@@ -16,7 +16,7 @@ class GravellyMountains(BaseRegion):
             },
             'minecraft:looting': {
                 'items': {
-=                    'minecraft:flint': 2,
+                    'minecraft:flint': 2,
                     'minecraft:gravel': 1,
                 }
             },

@@ -1,9 +1,9 @@
 from .base_region import BaseRegion
 
-class Jungle(BaseRegion):
+class BambooJungle(BaseRegion):
     def __init__(self):
-        self.name = 'jungle'
-        self.display_name = 'Jungle'
+        self.name = 'bamboo_jungle'
+        self.display_name = 'Bamboo Jungle'
 
         self.resources_by_tool = {}
         self.resources_by_tool['axe'] = {

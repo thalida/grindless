@@ -100,7 +100,7 @@ class WarpedForest(BaseRegion):
                 'items': {
                     'minecraft:twisting_vines': 0.2,
                 },
-            }
+            },
             'minecraft:unbreaking': {
                 'damage': 0.125
             }
