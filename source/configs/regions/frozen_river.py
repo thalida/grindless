@@ -1,16 +1,15 @@
-from .base_region import BaseRegion
+from .river import River
 
-class River(BaseRegion):
+class FrozenRiver(River):
     def __init__(self):
-        self.name = 'river'
-        self.display_name = 'River'
+        self.name = 'frozen_river'
+        self.display_name = 'Frozen River'
 
         self.resources_by_tool = {}
         self.resources_by_tool['shovel'] = {
             'default': {
                 'items': {
-                    'minecraft:dirt': 1,
-                    'minecraft:sugar_cane': 0.25,
+                    'minecraft:dirt': 0.5,
                     'minecraft:clay_ball': 0.25,
                     'minecraft:sand': 0.25,
                     'minecraft:gravel': 0.25,
@@ -20,8 +19,7 @@ class River(BaseRegion):
             },
             'minecraft:looting': {
                 'items': {
-                    'minecraft:dirt': 1,
-                    'minecraft:sugar_cane': 0.25,
+                    'minecraft:dirt': 0.5,
                     'minecraft:clay_ball': 0.25,
                     'minecraft:sand': 0.25,
                     'minecraft:flint': 0.25,
@@ -30,8 +28,8 @@ class River(BaseRegion):
             },
             'minecraft:silk_touch': {
                 'items': {
-                    'minecraft:grass_block': 1,
-                    'minecraft:sugar_cane': 0.25,
+                    'minecraft:ice': 1,
+                    'minecraft:grass_block': 0.5,
                     'minecraft:clay': 0.25,
                     'minecraft:sand': 0.25,
                     'minecraft:gravel': 0.25,
