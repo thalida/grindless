@@ -41,13 +41,24 @@ class Badlands(BaseRegion):
             'default': {
                 'items': {
                     "minecraft:red_sand": 1,
-                    "minecraft:sand": 0.5,
                     "minecraft:stick": 0.25,
                 },
                 'damage': 0.25
             },
             'minecraft:unbreaking': {
                 'damage': 0.125
+            }
+        }
+
+        self.resources_by_tool['axe'] = {
+            'default': {
+                'items': {
+                    "minecraft:cactus": 0.25,
+                },
+                'damage': 0.15
+            },
+            'minecraft:unbreaking': {
+                'damage': 0.15 / 2
             }
         }
 
