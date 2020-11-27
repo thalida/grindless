@@ -11,9 +11,6 @@ class DarkForest(BaseRegion):
                 'items': {
                     'minecraft:dark_oak_log': 1,
                     'minecraft:dark_oak_sapling': 0.5,
-                    'minecraft:stick': 0.5,
-                    'minecraft:red_mushroom': 0.2,
-                    'minecraft:brown_mushroom': 0.2,
                     'minecraft:apple': 0.2,
                 },
                 'damage': 0.25
@@ -34,6 +31,8 @@ class DarkForest(BaseRegion):
         self.resources_by_tool['hoe'] = {
             'default': {
                 'items': {
+                    'minecraft:red_mushroom': 0.2,
+                    'minecraft:brown_mushroom': 0.2,
                     "minecraft:wheat_seeds": 1,
                     "minecraft:dandelion": 0.5,
                     "minecraft:poppy": 0.5,
@@ -87,4 +86,27 @@ class DarkForest(BaseRegion):
             }
         }
         
-        self.resources_by_tool[self.fallback] = self.resources_by_tool['axe']
+        self.resources_by_tool[self.fallback] = {
+            'default': {
+                'items': {
+                    'minecraft:dark_oak_log': 1,
+                    'minecraft:dark_oak_sapling': 0.5,
+                    'minecraft:stick': 0.5,
+                    'minecraft:red_mushroom': 0.2,
+                    'minecraft:brown_mushroom': 0.2,
+                    'minecraft:apple': 0.2,
+                },
+                'damage': 0.25
+            },
+            'minecraft:silk_touch': {
+                'items': {
+                    'minecraft:dark_oak_leaves': 1,
+                    'minecraft:brown_mushroom_block': 0.2,
+                    'minecraft:red_mushroom_block': 0.2,
+                    'minecraft:mushroom_stem': 0.2,
+                },
+            },
+            'minecraft:unbreaking': {
+                'damage': 0.125
+            }
+        }

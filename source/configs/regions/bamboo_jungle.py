@@ -13,8 +13,6 @@ class Jungle(BaseRegion):
                     'minecraft:jungle_log': 1,
                     'minecraft:jungle_sapling': 1,
                     'minecraft:cocoa_beans': 0.4,
-                    'minecraft:oak_log': 0.25,
-                    'minecraft:oak_sapling': 0.125,
                     'minecraft:melon_slice': 0.25,
                 },
                 'damage': 0.25
@@ -22,7 +20,6 @@ class Jungle(BaseRegion):
             'minecraft:silk_touch': {
                 'items': {
                     'minecraft:jungle_leaves': 2,
-                    'minecraft:oak_leaves': 0.4,
                     'minecraft:melon': 0.25,
                 },
             },

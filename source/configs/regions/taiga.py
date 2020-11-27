@@ -16,8 +16,7 @@ class Taiga(BaseRegion):
             },
             'minecraft:silk_touch': {
                 'items': {
-                    'minecraft:oak_leaves': 1,
-                    'minecraft:birch_leaves': 1,
+                    'minecraft:spruce_leaves': 1,
                 },
             },
             'minecraft:unbreaking': {
@@ -83,8 +82,7 @@ class Taiga(BaseRegion):
             },
             'minecraft:silk_touch': {
                 'items': {
-                    'minecraft:oak_leaves': 1,
-                    'minecraft:birch_leaves': 1,
+                    'minecraft:spruce_leaves': 1,
                 },
             },
             'minecraft:unbreaking': {
