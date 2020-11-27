@@ -1,29 +1,23 @@
 from .base_region import BaseRegion
 
-class DarkForest(BaseRegion):
+class Taiga(BaseRegion):
     def __init__(self):
-        self.name = 'dark_forest'
-        self.display_name = 'Dark Forest'
+        self.name = 'taiga'
+        self.display_name = 'Taiga'
 
         self.resources_by_tool = {}
         self.resources_by_tool['axe'] = {
             'default': {
                 'items': {
-                    'minecraft:dark_oak_log': 1,
-                    'minecraft:dark_oak_sapling': 0.5,
-                    'minecraft:stick': 0.5,
-                    'minecraft:red_mushroom': 0.2,
-                    'minecraft:brown_mushroom': 0.2,
-                    'minecraft:apple': 0.2,
+                    'minecraft:spruce_log': 1.25,
+                    'minecraft:spruce_sapling': 0.5,
                 },
                 'damage': 0.25
             },
             'minecraft:silk_touch': {
                 'items': {
-                    'minecraft:dark_oak_leaves': 1,
-                    'minecraft:brown_mushroom_block': 0.2,
-                    'minecraft:red_mushroom_block': 0.2,
-                    'minecraft:mushroom_stem': 0.2,
+                    'minecraft:oak_leaves': 1,
+                    'minecraft:birch_leaves': 1,
                 },
             },
             'minecraft:unbreaking': {
@@ -35,24 +29,12 @@ class DarkForest(BaseRegion):
             'default': {
                 'items': {
                     "minecraft:wheat_seeds": 1,
-                    "minecraft:dandelion": 0.5,
-                    "minecraft:poppy": 0.5,
-                    "minecraft:rose_bush": 0.25,
-                    "minecraft:lilac": 0.25,
-                    "minecraft:peony": 0.25,
-                    "minecraft:lily_of_the_valley": 0.25,
+                    "minecraft:sweet_berries": 0.5,
                 },
                 'damage': 0.25
             },
             'minecraft:unbreaking': {
                 'damage': 0.125
-            },
-            'minecraft:silk_touch': {
-                'items': {
-                    'minecraft:brown_mushroom_block': 0.2,
-                    'minecraft:red_mushroom_block': 0.2,
-                    'minecraft:mushroom_stem': 0.2,
-                }
             }
         }
 
@@ -78,7 +60,10 @@ class DarkForest(BaseRegion):
         self.resources_by_tool['shears'] = {
             'default': {
                 'items': {
-                    "minecraft:dark_oak_leaves": 8,
+                    "minecraft:spruce_leaves": 8,
+                    "minecraft:grass": 2,
+                    "minecraft:fern": 1,
+                    "minecraft:large_fern": 0.5,
                 },
                 'damage': 1.5
             },
@@ -87,4 +72,22 @@ class DarkForest(BaseRegion):
             }
         }
         
-        self.resources_by_tool[self.fallback] = self.resources_by_tool['axe']
+        self.resources_by_tool[self.fallback] = {
+            'default': {
+                'items': {
+                    'minecraft:spruce_log': 1,
+                    'minecraft:spruce_sapling': 0.3,
+                    "minecraft:sweet_berries": 0.3,
+                },
+                'damage': 0.25
+            },
+            'minecraft:silk_touch': {
+                'items': {
+                    'minecraft:oak_leaves': 1,
+                    'minecraft:birch_leaves': 1,
+                },
+            },
+            'minecraft:unbreaking': {
+                'damage': 0.125
+            }
+        }
