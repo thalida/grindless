@@ -28,11 +28,24 @@ class FrozenRiver(River):
             },
             'minecraft:silk_touch': {
                 'items': {
-                    'minecraft:ice': 1,
                     'minecraft:grass_block': 0.5,
                     'minecraft:clay': 0.25,
                     'minecraft:sand': 0.25,
                     'minecraft:gravel': 0.25,
+                }
+            },
+            'minecraft:unbreaking': {
+                'damage': 0.125
+            }
+        }
+        self.resources_by_tool['pickaxe'] = {
+            'default': {
+                'items': {},
+                'damage': 0
+            },
+            'minecraft:silk_touch': {
+                'items': {
+                    'minecraft:ice': 1,
                 }
             },
             'minecraft:unbreaking': {
