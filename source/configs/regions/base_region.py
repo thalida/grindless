@@ -5,6 +5,7 @@ class BaseRegion():
     name = 'base'
     display_name = 'Base'
     resources_by_tool = {}
+    material_addons = {}
 
     fallback = '0+'
 
