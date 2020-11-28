@@ -40,7 +40,8 @@ class BaseRegion():
             'netherite': .09,
             'golden': .08
         },
-        'fortune_looting_damage': -0.2
+        'fortune_looting_damage': .8,
+        'unbreaking_damage': .5,
     }
 
     tool_subtypes = [
@@ -112,7 +113,7 @@ class BaseRegion():
                 tool_stanza[subtype]['items'][item] = math.floor(amount * material_multiplier)
 
             if subtype == 'minecraft:fortune' or subtype == 'minecraft:looting':
-                damage_multiplier += self.material_multipliers['fortune_looting_damage']
+                damage_multiplier *= self.material_multipliers['fortune_looting_damage']
 
             damage = math.floor((material_multiplier * num_items_given) * damage_multiplier)
             tool_stanza[subtype]['damage'] = damage
@@ -128,6 +129,6 @@ class BaseRegion():
         if 'minecraft:unbreaking' in tool_stanza:
             source_stanza = tool_stanza[clone_unbreaking_from]
             tool_stanza['minecraft:unbreaking'] = dict(**source_stanza)
-            tool_stanza['minecraft:unbreaking']['damage'] = math.floor(source_stanza['damage'] / 2)
+            tool_stanza['minecraft:unbreaking']['damage'] = math.floor(source_stanza['damage'] * self.material_multipliers['unbreaking_damage'])
 
         return tool_key, tool_stanza
