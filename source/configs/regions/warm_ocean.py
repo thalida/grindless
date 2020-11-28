@@ -15,7 +15,7 @@ class WarmOcean(Ocean):
                 'minecraft:flint': 0.1,
                 'minecraft:clay_ball': 0.2,
             },
-            'minecraft:looting': {
+            'minecraft:fortune': {
                 'minecraft:sand': 0.5,
                 'minecraft:dirt': 0.4,
                 'minecraft:flint': 0.2,

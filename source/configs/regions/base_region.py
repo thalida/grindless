@@ -32,15 +32,26 @@ class BaseRegion():
             'golden': 48
         },
         'damage': {
-            'default':  1/2,
-            'wooden': 1/4,
-            'stone': 1/6,
-            'iron': 1/8,
-            'diamond': 1/9,
-            'netherite': 1/10,
-            'golden': 1/11
-        }
+            'default':  .5,
+            'wooden': .25,
+            'stone': .15,
+            'iron': .125,
+            'diamond': .1,
+            'netherite': .09,
+            'golden': .08
+        },
+        'fortune_looting_damage': -0.2
     }
+
+    tool_subtypes = [
+        'default', 
+        'minecraft:unbreaking',
+        'mineract:efficiency',
+        'minecraft:fortune',
+        'minecraft:silk_touch',
+        'minecraft:luck_of_the_sea',
+        'minecraft:lure'
+    ]
 
     def __init__(self):
         pass
@@ -66,6 +77,9 @@ class BaseRegion():
         
         config["supported_tools"] = [tool for tool in config["resources"].keys() if tool != self.fallback]
         return config
+
+    def is_valid_subtype(self, subtype): 
+        return subtype in self.tool_subtypes
     
     def get_tool_stanza(self, tool, subtypes, material=None):
         tool_stanza = {}
@@ -85,6 +99,10 @@ class BaseRegion():
             damage_multiplier = self.material_multipliers['damage'][material]
     
         for subtype, gives in subtypes.items():
+            if not self.is_valid_subtype(subtype):
+                print('Found invalid subtype', subtype)
+                continue
+
             tool_stanza[subtype] = {}
             tool_stanza[subtype]['items'] = {}
             
@@ -93,10 +111,23 @@ class BaseRegion():
                 num_items_given += amount
                 tool_stanza[subtype]['items'][item] = math.floor(amount * material_multiplier)
 
-            tool_stanza[subtype]['damage'] =  math.floor((material_multiplier * num_items_given) * damage_multiplier)
+            if subtype == 'minecraft:fortune' or subtype == 'minecraft:looting':
+                damage_multiplier += self.material_multipliers['fortune_looting_damage']
+
+            damage = math.floor((material_multiplier * num_items_given) * damage_multiplier)
+            tool_stanza[subtype]['damage'] = damage
     
-        if 'default' in tool_stanza:
-            tool_stanza['minecraft:unbreaking'] = dict(**tool_stanza['default'])
-            tool_stanza['minecraft:unbreaking']['damage'] = math.floor(tool_stanza['default']['damage'] / 2)
+        clone_unbreaking_from = None
+        if 'minecraft:fortune' in tool_stanza:
+            clone_unbreaking_from = 'minecraft:fortune'
+        elif 'minecraft:looting' in tool_stanza:
+            clone_unbreaking_from = 'minecraft:looting'
+        elif 'default' in tool_stanza:
+            clone_unbreaking_from = 'default'
+        
+        if 'minecraft:unbreaking' in tool_stanza:
+            source_stanza = tool_stanza[clone_unbreaking_from]
+            tool_stanza['minecraft:unbreaking'] = dict(**source_stanza)
+            tool_stanza['minecraft:unbreaking']['damage'] = math.floor(source_stanza['damage'] / 2)
 
         return tool_key, tool_stanza

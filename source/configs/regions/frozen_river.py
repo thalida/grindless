@@ -14,7 +14,7 @@ class FrozenRiver(River):
                 'minecraft:gravel': 0.25,
                 'minecraft:flint': 0.125,
             },
-            'minecraft:looting': {
+            'minecraft:fortune': {
                 'minecraft:dirt': 0.5,
                 'minecraft:clay_ball': 0.25,
                 'minecraft:sand': 0.25,

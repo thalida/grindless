@@ -13,7 +13,7 @@ class DeepOcean(Ocean):
                 'minecraft:flint': 0.2,
                 "minecraft:kelp": 1,
             },
-            'minecraft:looting': {
+            'minecraft:fortune': {
                 'minecraft:sand': 1,
                 'minecraft:flint': 0.5,
                 'minecraft:gravel': 0.2,

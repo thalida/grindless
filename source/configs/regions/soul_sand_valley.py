@@ -25,7 +25,7 @@ class SoulSandValley(BaseRegion):
                 'minecraft:gravel': 0.5,
                 'minecraft:flint': 0.2,
             },
-            'minecraft:looting': {
+            'minecraft:fortune': {
                 'minecraft:soul_sand': 1,
                 'minecraft:soul_soil': 0.5,
                 'minecraft:flint': 0.5,

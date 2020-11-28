@@ -14,7 +14,7 @@ class Ocean(BaseRegion):
                 'minecraft:dirt': 0.5,
                 'minecraft:clay_ball': 0.24,
             },
-            'minecraft:looting': {
+            'minecraft:fortune': {
                 'minecraft:sand': 1,
                 'minecraft:flint': 0.5,
                 'minecraft:gravel': 0.2,

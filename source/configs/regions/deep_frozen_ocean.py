@@ -12,7 +12,7 @@ class DeepFrozenOcean(Ocean):
                 'minecraft:gravel': 0.4,
                 'minecraft:flint': 0.2,
             },
-            'minecraft:looting': {
+            'minecraft:fortune': {
                 'minecraft:flint': 0.4,
                 'minecraft:gravel': 0.2,
             },

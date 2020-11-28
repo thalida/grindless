@@ -15,7 +15,7 @@ class River(BaseRegion):
                 'minecraft:gravel': 0.25,
                 'minecraft:flint': 0.125,
             },
-            'minecraft:looting': {
+            'minecraft:fortune': {
                 'minecraft:dirt': 1,
                 'minecraft:sugar_cane': 0.25,
                 'minecraft:clay_ball': 0.25,

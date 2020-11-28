@@ -11,7 +11,7 @@ class GravellyMountains(BaseRegion):
                 'minecraft:gravel': 2,
                 'minecraft:flint': 1,
             },
-            'minecraft:looting': {
+            'minecraft:fortune': {
                 'minecraft:flint': 2,
                 'minecraft:gravel': 1,
             },
@@ -24,7 +24,7 @@ class GravellyMountains(BaseRegion):
             'default': {
                 'minecraft:cobblestone': 0.5,
             },
-            'minecraft:silktouch': {
+            'minecraft:silk_touch': {
                 'minecraft:stone': 0.5,
             }
         }

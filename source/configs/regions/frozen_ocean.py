@@ -15,7 +15,7 @@ class FrozenOcean(Ocean):
                 'minecraft:clay_ball': 0.2,
                 'minecraft:dirt': 0.1,
             },
-            'minecraft:looting': {
+            'minecraft:fortune': {
                 'minecraft:sand': 1,
                 'minecraft:flint': 0.4,
                 'minecraft:gravel': 0.2,
