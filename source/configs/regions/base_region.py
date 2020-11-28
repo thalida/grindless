@@ -46,7 +46,7 @@ class BaseRegion():
     tool_subtypes = [
         'default', 
         'minecraft:unbreaking',
-        'mineract:efficiency',
+        'minecraft:efficiency',
         'minecraft:fortune',
         'minecraft:silk_touch',
         'minecraft:luck_of_the_sea',
