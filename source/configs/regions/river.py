@@ -8,37 +8,27 @@ class River(BaseRegion):
         self.resources_by_tool = {}
         self.resources_by_tool['shovel'] = {
             'default': {
-                'items': {
-                    'minecraft:dirt': 1,
-                    'minecraft:sugar_cane': 0.25,
-                    'minecraft:clay_ball': 0.25,
-                    'minecraft:sand': 0.25,
-                    'minecraft:gravel': 0.25,
-                    'minecraft:flint': 0.125,
-                },
-                'damage': 0.25
+                'minecraft:dirt': 1,
+                'minecraft:sugar_cane': 0.25,
+                'minecraft:clay_ball': 0.25,
+                'minecraft:sand': 0.25,
+                'minecraft:gravel': 0.25,
+                'minecraft:flint': 0.125,
             },
             'minecraft:looting': {
-                'items': {
-                    'minecraft:dirt': 1,
-                    'minecraft:sugar_cane': 0.25,
-                    'minecraft:clay_ball': 0.25,
-                    'minecraft:sand': 0.25,
-                    'minecraft:flint': 0.25,
-                    'minecraft:gravel': 0.125,
-                }
+                'minecraft:dirt': 1,
+                'minecraft:sugar_cane': 0.25,
+                'minecraft:clay_ball': 0.25,
+                'minecraft:sand': 0.25,
+                'minecraft:flint': 0.25,
+                'minecraft:gravel': 0.125,
             },
             'minecraft:silk_touch': {
-                'items': {
-                    'minecraft:grass_block': 1,
-                    'minecraft:sugar_cane': 0.25,
-                    'minecraft:clay': 0.25,
-                    'minecraft:sand': 0.25,
-                    'minecraft:gravel': 0.25,
-                }
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.125
+                'minecraft:grass_block': 1,
+                'minecraft:sugar_cane': 0.25,
+                'minecraft:clay': 0.25,
+                'minecraft:sand': 0.25,
+                'minecraft:gravel': 0.25,
             }
         }
         

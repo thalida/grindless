@@ -7,6 +7,7 @@ class BaseRegion():
     resources_by_tool = {}
     material_addons = {}
 
+    always = 'always'
     fallback = '0+'
 
     tool_materials = [
@@ -20,14 +21,25 @@ class BaseRegion():
 
     tools_without_material = ['shears', 'fishing_rod']
 
-    multipliers = {
-        'default': 8,
-        'wooden': 16,
-        'stone': 24,
-        'iron': 32,
-        'diamond': 36,
-        'netherite': 40,
-        'golden': 48
+    material_multipliers = {
+        'items': {
+            'default': 8,
+            'wooden': 16,
+            'stone': 24,
+            'iron': 32,
+            'diamond': 36,
+            'netherite': 40,
+            'golden': 48
+        },
+        'damage': {
+            'default':  1/2,
+            'wooden': 1/4,
+            'stone': 1/6,
+            'iron': 1/8,
+            'diamond': 1/9,
+            'netherite': 1/10,
+            'golden': 1/11
+        }
     }
 
     def __init__(self):
@@ -53,7 +65,6 @@ class BaseRegion():
                     config['resources'][tool_key] = tool_stanza
         
         config["supported_tools"] = [tool for tool in config["resources"].keys() if tool != self.fallback]
-
         return config
     
     def get_tool_stanza(self, tool, subtypes, material=None):
@@ -67,20 +78,25 @@ class BaseRegion():
             tool_key = f"minecraft:{material}_{tool}"
 
         if material is None:
-            tool_multiplier = self.multipliers['default']
+            material_multiplier = self.material_multipliers['items']['default']
+            damage_multiplier = self.material_multipliers['damage']['default']
         else:
-            tool_multiplier = self.multipliers[material]
+            material_multiplier = self.material_multipliers['items'][material]
+            damage_multiplier = self.material_multipliers['damage'][material]
     
-        tool_stanza = {}
         for subtype, gives in subtypes.items():
             tool_stanza[subtype] = {}
+            tool_stanza[subtype]['items'] = {}
+            
+            num_items_given = 0
+            for item, amount in gives.items():
+                num_items_given += amount
+                tool_stanza[subtype]['items'][item] = math.floor(amount * material_multiplier)
 
-            if 'damage' in gives:
-                tool_stanza[subtype]['damage'] = math.floor(gives['damage'] * tool_multiplier)
-
-            if 'items' in gives:
-                tool_stanza[subtype]['items'] = {}
-                for item, amount in gives['items'].items():
-                    tool_stanza[subtype]['items'][item] = math.floor(amount * tool_multiplier)
+            tool_stanza[subtype]['damage'] =  math.floor((material_multiplier * num_items_given) * damage_multiplier)
+    
+        if 'default' in tool_stanza:
+            tool_stanza['minecraft:unbreaking'] = dict(**tool_stanza['default'])
+            tool_stanza['minecraft:unbreaking']['damage'] = math.floor(tool_stanza['default']['damage'] / 2)
 
         return tool_key, tool_stanza

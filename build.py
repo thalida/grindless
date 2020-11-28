@@ -66,5 +66,5 @@ def run_build():
     build_general()
     build_regions()
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
     run_build()

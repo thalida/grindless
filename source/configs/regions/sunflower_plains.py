@@ -8,16 +8,12 @@ class SunflowerPlains(Plains):
 
         self.resources_by_tool['hoe'] = {
             'default': {
-                'items': {
-                    "minecraft:wheat_seeds": 1,
-                    "minecraft:sunflower": 0.8,
-                    "minecraft:azure_bluet": 0.25,
-                    "minecraft:oxeye_daisy": 0.25,
-                    "minecraft:cornflower": 0.25,
-                },
-                'damage': 0.25
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.125
+                "minecraft:wheat_seeds": 1,
+                "minecraft:sunflower": 0.8,
+                "minecraft:azure_bluet": 0.25,
+                "minecraft:oxeye_daisy": 0.25,
+                "minecraft:cornflower": 0.25,
             }
         }
+
+        self.resources_by_tool[self.fallback] = self.resources_by_tool['hoe']

@@ -8,31 +8,17 @@ class BasaltDeltas(BaseRegion):
         self.resources_by_tool = {}
         self.resources_by_tool['pickaxe'] = {
             'default': {
-                'items': {
-                    'minecraft:netherrack': 1,
-                    'minecraft:basalt': 0.5,
-                    'minecraft:blackstone': 0.5,
-                },
-                'damage': 0.25
+                'minecraft:netherrack': 1,
+                'minecraft:basalt': 0.5,
+                'minecraft:blackstone': 0.5,
             },
             'minecraft:silk_touch': {
-                'items': {
-                    'minecraft:magma_block': 0.2,
-                }
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.125
+                'minecraft:magma_block': 0.2,
             }
         }
         
         self.resources_by_tool[self.fallback] = {
             'default': {
-                'items': {
-                    'minecraft:netherrack': 1,
-                },
-                'damage': 0.25
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.125
+                'minecraft:netherrack': 1,
             }
         }

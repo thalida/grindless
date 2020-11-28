@@ -13,6 +13,19 @@ def read_yaml_file(filename):
         except yaml.YAMLError as exc:
             print(exc)
 
+def get_region_config(region):
+    region_module = getattr(region_configs, region)
+    region_classname = region.replace("_", "")
+    region_class_member = list(filter(lambda module: module[0].lower() == region_classname.lower(), getmembers(region_module)))
+    
+    if len(region_class_member) == 0:
+        return None
+
+    region_class = region_class_member[0][1]
+    region_config = region_class().get_config()
+
+    return region_config
+
 def get_datapack_configs():
     datapack_configs = {
         "datapack": {},

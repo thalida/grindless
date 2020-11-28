@@ -8,36 +8,18 @@ class IceSpikes(BaseRegion):
         self.resources_by_tool = {}
         self.resources_by_tool['shovel'] = {
             'default': {
-                'items': {
-                    'minecraft:snowball': 1,
-                    'minecraft:dirt': 0.1,
-                },
-                'damage': 0.25
+                'minecraft:snowball': 1,
+                'minecraft:dirt': 0.1,
             },
             'minecraft:silk_touch': {
-                'items': {
-                    'minecraft:snow_block': 2,
-                }
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.125
+                'minecraft:snow_block': 2,
             }
         }
 
         self.resources_by_tool['pickaxe'] = {
-            'default': {
-                'items': {},
-                'damage': 0
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.75
-            },
             'minecraft:silk_touch': {
-                'items': {
-                    'minecraft:ice': 0.5,
-                    'minecraft:packed_ice': 1,
-                },
-                'damage': 0.25
+                'minecraft:ice': 0.5,
+                'minecraft:packed_ice': 1,
             }
         }
         

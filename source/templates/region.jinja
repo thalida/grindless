@@ -20,7 +20,7 @@ execute if <<workstation_state(item='tool_slot')>> store result score <<scoreboa
 # ---------------------------------------------------------------------------
 {% for tool, options in region.resources.items() -%}
     {%- for option in options -%}
-        {% set gives = region_gives(option, options) %}
+        {% set gives = options[option] %}
         {% set gives_condition = workstation_conditional(tool, option, options, region=region, usage="items") %}
         {% if gives_condition|length > 0 -%}
             {% for item, amount in gives['items'].items() -%}

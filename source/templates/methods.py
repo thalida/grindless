@@ -85,7 +85,3 @@ def workstation_conditional(tool, opt_key, options, region=None, usage="items"):
         condition = f'{condition} unless {unlesses_str}'
 
     return condition
-
-def region_gives(opt_key, options):
-    extended_options = dict(options["default"], **options[opt_key])
-    return extended_options

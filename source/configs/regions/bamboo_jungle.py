@@ -8,68 +8,40 @@ class BambooJungle(BaseRegion):
         self.resources_by_tool = {}
         self.resources_by_tool['axe'] = {
             'default': {
-                'items': {
-                    'minecraft:bamboo': 2,
-                    'minecraft:jungle_log': 1,
-                    'minecraft:jungle_sapling': 1,
-                    'minecraft:cocoa_beans': 0.4,
-                    'minecraft:melon_slice': 0.25,
-                },
-                'damage': 0.25
+                'minecraft:bamboo': 2,
+                'minecraft:jungle_log': 1,
+                'minecraft:jungle_sapling': 1,
+                'minecraft:cocoa_beans': 0.4,
+                'minecraft:melon_slice': 0.25,
             },
             'minecraft:silk_touch': {
-                'items': {
-                    'minecraft:jungle_leaves': 2,
-                    'minecraft:melon': 0.25,
-                },
+                'minecraft:jungle_leaves': 2,
+                'minecraft:melon': 0.25,
             },
-            'minecraft:unbreaking': {
-                'damage': 0.125
-            }
         }
 
         self.resources_by_tool['sword'] = {
             'default': {
-                'items': {
-                    "minecraft:bamboo": 2,
-                },
-                'damage': 0.25
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.125
+                "minecraft:bamboo": 2,
             }
         }
 
         self.resources_by_tool['shovel'] = {
             'default': {
-                'items': {
-                    "minecraft:dirt": 1,
-                    "minecraft:wheat_seeds": 0.25,
-                },
-                'damage': 0.25
+                "minecraft:dirt": 1,
+                "minecraft:wheat_seeds": 0.25,
             },
             'minecraft:silk_touch': {
-                'items': {
-                    "minecraft:grass_block": 1,
-                    "minecraft:podzol": 0.8,
-                    "minecraft:wheat_seeds": 0.25,
-                },
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.125
+                "minecraft:grass_block": 1,
+                "minecraft:podzol": 0.8,
+                "minecraft:wheat_seeds": 0.25,
             }
         }
 
         self.resources_by_tool['shears'] = {
             'default': {
-                'items': {
-                    "minecraft:vine": 2,
-                    "minecraft:jungle_leaves": 2,
-                },
-                'damage': 1.5
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.75
+                "minecraft:vine": 2,
+                "minecraft:jungle_leaves": 2,
             }
         }
         

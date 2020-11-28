@@ -9,37 +9,21 @@ class ShatteredSavanna(Savanna):
 
         self.resources_by_tool['shovel'] = {
             'default': {
-                'items': {
-                    "minecraft:dirt": 1,
-                    "minecraft:wheat_seeds": 0.5,
-                },
-                'damage': 0.25
+                "minecraft:dirt": 1,
+                "minecraft:wheat_seeds": 0.5,
             },
             'minecraft:silk_touch': {
-                'items': {
-                    "minecraft:grass_block": 1,
-                    "minecraft:coarse_dirt": 1,
-                    "minecraft:wheat_seeds": 0.5,
-                },
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.125
+                "minecraft:grass_block": 1,
+                "minecraft:coarse_dirt": 1,
+                "minecraft:wheat_seeds": 0.5,
             }
         }
 
         self.resources_by_tool['pickaxe'] = {
             'default': {
-                'items': {
-                    'minecraft:cobblestone': 1,
-                },
-                'damage': 0.25
+                'minecraft:cobblestone': 1,
             },
             'minecraft:silk_touch': {
-                'items': {
-                    'minecraft:stone': 1,
-                },
-            },
-            'minecraft:unbreaking': {
-                'damage': 0.125
+                'minecraft:stone': 1,
             }
         }
