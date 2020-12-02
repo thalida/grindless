@@ -1,5 +1,11 @@
+import os
 import math
+import itertools
+from copy import deepcopy
 from pprint import pprint
+
+import helpers
+import config
 
 class BaseRegion():
     name = 'base'
@@ -44,15 +50,31 @@ class BaseRegion():
         'unbreaking_damage': .5,
     }
 
-    tool_subtypes = [
-        'default', 
-        'minecraft:unbreaking',
-        'minecraft:efficiency',
-        'minecraft:fortune',
-        'minecraft:silk_touch',
-        'minecraft:luck_of_the_sea',
-        'minecraft:lure'
+    tool_addon_enchantments = [
+        'unbreaking',
+        'efficiency',
+        'fortune',
     ]
+
+    enchantment_multipliers = {
+        'items': {
+            'efficiency': 1.2,
+            'fortune': 1.4,
+        },
+        'damage': {
+            'unbreaking': 0.5,
+            'efficiency': 0.8,
+        }
+    }
+
+    enchantments_by_tool = {
+        'axe': ['unbreaking', 'efficiency', 'fortune'],
+        'pickaxe': ['unbreaking', 'efficiency', 'fortune'],
+        'shovel': ['unbreaking', 'efficiency', 'fortune'],
+        'hoe': ['unbreaking', 'efficiency', 'fortune'],
+        'shears': ['unbreaking', 'efficiency'],
+        'fishing_rod': ['unbreaking']
+    }
 
     def __init__(self):
         pass
@@ -66,44 +88,20 @@ class BaseRegion():
         }
 
         for tool, subtypes in self.resources_by_tool.items():
-            if tool == self.fallback or tool in self.tools_without_material:
-                tool_key, tool_stanza = self.get_tool_stanza(tool, subtypes)
-                config['resources'][tool_key] = tool_stanza
-                continue
-            
-            if tool not in self.tools_without_material:
-                for material in self.tool_materials:
-                    tool_key, tool_stanza = self.get_tool_stanza(tool, subtypes, material=material)
-                    config['resources'][tool_key] = tool_stanza
+            tool_key, tool_stanza = self.get_tool_stanza(tool, subtypes)
+            config['resources'][tool_key] = tool_stanza
         
         config["supported_tools"] = [tool for tool in config["resources"].keys() if tool != self.fallback]
         return config
 
-    def is_valid_subtype(self, subtype): 
-        return subtype in self.tool_subtypes
-    
-    def get_tool_stanza(self, tool, subtypes, material=None):
+    def get_tool_stanza(self, tool, subtypes):
         tool_stanza = {}
+        tool_key = tool
 
-        if tool == self.fallback:
-            tool_key = tool
-        elif tool in self.tools_without_material:
-            tool_key = f"minecraft:{tool}"
-        elif material is not None:
-            tool_key = f"minecraft:{material}_{tool}"
-
-        if material is None:
-            material_multiplier = self.material_multipliers['items']['default']
-            damage_multiplier = self.material_multipliers['damage']['default']
-        else:
-            material_multiplier = self.material_multipliers['items'][material]
-            damage_multiplier = self.material_multipliers['damage'][material]
+        material_multiplier = self.material_multipliers['items']['default']
+        damage_multiplier = self.material_multipliers['damage']['default']
     
         for subtype, gives in subtypes.items():
-            if not self.is_valid_subtype(subtype):
-                print('Found invalid subtype', subtype)
-                continue
-
             tool_stanza[subtype] = {}
             tool_stanza[subtype]['items'] = {}
             
@@ -132,3 +130,208 @@ class BaseRegion():
             tool_stanza['minecraft:unbreaking']['damage'] = math.floor(source_stanza['damage'] * self.material_multipliers['unbreaking_damage'])
 
         return tool_key, tool_stanza
+
+    
+    def create_tool_key(self, tool, material=None):
+        if tool == self.fallback:
+            return tool
+
+        if material is None or len(material) == 0:
+            return f'minecraft:{tool}'
+
+        return f'minecraft:{material}_{tool}'
+
+    
+    def create_config(self):
+        region_config = {
+            'id': self.name,
+            'display_name': self.display_name,
+            'resources': {},
+            'supported_tools': [],
+        }
+        
+        items_config = helpers.read_yaml_file(os.path.join(config.CONFIGS_DIR, 'items.yaml'))
+
+        for item, region_multiplier in self.items.items():
+            item_config = items_config[item]
+
+            for tool, subtypes in item_config.items():
+                if tool == self.fallback or tool in self.tools_without_material:
+                    tool_materials = [None]
+                else:
+                    tool_materials = self.tool_materials
+
+                for material in tool_materials:
+                    tool_key = self.create_tool_key(tool, material=material)
+                    
+                    if material is None:
+                        material_multiplier = self.material_multipliers['items']['default']
+                    else:
+                        material_multiplier = self.material_multipliers['items'][material]
+
+                    if tool_key not in region_config['resources']:
+                        region_config['resources'][tool_key] = {}
+                    
+                    for subtype, gives in subtypes.items():
+                        if subtype not in region_config['resources'][tool_key]:
+                            region_config['resources'][tool_key][subtype] = {
+                                'tool_type': tool,
+                                'tool_material': material,
+                                'items': {}
+                            }
+
+                        item_amount = math.ceil(gives * region_multiplier * material_multiplier)
+                        region_config['resources'][tool_key][subtype]['items'][item] = item_amount
+
+                        found_enchantments = []
+                        for enchantment in sorted(self.enchantment_multipliers['items'].keys()):
+                            enchantment_key = f'{subtype}/minecraft:{enchantment}'
+                            enchantment_multiplier = self.enchantment_multipliers['items'][enchantment]
+
+                            if enchantment not in self.enchantments_by_tool.get(tool, []):
+                                continue
+                            
+                            if enchantment_key not in region_config['resources'][tool_key]:
+                                region_config['resources'][tool_key][enchantment_key] = {
+                                    'tool_type': tool,
+                                    'tool_material': material,
+                                    'items': {}
+                                }
+
+                            region_config['resources'][tool_key][enchantment_key]['items'][item] = math.ceil(item_amount * enchantment_multiplier)
+                            found_enchantments.append(enchantment)
+
+                        enchantment_combos = itertools.combinations(found_enchantments, len(found_enchantments))
+                        for enchantment_combo in enchantment_combos:
+                            if len(enchantment_combo) <= 1:
+                                continue
+
+                            enchantments = list(enchantment_combo)
+                            enchantments.sort()
+                            combo_key = '&minecraft:'.join(enchantments)
+                            combo_key = f'{subtype}/minecraft:{combo_key}'
+                            combo_multiplier = 1
+
+                            for enchantment in enchantments:
+                                combo_multiplier *= self.enchantment_multipliers['items'][enchantment]
+                            
+                            if combo_key not in region_config['resources'][tool_key]:
+                                region_config['resources'][tool_key][combo_key] = {
+                                    'tool_type': tool,
+                                    'tool_material': material,
+                                    'items': {}
+                                }
+
+                            region_config['resources'][tool_key][combo_key]['items'][item] = math.ceil(item_amount * combo_multiplier)
+
+        resources_copy = deepcopy(region_config['resources'])
+        for tool_key, tool_stanza in resources_copy.items():
+            for subtype, subtype_stanza in tool_stanza.items():
+                material = subtype_stanza['tool_material']
+                tool_type = subtype_stanza['tool_type']
+                num_items_given = sum(subtype_stanza['items'].values())
+
+                if material is None:
+                    damage_multiplier = self.material_multipliers['damage']['default']
+                else:
+                    damage_multiplier = self.material_multipliers['damage'][material]
+
+                damage = math.floor(num_items_given * damage_multiplier)
+                region_config['resources'][tool_key][subtype]['damage'] = damage
+                
+                for enchantment in sorted(self.enchantment_multipliers['damage'].keys()): 
+                    if enchantment not in self.enchantments_by_tool.get(tool_type, []):
+                        continue
+
+                    if enchantment in self.enchantment_multipliers['items']:
+                        continue
+                    
+                    if subtype.find('/') < 0:
+                        enchantment_key = f'{subtype}/minecraft:{enchantment}'
+                    else:
+                        enchantment_key = f'{subtype}&minecraft:{enchantment}'
+                    
+                    enchantment_multiplier = self.enchantment_multipliers['damage'][enchantment]
+                    enchantment_damage = math.floor(damage * enchantment_multiplier)
+
+                    region_config['resources'][tool_key][enchantment_key] = deepcopy(subtype_stanza)
+                    region_config['resources'][tool_key][enchantment_key]['damage'] = enchantment_damage
+
+        region_config["supported_tools"] = [tool for tool in region_config["resources"].keys() if tool != self.fallback]
+        return region_config
+
+
+        
+
+    # def get_config(self):
+    #     config = {
+    #         'id': self.name,
+    #         'display_name': self.display_name,
+    #         'resources': {},
+    #         'supported_tools': [],
+    #     }
+
+    #     for tool, subtypes in self.resources_by_tool.items():
+    #         if tool == self.fallback or tool in self.tools_without_material:
+    #             tool_key, tool_stanza = self.get_tool_stanza(tool, subtypes)
+    #             config['resources'][tool_key] = tool_stanza
+    #             continue
+            
+    #         if tool not in self.tools_without_material:
+    #             for material in self.tool_materials:
+    #                 tool_key, tool_stanza = self.get_tool_stanza(tool, subtypes, material=material)
+    #                 config['resources'][tool_key] = tool_stanza
+        
+    #     config["supported_tools"] = [tool for tool in config["resources"].keys() if tool != self.fallback]
+    #     return config
+    
+    # def get_tool_stanza(self, tool, subtypes, material=None):
+    #     tool_stanza = {}
+
+    #     if tool == self.fallback:
+    #         tool_key = tool
+    #     elif tool in self.tools_without_material:
+    #         tool_key = f"minecraft:{tool}"
+    #     elif material is not None:
+    #         tool_key = f"minecraft:{material}_{tool}"
+
+    #     if material is None:
+    #         material_multiplier = self.material_multipliers['items']['default']
+    #         damage_multiplier = self.material_multipliers['damage']['default']
+    #     else:
+    #         material_multiplier = self.material_multipliers['items'][material]
+    #         damage_multiplier = self.material_multipliers['damage'][material]
+    
+    #     for subtype, gives in subtypes.items():
+    #         if not self.is_valid_subtype(subtype):
+    #             print('Found invalid subtype', subtype)
+    #             continue
+
+    #         tool_stanza[subtype] = {}
+    #         tool_stanza[subtype]['items'] = {}
+            
+    #         num_items_given = 0
+    #         for item, amount in gives.items():
+    #             num_items_given += amount
+    #             tool_stanza[subtype]['items'][item] = math.floor(amount * material_multiplier)
+
+    #         if subtype == 'minecraft:fortune' or subtype == 'minecraft:looting':
+    #             damage_multiplier *= self.material_multipliers['fortune_looting_damage']
+
+    #         damage = math.floor((material_multiplier * num_items_given) * damage_multiplier)
+    #         tool_stanza[subtype]['damage'] = damage
+    
+    #     clone_unbreaking_from = None
+    #     if 'minecraft:fortune' in tool_stanza:
+    #         clone_unbreaking_from = 'minecraft:fortune'
+    #     elif 'minecraft:looting' in tool_stanza:
+    #         clone_unbreaking_from = 'minecraft:looting'
+    #     elif 'default' in tool_stanza:
+    #         clone_unbreaking_from = 'default'
+        
+    #     if 'minecraft:unbreaking' in tool_stanza:
+    #         source_stanza = tool_stanza[clone_unbreaking_from]
+    #         tool_stanza['minecraft:unbreaking'] = dict(**source_stanza)
+    #         tool_stanza['minecraft:unbreaking']['damage'] = math.floor(source_stanza['damage'] * self.material_multipliers['unbreaking_damage'])
+
+    #     return tool_key, tool_stanza

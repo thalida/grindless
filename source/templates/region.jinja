@@ -18,18 +18,20 @@ execute if <<workstation_state(item='tool_slot')>> store result score <<scoreboa
 # ===========
 # Do Gathering
 # ---------------------------------------------------------------------------
-{% for tool, options in region.resources.items() -%}
-    {%- for option in options -%}
-        {% set gives = options[option] %}
-        {% set gives_condition = workstation_conditional(tool, option, options, region=region, usage="items") %}
+{% for tool, tool_stanza in region.resources.items() -%}
+# ====
+# <<tool>>
+# -----------------------------------------------------------------------
+    {% for subtype in tool_stanza -%}
+# <<subtype>>
+# ------------------------------------
+        {% set gives = tool_stanza[subtype] %}
+        {% set gives_condition = workstation_conditional(tool, subtype, tool_stanza, region=region) %}
         {% if gives_condition|length > 0 -%}
             {% for item, amount in gives['items'].items() -%}
                 execute <<gives_condition>> run give @s <<item>> <<amount>>
             {% endfor -%}
-        {% endif %}
-        {% set damage_condition = workstation_conditional(tool, option, options, usage="damage") %}
-        {% if damage_condition|length > 0 -%}
-            execute <<damage_condition>> run scoreboard players add <<scoreboards.item_damage>> <<scoreboards.item_damage>> <<gives["damage"]>>
+            execute <<gives_condition>> run scoreboard players add <<scoreboards.item_damage>> <<scoreboards.item_damage>> <<gives["damage"]>>
         {% endif %}
     {% endfor %}
 {% endfor %}

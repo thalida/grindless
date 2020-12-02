@@ -1,0 +1,594 @@
+minecraft:acacia_leaves:
+  0+:
+    minecraft:silk_touch: 1.0
+  axe:
+    minecraft:silk_touch: 1.0
+  shears:
+    default: 8.0
+minecraft:acacia_log:
+  0+:
+    default: 1.0
+  axe:
+    default: 1.0
+minecraft:acacia_sapling:
+  0+:
+    default: 0.5
+  axe:
+    default: 0.5
+minecraft:allium:
+  hoe:
+    default: 0.25
+minecraft:apple:
+  0+:
+    default: 0.125
+  axe:
+    default: 0.125
+minecraft:azure_bluet:
+  0+:
+    default: 0.25
+  hoe:
+    default: 0.25
+minecraft:bamboo:
+  0+:
+    default: 2.0
+  axe:
+    default: 2.0
+  sword:
+    default: 2.0
+minecraft:basalt:
+  pickaxe:
+    default: 0.5
+minecraft:birch_leaves:
+  0+:
+    minecraft:silk_touch: 1.0
+  axe:
+    minecraft:silk_touch: 1.0
+  shears:
+    default: 8.0
+minecraft:birch_log:
+  0+:
+    default: 1.0
+  axe:
+    default: 1.0
+minecraft:birch_sapling:
+  0+:
+    default: 0.5
+  axe:
+    default: 0.5
+minecraft:blackstone:
+  pickaxe:
+    default: 0.5
+minecraft:blue_ice:
+  pickaxe:
+    minecraft:silk_touch: 0.5
+minecraft:blue_orchid:
+  hoe:
+    default: 0.125
+minecraft:brain_coral:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:brain_coral_block:
+  pickaxe:
+    minecraft:silk_touch: 0.5
+minecraft:brain_coral_fan:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:brown_mushroom:
+  0+:
+    default: 0.125
+  hoe:
+    default: 0.125
+minecraft:brown_mushroom_block:
+  0+:
+    minecraft:silk_touch: 0.125
+  axe:
+    minecraft:silk_touch: 0.125
+  hoe:
+    minecraft:silk_touch: 0.125
+minecraft:brown_terracotta:
+  0+:
+    default: 0.5
+  pickaxe:
+    default: 0.5
+minecraft:bubble_coral:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:bubble_coral_block:
+  pickaxe:
+    minecraft:silk_touch: 0.5
+minecraft:bubble_coral_fan:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:cactus:
+  axe:
+    default: 0.25
+minecraft:chorus_flower:
+  axe:
+    default: 0.125
+minecraft:chorus_fruit:
+  axe:
+    default: 1.0
+minecraft:clay:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:clay_ball:
+  0+:
+    default: 0.125
+  shovel:
+    default: 0.125
+minecraft:coarse_dirt:
+  shovel:
+    default: 0.5
+    minecraft:silk_touch: 0.5
+minecraft:cobblestone:
+  pickaxe:
+    default: 0.5
+minecraft:cocoa_beans:
+  0+:
+    default: 0.375
+  axe:
+    default: 0.375
+minecraft:cornflower:
+  0+:
+    default: 0.25
+  hoe:
+    default: 0.25
+minecraft:crimson_fungus:
+  0+:
+    default: 0.5
+  hoe:
+    default: 0.5
+  shears:
+    default: 0.5
+minecraft:crimson_nylium:
+  pickaxe:
+    minecraft:silk_touch: 1.0
+minecraft:crimson_roots:
+  0+:
+    default: 0.5
+  hoe:
+    default: 0.5
+  shears:
+    default: 0.5
+minecraft:crimson_stem:
+  0+:
+    default: 1.0
+  axe:
+    default: 1.0
+minecraft:dandelion:
+  hoe:
+    default: 0.5
+minecraft:dark_oak_leaves:
+  0+:
+    minecraft:silk_touch: 1.0
+  axe:
+    minecraft:silk_touch: 1.0
+  shears:
+    default: 8.0
+minecraft:dark_oak_log:
+  0+:
+    default: 1.0
+  axe:
+    default: 1.0
+minecraft:dark_oak_sapling:
+  0+:
+    default: 0.5
+  axe:
+    default: 0.5
+minecraft:dead_bush:
+  shears:
+    default: 2.0
+minecraft:dirt:
+  0+:
+    default: 0.5
+    minecraft:silk_touch: 0.5
+  shovel:
+    default: 1.0
+    minecraft:silk_touch: 0.5
+minecraft:end_stone:
+  0+:
+    default: 0.5
+  pickaxe:
+    default: 1.0
+minecraft:fern:
+  shears:
+    default: 1.0
+minecraft:fire_coral:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:fire_coral_block:
+  pickaxe:
+    minecraft:silk_touch: 0.5
+minecraft:fire_coral_fan:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:flint:
+  0+:
+    default: 0.125
+  shovel:
+    default: 0.125
+minecraft:glowstone:
+  0+:
+    minecraft:silk_touch: 1.0
+  pickaxe:
+    minecraft:silk_touch: 1.0
+minecraft:glowstone_dust:
+  0+:
+    default: 0.5
+  pickaxe:
+    default: 0.5
+minecraft:gold_nugget:
+  pickaxe:
+    default: 0.5
+minecraft:grass:
+  shears:
+    default: 2.0
+minecraft:grass_block:
+  0+:
+    minecraft:silk_touch: 0.5
+  shovel:
+    minecraft:silk_touch: 1.0
+minecraft:gravel:
+  0+:
+    default: 0.5
+    minecraft:silk_touch: 0.5
+  shovel:
+    default: 0.5
+    minecraft:silk_touch: 0.5
+minecraft:horn_coral:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:horn_coral_block:
+  pickaxe:
+    minecraft:silk_touch: 0.5
+minecraft:horn_coral_fan:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:ice:
+  pickaxe:
+    minecraft:silk_touch: 1.0
+minecraft:jungle_leaves:
+  0+:
+    minecraft:silk_touch: 2.0
+  axe:
+    minecraft:silk_touch: 2.0
+  shears:
+    default: 2.0
+minecraft:jungle_log:
+  0+:
+    default: 1.0
+  axe:
+    default: 1.0
+minecraft:jungle_sapling:
+  0+:
+    default: 1.0
+  axe:
+    default: 1.0
+minecraft:kelp:
+  0+:
+    default: 1.0
+  shears:
+    default: 1.0
+  shovel:
+    default: 1.0
+minecraft:large_fern:
+  shears:
+    default: 0.5
+minecraft:light_gray_terracotta:
+  0+:
+    default: 0.5
+  pickaxe:
+    default: 0.5
+minecraft:lilac:
+  hoe:
+    default: 0.25
+minecraft:lily_of_the_valley:
+  hoe:
+    default: 0.25
+minecraft:lily_pad:
+  hoe:
+    default: 1.0
+minecraft:magma_block:
+  pickaxe:
+    default: 0.125
+    minecraft:silk_touch: 0.125
+minecraft:melon:
+  0+:
+    minecraft:silk_touch: 0.25
+  axe:
+    minecraft:silk_touch: 0.25
+minecraft:melon_slice:
+  0+:
+    default: 0.25
+  axe:
+    default: 0.25
+minecraft:mossy_cobblestone:
+  pickaxe:
+    default: 0.5
+minecraft:mushroom_stem:
+  0+:
+    minecraft:silk_touch: 0.125
+  axe:
+    minecraft:silk_touch: 0.125
+  hoe:
+    minecraft:silk_touch: 0.125
+minecraft:mycelium:
+  0+:
+    minecraft:silk_touch: 1.0
+  shovel:
+    minecraft:silk_touch: 1.0
+minecraft:nether_gold_ore:
+  pickaxe:
+    minecraft:silk_touch: 0.375
+minecraft:nether_quartz_ore:
+  pickaxe:
+    minecraft:silk_touch: 0.75
+minecraft:nether_sprouts:
+  shears:
+    default: 0.125
+minecraft:nether_wart_block:
+  hoe:
+    default: 1.0
+minecraft:netherrack:
+  0+:
+    default: 1.0
+  pickaxe:
+    default: 1.0
+    minecraft:silk_touch: 0.5
+minecraft:oak_leaves:
+  0+:
+    minecraft:silk_touch: 1.0
+  axe:
+    minecraft:silk_touch: 1.0
+  shears:
+    default: 8.0
+minecraft:oak_log:
+  0+:
+    default: 1.0
+  axe:
+    default: 1.0
+minecraft:oak_sapling:
+  0+:
+    default: 0.5
+  axe:
+    default: 0.5
+minecraft:obsidian:
+  pickaxe:
+    default: 0.125
+minecraft:orange_terracotta:
+  0+:
+    default: 0.5
+  pickaxe:
+    default: 0.5
+minecraft:oxeye_daisy:
+  0+:
+    default: 0.25
+  hoe:
+    default: 0.25
+minecraft:packed_ice:
+  pickaxe:
+    minecraft:silk_touch: 1.0
+minecraft:peony:
+  hoe:
+    default: 0.25
+minecraft:podzol:
+  shovel:
+    minecraft:silk_touch: 0.75
+minecraft:poppy:
+  hoe:
+    default: 0.5
+minecraft:quartz:
+  pickaxe:
+    default: 0.5
+minecraft:red_mushroom:
+  0+:
+    default: 0.125
+  hoe:
+    default: 0.125
+minecraft:red_mushroom_block:
+  0+:
+    minecraft:silk_touch: 0.125
+  axe:
+    minecraft:silk_touch: 0.125
+  hoe:
+    minecraft:silk_touch: 0.125
+minecraft:red_sand:
+  shovel:
+    default: 1.0
+minecraft:red_terracotta:
+  0+:
+    default: 0.5
+  pickaxe:
+    default: 0.5
+minecraft:rose_bush:
+  hoe:
+    default: 0.25
+minecraft:sand:
+  0+:
+    default: 1.0
+    minecraft:silk_touch: 1.0
+  shovel:
+    default: 1.0
+    minecraft:silk_touch: 1.0
+minecraft:sandstone:
+  pickaxe:
+    default: 0.5
+minecraft:sea_pickle:
+  0+:
+    default: 0.25
+  shovel:
+    default: 0.25
+minecraft:seagrass:
+  shears:
+    default: 1.0
+minecraft:shroomlight:
+  0+:
+    default: 0.5
+  hoe:
+    default: 0.5
+minecraft:shulker_box:
+  sword:
+    default: 1.0
+minecraft:snow:
+  shovel:
+    minecraft:silk_touch: 1.0
+minecraft:snow_block:
+  0+:
+    minecraft:silk_touch: 2.0
+  shovel:
+    minecraft:silk_touch: 1.0
+minecraft:snowball:
+  0+:
+    default: 1.0
+  shovel:
+    default: 1.0
+minecraft:soul_sand:
+  0+:
+    default: 0.5
+  shovel:
+    default: 1.0
+    minecraft:silk_touch: 1.0
+minecraft:soul_soil:
+  0+:
+    default: 0.5
+  shovel:
+    default: 0.5
+    minecraft:silk_touch: 0.5
+minecraft:spruce_leaves:
+  0+:
+    minecraft:silk_touch: 1.0
+  axe:
+    minecraft:silk_touch: 1.0
+  shears:
+    default: 8.0
+minecraft:spruce_log:
+  0+:
+    default: 1.0
+  axe:
+    default: 1.25
+minecraft:spruce_sapling:
+  0+:
+    default: 0.25
+  axe:
+    default: 0.5
+minecraft:stick:
+  0+:
+    default: 0.25
+  axe:
+    default: 0.5
+  hoe:
+    default: 1.0
+  pickaxe:
+    default: 0.25
+  shovel:
+    default: 0.25
+minecraft:stone:
+  pickaxe:
+    minecraft:silk_touch: 0.5
+minecraft:sugar_cane:
+  0+:
+    default: 0.25
+    minecraft:silk_touch: 0.25
+  shovel:
+    default: 0.25
+    minecraft:silk_touch: 0.25
+minecraft:sunflower:
+  0+:
+    default: 0.75
+  hoe:
+    default: 0.75
+minecraft:sweet_berries:
+  0+:
+    default: 0.25
+  hoe:
+    default: 0.5
+  shears:
+    default: 0.5
+minecraft:terracotta:
+  0+:
+    default: 1.0
+  pickaxe:
+    default: 1.0
+minecraft:tube_coral:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:tube_coral_block:
+  pickaxe:
+    minecraft:silk_touch: 0.5
+minecraft:tube_coral_fan:
+  0+:
+    minecraft:silk_touch: 0.125
+  shovel:
+    minecraft:silk_touch: 0.125
+minecraft:twisting_vines:
+  0+:
+    minecraft:silk_touch: 0.125
+minecraft:vine:
+  shears:
+    default: 2.0
+minecraft:warped_fungus:
+  0+:
+    default: 0.375
+  hoe:
+    default: 0.375
+  shears:
+    default: 0.375
+minecraft:warped_nylium:
+  pickaxe:
+    minecraft:silk_touch: 1.0
+minecraft:warped_roots:
+  0+:
+    default: 0.5
+  hoe:
+    default: 0.5
+  shears:
+    default: 0.5
+minecraft:warped_stem:
+  axe:
+    default: 1.0
+minecraft:warped_wart_block:
+  hoe:
+    default: 1.0
+minecraft:weeping_vines:
+  0+:
+    minecraft:silk_touch: 0.125
+  shears:
+    default: 0.125
+minecraft:wheat_seeds:
+  0+:
+    default: 1.0
+  hoe:
+    default: 1.0
+  shovel:
+    default: 0.25
+    minecraft:silk_touch: 0.25
+minecraft:white_terracotta:
+  0+:
+    default: 0.5
+  pickaxe:
+    default: 0.5
+minecraft:yellow_terracotta:
+  0+:
+    default: 0.5
+  pickaxe:
+    default: 0.5

@@ -4,6 +4,13 @@ class Badlands(BaseRegion):
     def __init__(self):
         self.name = 'badlands'
         self.display_name = 'Badlands'
+        self.items = {
+            'minecraft:terracotta': 2,
+            'minecraft:red_sand': 2,
+            'minecraft:cactus': 1,
+            'minecraft:dead_bush': 1,
+            'minecraft:stick': 0.5,
+        }
 
         self.resources_by_tool = {}
         self.resources_by_tool['pickaxe'] = {
