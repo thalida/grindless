@@ -78,9 +78,9 @@ def build_regions(datapack_configs):
         print(colored('DONE', 'green', attrs=['bold']), f'Created file at {output_path}')
 
 def run_build():
-    title = 'Grindless Minecraft Datapack'
+    title = 'Grindless Minecraft Datapack :: Build'
     title_divider = '.'*20
-    print(colored(f'{title_divider} {title} {title_divider}', 'green', 'on_grey', attrs=['bold']))
+    print(colored(f'{title_divider} {title} {title_divider}', 'magenta', 'on_grey', attrs=['bold']))
     
     print('\n')
     print(colored('1. Setting up directories', 'grey', 'on_white'))
