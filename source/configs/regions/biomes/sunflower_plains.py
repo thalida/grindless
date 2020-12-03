@@ -6,22 +6,18 @@ class SunflowerPlains(Plains):
         self.name = 'sunflower_plains'
         self.display_name = 'Sunflower Plains'
 
-        self.items = {
-                "minecraft:wheat_seeds": 1,
-                "minecraft:sunflower": 0.8,
-                "minecraft:azure_bluet": 0.25,
-                "minecraft:oxeye_daisy": 0.25,
-                "minecraft:cornflower": 0.25,
+        self.items = { 
+            'minecraft:oak_log': 1,
+            'minecraft:oak_leaves': 1,
+            'minecraft:oak_sapling': 0.5,
+            'minecraft:stick': 0.5,
+            'minecraft:apple': 0.25,
+            "minecraft:grass": 2,
+            "minecraft:grass_block": 4,
+            "minecraft:dirt": 2,
+            "minecraft:wheat_seeds": 2,
+            "minecraft:sunflower": 4,
+            "minecraft:azure_bluet": 0.25,
+            "minecraft:oxeye_daisy": 0.25,
+            "minecraft:cornflower": 0.25,
         }
-
-        self.resources_by_tool['hoe'] = {
-            'default': {
-                "minecraft:wheat_seeds": 1,
-                "minecraft:sunflower": 0.8,
-                "minecraft:azure_bluet": 0.25,
-                "minecraft:oxeye_daisy": 0.25,
-                "minecraft:cornflower": 0.25,
-            }
-        }
-
-        self.resources_by_tool[self.fallback] = self.resources_by_tool['hoe']

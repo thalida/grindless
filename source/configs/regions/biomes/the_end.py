@@ -6,35 +6,9 @@ class TheEnd(BaseRegion):
         self.display_name = 'The End'
 
         self.items = {
-                'minecraft:end_stone': 1,
-                'minecraft:obsidian': 0.2,
-                'minecraft:shulker_shell': 1,
-        }
-
-        self.resources_by_tool = {}
-        self.resources_by_tool['pickaxe'] = {
-            'default': {
-                'minecraft:end_stone': 1,
-                'minecraft:obsidian': 0.2,
-            }
-        }
-        
-        self.resources_by_tool['sword'] = {
-            'default': {
-                'minecraft:shulker_shell': 1,
-            }
-        }
-        
-        
-        self.resources_by_tool['axe'] = {
-            'default': {
-                'minecraft:chorus_fruit': 1,
-                'minecraft:chorus_flower': 0.2,
-            }
-        }
-        
-        self.resources_by_tool[self.fallback] = {
-            'default': {
-                'minecraft:end_stone': 0.5,
-            }
+            'minecraft:end_stone': 4,
+            'minecraft:shulker_shell': 4,
+            'minecraft:elytra': 0.5,
+            'minecraft:chorus_fruit': 2,
+            'minecraft:chorus_flower': 1,
         }

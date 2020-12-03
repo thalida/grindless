@@ -6,41 +6,10 @@ class DeepOcean(Ocean):
         self.display_name = 'Deep Ocean'
 
         self.items = {
-                'minecraft:sand': 1,
-                'minecraft:gravel': 0.5,
-                'minecraft:flint': 0.2,
-                "minecraft:kelp": 1,
+            'minecraft:sand': 1,
+            'minecraft:gravel': 0.5,
+            'minecraft:flint': 0.2,
+            'minecraft:kelp': 1,
+            'minecraft:seagrass': 2,
+            'minecraft:magma_block': 0.2,
         }
-
-        self.resources_by_tool = {}
-        self.resources_by_tool['shovel'] = {
-            'default': {
-                'minecraft:sand': 1,
-                'minecraft:gravel': 0.5,
-                'minecraft:flint': 0.2,
-                "minecraft:kelp": 1,
-            },
-            'minecraft:fortune': {
-                'minecraft:sand': 1,
-                'minecraft:flint': 0.5,
-                'minecraft:gravel': 0.2,
-            },
-            'minecraft:silk_touch': {
-                'minecraft:sand': 1,
-                'minecraft:gravel': 0.5,
-            },
-        }
-        self.resources_by_tool['pickaxe'] = {
-            'default': {
-                'minecraft:magma_block': 0.2,
-            },
-        }
-
-        self.resources_by_tool['shears'] = {
-            'default': {
-                "minecraft:kelp": 1,
-                "minecraft:seagrass": 1,
-            }
-        }
-        
-        self.resources_by_tool[self.fallback] = self.resources_by_tool['shovel']

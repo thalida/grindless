@@ -6,41 +6,9 @@ class Desert(BaseRegion):
         self.display_name = 'Desert'
 
         self.items = {
-                'minecraft:sandstone': 0.5,
-                'minecraft:stick': 0.25,
+            'minecraft:sand': 4,
+            'minecraft:sandstone': 2,
+            'minecraft:stick': 1,
+            'minecraft:dead_bush': 2,
+            'minecraft:cactus': 0.25,
         }
-
-        self.resources_by_tool = {}
-        self.resources_by_tool['pickaxe'] = {
-            'default': {
-                'minecraft:sandstone': 0.5,
-                'minecraft:stick': 0.25,
-            }
-        }
-
-        self.resources_by_tool['hoe'] = {
-            'default': {
-                "minecraft:stick": 1,
-            }
-        }
-
-        self.resources_by_tool['shovel'] = {
-            'default': {
-                "minecraft:sand": 1,
-                "minecraft:stick": 0.25,
-            }
-        }
-
-        self.resources_by_tool['axe'] = {
-            'default': {
-                "minecraft:cactus": 0.25,
-            }
-        }
-
-        self.resources_by_tool['shears'] = {
-            'default': {
-                "minecraft:dead_bush": 2,
-            }
-        }
-        
-        self.resources_by_tool[self.fallback] = self.resources_by_tool['shovel']

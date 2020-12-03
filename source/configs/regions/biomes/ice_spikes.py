@@ -6,27 +6,9 @@ class IceSpikes(BaseRegion):
         self.display_name = 'Ice Spikes'
 
         self.items = {
-                'minecraft:snowball': 1,
-                'minecraft:dirt': 0.1,
-                'minecraft:snow_block': 2,
+            'minecraft:ice': 2,
+            'minecraft:packed_ice': 2,
+            'minecraft:snowball': 2,
+            'minecraft:snow_block': 2,
+            'minecraft:dirt': 0.5,
         }
-
-        self.resources_by_tool = {}
-        self.resources_by_tool['shovel'] = {
-            'default': {
-                'minecraft:snowball': 1,
-                'minecraft:dirt': 0.1,
-            },
-            'minecraft:silk_touch': {
-                'minecraft:snow_block': 2,
-            }
-        }
-
-        self.resources_by_tool['pickaxe'] = {
-            'minecraft:silk_touch': {
-                'minecraft:ice': 0.5,
-                'minecraft:packed_ice': 1,
-            }
-        }
-        
-        self.resources_by_tool[self.fallback] = self.resources_by_tool['shovel']

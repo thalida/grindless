@@ -6,32 +6,8 @@ class GravellyMountains(BaseRegion):
         self.display_name = 'Gravelly Mountains'
 
         self.items = {
-                'minecraft:gravel': 2,
-                'minecraft:flint': 1,
+            'minecraft:gravel': 4,
+            'minecraft:flint': 4,
+            'minecraft:stone': 2,
+            'minecraft:cobblestone': 2,
         }
-
-        self.resources_by_tool = {}
-        self.resources_by_tool['shovel'] = {
-            'default': {
-                'minecraft:gravel': 2,
-                'minecraft:flint': 1,
-            },
-            'minecraft:fortune': {
-                'minecraft:flint': 2,
-                'minecraft:gravel': 1,
-            },
-            'minecraft:silk_touch': {
-                'minecraft:gravel': 2,
-            }
-        }
-        
-        self.resources_by_tool['pickaxe'] = {
-            'default': {
-                'minecraft:cobblestone': 0.5,
-            },
-            'minecraft:silk_touch': {
-                'minecraft:stone': 0.5,
-            }
-        }
-        
-        self.resources_by_tool[self.fallback] = self.resources_by_tool['shovel']
