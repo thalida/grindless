@@ -444,7 +444,7 @@ minecraft:shroomlight:
     default: 0.5
   hoe:
     default: 0.5
-minecraft:shulker_box:
+minecraft:shulker_shell:
   sword:
     default: 1.0
 minecraft:snow:

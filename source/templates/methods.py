@@ -1,8 +1,6 @@
 import json
 import helpers
 
-datapack_configs = helpers.get_datapack_configs()
-
 def set_enchantments(block_dict, enchatments):
     if block_dict.get('Items') is None or len(block_dict['Items']) == 0:
         block_dict['Items'] = [{}]
@@ -17,6 +15,7 @@ def set_enchantments(block_dict, enchatments):
 
 
 def workstation_state(item="0+", enchantments=[], decorated=True):
+    datapack_configs = helpers.get_datapack_configs()
     workstation_configs = datapack_configs['gather']['workstation']
     mcitem = 'minecraft:stone'
     block_dict = {
