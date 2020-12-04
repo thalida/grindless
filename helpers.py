@@ -31,28 +31,29 @@ def get_datapack_configs(from_console=False):
         "scoreboards": {},
         "gather": {},
         "regions": {},
+        "biome_regions": [],
+        "mine_regions": [],
+        "mines_end_y": None,
     }
 
     datapack_configs["datapack"] = read_yaml_file(os.path.join(config.CONFIGS_DIR, 'datapack.yaml'))
     datapack_configs["scoreboards"] = read_yaml_file(os.path.join(config.CONFIGS_DIR, 'scoreboards.yaml'))
     datapack_configs["gather"] = read_yaml_file(os.path.join(config.CONFIGS_DIR, 'gather.yaml'))
     datapack_configs["gather"]["wait_ticks"] = datapack_configs['gather']['wait_seconds'] * datapack_configs['datapack']['ticks_per_second']
+    
+    region_module_names = [region for region, module in getmembers(region_configs, ismodule) if region != 'base_region']
 
-    if "enabled_regions" not in datapack_configs["gather"]:
-        datapack_configs["gather"]["enabled_regions"] = [module_name for module_name, module in getmembers(region_configs, ismodule) if module_name != 'os' and module_name != 'base_region']
-    
-    enabled_regions = datapack_configs["gather"]["enabled_regions"]
-    
     if from_console:
-        print(colored(f'Found {len(enabled_regions)} Regions...', 'cyan'))
-        print(f'{", ".join(enabled_regions)}')
+        print(colored(f'Found {len(region_module_names)} Regions...', 'cyan'))
+        print(f'{", ".join(region_module_names)}')
         print(colored('\nCreating Region Configs...', 'cyan'))
 
-    for region in enabled_regions:
+    mines_end_y = None
+    for region in region_module_names:
         status = colored(f'{region}')
         if from_console:
             print(status, '...', end="\r")
-
+            
         region_module = getattr(region_configs, region)
         region_classname = region.replace("_", "")
         region_class_member = list(filter(lambda module: module[0].lower() == region_classname.lower(), getmembers(region_module)))
@@ -62,11 +63,24 @@ def get_datapack_configs(from_console=False):
                 print(colored(f'Error! No class found for', 'red', attrs=['bold']), status)
             continue
 
-        region_class = region_class_member[0][1]
-        datapack_configs['regions'][region] = region_class().create_config()
+        region_class = region_class_member[0][1]()
+        region_type = region_class.region_type
+        
+        datapack_configs[f'{region_type}_regions'].append(region)
+        datapack_configs['regions'][region] = region_class.create_config()
 
+        if region_type == 'mine':
+            y_range = region_class.y_range
+            
+            if mines_end_y is None:
+                mines_end_y = y_range[1]
+            else:
+                mines_end_y = max(y_range[1], mines_end_y)
+        
         if from_console:
             print(colored(f'DONE', 'green', attrs=['bold']), status)
+
+    datapack_configs['mines_end_y'] = mines_end_y + 1
 
     cached_datapack_configs = datapack_configs
     return datapack_configs

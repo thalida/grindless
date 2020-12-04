@@ -10,6 +10,8 @@ import config
 class BaseRegion():
     name = 'base'
     display_name = 'Base'
+    region_type = 'biome'
+    y_range = None
     resources_by_tool = {}
     material_addons = {}
 
@@ -95,6 +97,8 @@ class BaseRegion():
         region_config = {
             'id': self.name,
             'display_name': self.display_name,
+            'region_type': self.region_type,
+            'y_range': self.y_range,
             'resources': {},
             'supported_tools': [],
         }

@@ -66,11 +66,11 @@ def build_regions(datapack_configs):
     pathlib.Path(config.DIST_REGION_FNS_DIR).mkdir(parents=True, exist_ok=True)
     print(colored('DONE', 'green', attrs=['bold']), f'Created directory at {config.DIST_REGION_FNS_DIR}')
 
-    for region in datapack_configs['gather']['enabled_regions']:
+    for region, region_config in datapack_configs['regions'].items():
         print(colored(f'Processing {region}...'), end='\r')
 
         output_path = os.path.join(config.DIST_REGION_FNS_DIR, f'{region}.mcfunction')
-        output = region_template.render(**datapack_configs, region=datapack_configs['regions'][region])
+        output = region_template.render(**datapack_configs, region=region_config)
 
         with open(output_path, "w") as fh:
             fh.write(output)
@@ -111,7 +111,7 @@ def run_build():
 
 def run_testing():
     import source.configs.regions as region_configs
-    region_configs.nether_wastes.NetherWastes().create_config()
+    region_configs.diamonds_mine.DiamondsMine().create_config()
 
 if __name__ == '__main__':
     run_build()

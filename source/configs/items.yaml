@@ -144,6 +144,12 @@ minecraft:clay_ball:
     default: 1
   shovel:
     default: 1
+minecraft:coal:
+  pickaxe:
+    default: 1
+minecraft:coal_ore:
+  pickaxe:
+    minecraft:silk_touch: 1
 minecraft:coarse_dirt:
   shovel:
     default: 1
@@ -191,6 +197,22 @@ minecraft:dark_oak_sapling:
 minecraft:dead_bush:
   shears:
     default: 1
+minecraft:diamond:
+  iron_pickaxe:
+    default: 1
+  diamond_pickaxe:
+    default: 1
+  golden_pickaxe:
+    default: 1
+  netherite_pickaxe:
+    default: 1
+minecraft:diamond_ore:
+  iron_pickaxe:
+    minescraft:silk_touch: 1
+  diamond_pickaxe:
+    minescraft:silk_touch: 1
+  netherite_pickaxe:
+    minescraft:silk_touch: 1
 minecraft:dirt:
   0+:
     default: 1
@@ -204,6 +226,24 @@ minecraft:end_stone:
 minecraft:elytra:
   0+:
     default: 1
+minecraft:emerald:
+  iron_pickaxe:
+    default: 1
+  diamond_pickaxe:
+    default: 1
+  golden_pickaxe:
+    default: 1
+  netherite_pickaxe:
+    default: 1
+minecraft:emerald_ore:
+  iron_pickaxe:
+    minescraft:silk_touch: 1
+  diamond_pickaxe:
+    minescraft:silk_touch: 1
+  golden_pickaxe:
+    minescraft:silk_touch: 1
+  netherite_pickaxe:
+    minescraft:silk_touch: 1
 minecraft:fern:
   shears:
     default: 1
@@ -235,6 +275,15 @@ minecraft:glowstone_dust:
 minecraft:gold_nugget:
   pickaxe:
     default: 1
+minecraft:gold_ore:
+  iron_pickaxe:
+    default: 1
+  diamond_pickaxe:
+    default: 1
+  golden_pickaxe:
+    default: 1
+  netherite_pickaxe:
+    default: 1
 minecraft:grass:
   shears:
     default: 1
@@ -259,6 +308,17 @@ minecraft:horn_coral_fan:
 minecraft:ice:
   pickaxe:
     minecraft:silk_touch: 1
+minecraft:iron_ore:
+  stone_pickaxe:
+    default: 1
+  iron_pickaxe:
+    default: 1
+  diamond_pickaxe:
+    default: 1
+  golden_pickaxe:
+    default: 1
+  netherite_pickaxe:
+    default: 1
 minecraft:jungle_leaves:
   <<: *leaves
 minecraft:jungle_log:
@@ -272,6 +332,28 @@ minecraft:kelp:
     default: 1
   shovel:
     default: 1
+minecraft:lapis_lazuli:
+  stone_pickaxe:
+    default: 1
+  iron_pickaxe:
+    default: 1
+  diamond_pickaxe:
+    default: 1
+  golden_pickaxe:
+    default: 1
+  netherite_pickaxe:
+    default: 1
+minecraft:lapis_ore:
+  stone_pickaxe:
+    minescraft:silk_touch: 1
+  iron_pickaxe:
+    minescraft:silk_touch: 1
+  diamond_pickaxe:
+    minescraft:silk_touch: 1
+  golden_pickaxe:
+    minescraft:silk_touch: 1
+  netherite_pickaxe:
+    minescraft:silk_touch: 1
 minecraft:large_fern:
   shears:
     default: 1
@@ -370,6 +452,24 @@ minecraft:red_mushroom_block:
   <<: *mushroom_block
 minecraft:red_sand:
   <<: *sand
+minecraft:redstone:
+  iron_pickaxe:
+    default: 2
+  diamond_pickaxe:
+    default: 2
+  golden_pickaxe:
+    default: 2
+  netherite_pickaxe:
+    default: 2
+minecraft:redstone_ore:
+  iron_pickaxe:
+    minescraft:silk_touch: 1
+  diamond_pickaxe:
+    minescraft:silk_touch: 1
+  golden_pickaxe:
+    minescraft:silk_touch: 1
+  netherite_pickaxe:
+    minescraft:silk_touch: 1
 minecraft:red_terracotta:
   <<: *terracotta
 minecraft:rose_bush:

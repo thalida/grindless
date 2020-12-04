@@ -1,7 +1,9 @@
 execute store result score @s <<scoreboards.yaxis>> run data get entity @s Pos[1]
 
-execute if score @s <<scoreboards.yaxis>> matches ..16 if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. run say should mine (coal, gold, iron, redstone, diamond, lapis, emerald)
-execute if score @s <<scoreboards.yaxis>> matches 17..55 if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. run say should mine (coal, iron)
-{% for region in gather['enabled_regions'] %}
-execute if score @s <<scoreboards.yaxis>> matches 56.. if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. if predicate <<datapack.namespace>>:<<region>> run function <<datapack.namespace>>:regions/<<region>>
+{% for region in mine_regions %}
+{% set y_range = regions[region].y_range %}
+execute if score @s <<scoreboards.yaxis>> matches <<y_range[0]>>..<<y_range[1]>> if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. run function <<datapack.namespace>>:regions/<<region>>
+{% endfor %}
+{% for region in biome_regions %}
+execute if score @s <<scoreboards.yaxis>> matches <<mines_end_y>>.. if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. if predicate <<datapack.namespace>>:<<region>> run function <<datapack.namespace>>:regions/<<region>>
 {% endfor %}
