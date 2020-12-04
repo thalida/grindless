@@ -16,5 +16,5 @@ class NetherWastes(BaseRegion):
             'minecraft:nether_quartz_ore': 1,
             'minecraft:nether_gold_ore': 1,
             'minecraft:soul_sand': 1,
-            'minecraft:netherite': 0.5,
+            'minecraft:ancient_debris': 0.2,
         }

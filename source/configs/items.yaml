@@ -315,9 +315,11 @@ minecraft:mycelium:
     minecraft:silk_touch: 1
   shovel:
     minecraft:silk_touch: 1
-minecraft:netherite:
-  pickaxe:
-    minecraft:silk_touch: 1
+minecraft:ancient_debris:
+  diamond_pickaxe:
+    default: 1
+  netherite_pickaxe:
+    default: 1
 minecraft:nether_gold_ore:
   pickaxe:
     minecraft:silk_touch: 1

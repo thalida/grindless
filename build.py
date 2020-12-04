@@ -108,5 +108,11 @@ def run_build():
     print('\n')
     print(colored('Finished building datapack', color='green', attrs=['bold']))
 
+
+def run_testing():
+    import source.configs.regions as region_configs
+    region_configs.nether_wastes.NetherWastes().create_config()
+
 if __name__ == '__main__':
     run_build()
+    # run_testing()
