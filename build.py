@@ -9,8 +9,8 @@ import colorama
 from termcolor import colored
 
 import config
-import helpers
-import source.templates.methods as methods
+import grindless.helpers as helpers
+import grindless.templates.methods as methods
 
 colorama.init()
 
@@ -28,20 +28,72 @@ env = Environment(
 for func_name, fn in getmembers(methods, isfunction):
     env.globals[func_name] = fn
 
+def run_build():
+    title = 'Grindless Minecraft Datapack :: Build'
+    title_divider = '.'*20
+    print(colored(f'{title_divider} {title} {title_divider}', 'magenta', 'on_grey', attrs=['bold']))
+    
+    print('\n')
+    print(colored('1. Setting up directories', 'grey', 'on_white'))
+    if os.path.isdir(config.DIST_DIR):
+        status = colored(f'Removing previous build at {config.DIST_DIR}', 'white')
+        print(status, '...', end="\r")
+        shutil.rmtree(config.DIST_DIR)
+        print(colored('DONE', 'green', attrs=['bold']), status)
+
+    pathlib.Path(config.DIST_DIR).mkdir(parents=True, exist_ok=True)
+
+    print('\n')
+    print(colored('2. Getting Datapack Configs', 'grey', 'on_white'))
+    datapack_configs = helpers.get_datapack_configs(from_console=True)
+
+    print('\n')
+    print(colored('3. Building Datapack', 'grey', 'on_white'))
+    print(colored('3.1 General (Everything -Region Functions)', 'white', attrs=['bold']))
+    build_general(datapack_configs)
+
+    print('\n')
+    print(colored('3.2 Region Functions', 'white', attrs=['bold']))
+    build_regions(datapack_configs)
+
+    print('\n')
+    print(colored('Finished building datapack', color='green', attrs=['bold']))
+
 def build_general(datapack_configs):
+    skip_dirs = [
+        '__pycache__',
+        config.TEMPLATES_DIR,
+        config.CONFIGS_DIR
+    ]
+    skip_files = [
+        '__init__.py',
+        'helpers.py'
+    ]
+
     for (dirpath, dirnames, filenames) in os.walk(config.SOURCE_DIR):
-        if (config.TEMPLATES_DIR in dirpath) or (config.CONFIGS_DIR in dirpath):
+        skip = False
+        
+        for skip_dir in skip_dirs:
+            if skip_dir in dirpath:
+                skip = True
+                break
+        
+        if skip:
             continue
         
         status = colored(f'Handling directory {dirpath}', 'white')
         print(status, '...', end='\r')
         output_dir = dirpath.replace(config.SOURCE_DIR, config.DIST_DIR)
+        output_dir = output_dir.replace('/datapacks', '/data')
         print(status, '...', end='\r')
         pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
         
         print(colored('DONE', 'green', attrs=['bold']), f'Created directory at {output_dir}')
 
         for f in filenames:
+            if f in skip_files:
+                continue
+            
             print(f'Processing {f}...', end='\r')
 
             template_path = os.path.join(dirpath, f)
@@ -78,42 +130,6 @@ def build_regions(datapack_configs):
             
         print(colored('DONE', 'green', attrs=['bold']), f'Created file at {output_path}')
 
-def run_build():
-    title = 'Grindless Minecraft Datapack :: Build'
-    title_divider = '.'*20
-    print(colored(f'{title_divider} {title} {title_divider}', 'magenta', 'on_grey', attrs=['bold']))
-    
-    print('\n')
-    print(colored('1. Setting up directories', 'grey', 'on_white'))
-    if os.path.isdir(config.DIST_DIR):
-        status = colored(f'Removing previous build at {config.DIST_DIR}', 'white')
-        print(status, '...', end="\r")
-        shutil.rmtree(config.DIST_DIR)
-        print(colored('DONE', 'green', attrs=['bold']), status)
-
-    pathlib.Path(config.DIST_DIR).mkdir(parents=True, exist_ok=True)
-
-    print('\n')
-    print(colored('2. Getting Datapack Configs', 'grey', 'on_white'))
-    datapack_configs = helpers.get_datapack_configs(from_console=True)
-
-    print('\n')
-    print(colored('3. Building Datapack', 'grey', 'on_white'))
-    print(colored('3.1 General (Everything -Region Functions)', 'white', attrs=['bold']))
-    build_general(datapack_configs)
-
-    print('\n')
-    print(colored('3.2 Region Functions', 'white', attrs=['bold']))
-    build_regions(datapack_configs)
-
-    print('\n')
-    print(colored('Finished building datapack', color='green', attrs=['bold']))
-
-
-def run_testing():
-    import source.configs.regions as region_configs
-    region_configs.diamonds_mine.DiamondsMine().create_config()
 
 if __name__ == '__main__':
     run_build()
-    # run_testing()

@@ -8,7 +8,7 @@ import colorama
 from termcolor import colored
 # Internal
 import config
-import source.configs.regions as region_configs
+import grindless.configs.regions as region_configs
 
 
 colorama.init()

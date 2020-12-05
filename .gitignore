@@ -23,5 +23,5 @@ venv.bak/
 *.sw?
 
 # Project Level
-chillcraft*.zip
-dist/
+builds/
+releases/

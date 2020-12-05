@@ -1,5 +1,5 @@
 import json
-import helpers
+import grindless.helpers as helpers
 
 def set_enchantments(block_dict, enchatments):
     if block_dict.get('Items') is None or len(block_dict['Items']) == 0:

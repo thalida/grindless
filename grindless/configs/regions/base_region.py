@@ -4,7 +4,7 @@ import itertools
 from copy import deepcopy
 from pprint import pprint
 
-import helpers
+import grindless.helpers as helpers
 import config
 
 class BaseRegion():
