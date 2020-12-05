@@ -4,6 +4,7 @@ class NetherWastes(BaseRegion):
     def __init__(self):
         self.name = 'nether_wastes'
         self.display_name = 'Nether Wastes'
+        self.region_type = 'nether'
 
         self.items = {
             'minecraft:netherrack': 2,

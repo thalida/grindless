@@ -4,6 +4,7 @@ class CrimsonForest(BaseRegion):
     def __init__(self):
         self.name = 'crimson_forest'
         self.display_name = 'Crimson Forest'
+        self.region_type = 'nether'
 
         self.items = {
             'minecraft:crimson_nylium': 4,
@@ -16,6 +17,5 @@ class CrimsonForest(BaseRegion):
             'minecraft:netherrack': 1,
             'minecraft:shroomlight': 1,
             'minecraft:nether_sprouts': 1,
-            'minecraft:soul_sand': 0.5,
             'minecraft:blackstone': 0.5,
         }

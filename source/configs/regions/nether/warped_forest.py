@@ -4,6 +4,7 @@ class WarpedForest(BaseRegion):
     def __init__(self):
         self.name = 'warped_forest'
         self.display_name = 'Warped Forest'
+        self.region_type = 'nether'
 
         self.items = {
             'minecraft:warped_nylium': 4,

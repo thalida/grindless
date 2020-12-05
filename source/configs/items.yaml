@@ -220,6 +220,11 @@ minecraft:dirt:
   shovel:
     default: 1
     minecraft:silk_touch: 0.5
+minecraft:dragon_head:
+  0+:
+    default: 1
+  shovel:
+    default: 1
 minecraft:end_stone:
   pickaxe:
     default: 1

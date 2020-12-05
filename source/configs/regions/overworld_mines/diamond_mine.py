@@ -4,7 +4,7 @@ class DiamondMine(BaseRegion):
     def __init__(self):
         self.name = 'diamond_mine'
         self.display_name = 'Diamond Mine'
-        self.region_type = 'mine'
+        self.region_type = 'overworld_mine'
         self.y_range = [0, 16]
         self.items = {
             'minecraft:coal': 2,

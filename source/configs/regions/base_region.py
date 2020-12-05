@@ -10,15 +10,12 @@ import config
 class BaseRegion():
     name = 'base'
     display_name = 'Base'
-    region_type = 'biome'
+    region_type = 'overworld' #overworld,end,nether,overworld_mine
     y_range = None
-    resources_by_tool = {}
-    material_addons = {}
+    items = {}
 
-    always = 'always'
-    fallback = '0+'
-
-    tool_materials = [
+    FALLBACK_SELECTOR = '0+'
+    SUPPORED_MATERIALS = [
         'wooden',
         'stone',
         'iron',
@@ -26,10 +23,8 @@ class BaseRegion():
         'netherite',
         'golden',
     ]
-
-    tools_without_material = ['shears', 'fishing_rod']
-
-    material_multipliers = {
+    SIMPLE_TOOLS = ['shears', 'fishing_rod']
+    MATERIAL_MULTIPLIERS = {
         'items': {
             'default': 8,
             'wooden': 16,
@@ -40,7 +35,7 @@ class BaseRegion():
             'golden': 48
         },
         'damage': {
-            'default':  .5,
+            'default': .5,
             'wooden': .25,
             'stone': .15,
             'iron': .125,
@@ -51,16 +46,8 @@ class BaseRegion():
         'fortune_looting_damage': .8,
         'unbreaking_damage': .5,
     }
-
-    tool_addon_enchantments = [
-        'unbreaking',
-        'efficiency',
-        'fortune',
-    ]
-
-    enchantments_enabled = True
-
-    enchantment_multipliers = {
+    ENABLE_ENCHANTMENTS = True
+    ENCHANTMENT_MULTIPLIERS = {
         'items': {
             'efficiency': 1.2,
             'fortune': 1.4,
@@ -70,8 +57,7 @@ class BaseRegion():
             'efficiency': 0.8,
         }
     }
-
-    enchantments_by_tool = {
+    SUPPORTED_ENCHANTMENTS = {
         'axe': ['unbreaking', 'efficiency', 'fortune'],
         'pickaxe': ['unbreaking', 'efficiency', 'fortune'],
         'shovel': ['unbreaking', 'efficiency', 'fortune'],
@@ -79,12 +65,9 @@ class BaseRegion():
         'shears': ['unbreaking', 'efficiency'],
         'fishing_rod': ['unbreaking']
     }
-
-    def __init__(self):
-        pass
     
     def create_tool_key(self, tool, material=None):
-        if tool == self.fallback:
+        if tool == self.FALLBACK_SELECTOR:
             return tool
 
         if material is None or len(material) == 0:
@@ -109,12 +92,12 @@ class BaseRegion():
             item_config = items_config[item]
 
             for tool, subtypes in item_config.items():
-                if tool == self.fallback or tool in self.tools_without_material:
+                if tool == self.FALLBACK_SELECTOR or tool in self.SIMPLE_TOOLS:
                     tool_type = tool
                     tool_materials = [None]
                 else:
                     tool_material = None
-                    for material in self.tool_materials:
+                    for material in self.SUPPORED_MATERIALS:
                         if tool.find(material) >= 0:
                             tool_material = material
                             break
@@ -124,15 +107,15 @@ class BaseRegion():
                         tool_materials = [tool_material]
                     else:
                         tool_type = tool
-                        tool_materials = self.tool_materials
+                        tool_materials = self.SUPPORED_MATERIALS
 
                 for material in tool_materials:
                     tool_key = self.create_tool_key(tool_type, material=material)
                     
                     if material is None:
-                        material_multiplier = self.material_multipliers['items']['default']
+                        material_multiplier = self.MATERIAL_MULTIPLIERS['items']['default']
                     else:
-                        material_multiplier = self.material_multipliers['items'][material]
+                        material_multiplier = self.MATERIAL_MULTIPLIERS['items'][material]
                     
                     for subtype, gives in subtypes.items():
                         item_amount = math.ceil(gives * region_multiplier * material_multiplier)
@@ -152,15 +135,15 @@ class BaseRegion():
 
                         region_config['resources'][tool_key][subtype]['items'][item] = item_amount
 
-                        if not self.enchantments_enabled:
+                        if not self.ENABLE_ENCHANTMENTS:
                             continue
 
                         found_enchantments = []
-                        for enchantment in sorted(self.enchantment_multipliers['items'].keys()):
+                        for enchantment in sorted(self.ENCHANTMENT_MULTIPLIERS['items'].keys()):
                             enchantment_key = f'{subtype}/minecraft:{enchantment}'
-                            enchantment_multiplier = self.enchantment_multipliers['items'][enchantment]
+                            enchantment_multiplier = self.ENCHANTMENT_MULTIPLIERS['items'][enchantment]
 
-                            if enchantment not in self.enchantments_by_tool.get(tool_type, []):
+                            if enchantment not in self.SUPPORTED_ENCHANTMENTS.get(tool_type, []):
                                 continue
                             
                             if enchantment_key not in region_config['resources'][tool_key]:
@@ -185,7 +168,7 @@ class BaseRegion():
                             combo_multiplier = 1
 
                             for enchantment in enchantments:
-                                combo_multiplier *= self.enchantment_multipliers['items'][enchantment]
+                                combo_multiplier *= self.ENCHANTMENT_MULTIPLIERS['items'][enchantment]
                             
                             if combo_key not in region_config['resources'][tool_key]:
                                 region_config['resources'][tool_key][combo_key] = {
@@ -204,21 +187,21 @@ class BaseRegion():
                 num_items_given = sum(subtype_stanza['items'].values())
 
                 if material is None:
-                    damage_multiplier = self.material_multipliers['damage']['default']
+                    damage_multiplier = self.MATERIAL_MULTIPLIERS['damage']['default']
                 else:
-                    damage_multiplier = self.material_multipliers['damage'][material]
+                    damage_multiplier = self.MATERIAL_MULTIPLIERS['damage'][material]
 
                 damage = math.floor(num_items_given * damage_multiplier)
                 region_config['resources'][tool_key][subtype]['damage'] = damage
 
-                if not self.enchantments_enabled:
+                if not self.ENABLE_ENCHANTMENTS:
                     continue
                 
-                for enchantment in sorted(self.enchantment_multipliers['damage'].keys()): 
-                    if enchantment not in self.enchantments_by_tool.get(tool_type, []):
+                for enchantment in sorted(self.ENCHANTMENT_MULTIPLIERS['damage'].keys()): 
+                    if enchantment not in self.SUPPORTED_ENCHANTMENTS.get(tool_type, []):
                         continue
 
-                    if enchantment in self.enchantment_multipliers['items']:
+                    if enchantment in self.ENCHANTMENT_MULTIPLIERS['items']:
                         continue
                     
                     if subtype.find('/') < 0:
@@ -226,11 +209,11 @@ class BaseRegion():
                     else:
                         enchantment_key = f'{subtype}&minecraft:{enchantment}'
                     
-                    enchantment_multiplier = self.enchantment_multipliers['damage'][enchantment]
+                    enchantment_multiplier = self.ENCHANTMENT_MULTIPLIERS['damage'][enchantment]
                     enchantment_damage = math.floor(damage * enchantment_multiplier)
 
                     region_config['resources'][tool_key][enchantment_key] = deepcopy(subtype_stanza)
                     region_config['resources'][tool_key][enchantment_key]['damage'] = enchantment_damage
 
-        region_config["supported_tools"] = [tool for tool in region_config["resources"].keys() if tool != self.fallback]
+        region_config["supported_tools"] = [tool for tool in region_config["resources"].keys() if tool != self.FALLBACK_SELECTOR]
         return region_config

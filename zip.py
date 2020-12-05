@@ -15,6 +15,7 @@ if __name__ == '__main__':
 
     print('\n')
     print(colored(f'Creating {zip_name}...', 'cyan'))
+    
     zipf = zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED)
     for root, dirs, files in os.walk(config.DIST_DIR):
         zip_root = root.replace(config.DIST_DIR, '')

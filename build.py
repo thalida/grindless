@@ -45,6 +45,7 @@ def build_general(datapack_configs):
             print(f'Processing {f}...', end='\r')
 
             template_path = os.path.join(dirpath, f)
+            # The template path is relative to the env.loader value (source_dir)
             template_path = template_path.replace(f"{config.SOURCE_DIR}/", '')
             template = env.get_template(template_path)
             

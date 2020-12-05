@@ -14,6 +14,17 @@ def set_enchantments(block_dict, enchatments):
     return block_dict
 
 
+def region_unlesses(region_type):
+    datapack_configs = helpers.get_datapack_configs()
+
+    unlesses = []
+    for region in datapack_configs[region_type]:
+        unless_region = f"unless predicate {datapack_configs['datapack']['namespace']}:{region}"
+        unlesses.append(unless_region)
+
+    return ' '.join(unlesses)
+
+
 def workstation_state(item="0+", enchantments=[], decorated=True):
     datapack_configs = helpers.get_datapack_configs()
     workstation_configs = datapack_configs['gather']['workstation']
@@ -102,54 +113,6 @@ def workstation_conditional(tool, subtype, tool_stanza, region=None):
             unlesses.append(workstation_state(item=item, enchantments=[enchantment]))
             found_overrides.append(enchantment)
 
-        # unlesses.append(workstation_state(item=item, enchantments=opt_enchantments))
-
-
-    if region is not None and tool == '0+':
-        for supported_tool in region["supported_tools"]:
-            unlesses.append(workstation_state(item=supported_tool))
-
-
-    ifs_str = ' if '.join(ifs)
-    unlesses_str = ' unless '.join(unlesses)
-    if len(ifs_str) > 0:
-        condition = f'if {ifs_str}'
-
-    if len(unlesses_str) > 0:
-        condition = f'{condition} unless {unlesses_str}'
-
-    return condition
-
-def orig_workstation_conditional(tool, opt_key, options, region=None, usage="items"):
-    condition = ''
-    opt_gives = options[opt_key]
-
-    if opt_gives.get(usage) is None:
-        return condition
-
-    ifs = []
-    unlesses = []
-
-    if opt_key == 'default':
-        ifs.append(workstation_state(item=tool))
-    else:
-        if tool == '0+':
-            enchanted_item = 'tool_slot'
-        else:
-            enchanted_item = tool
-
-        ifs.append(workstation_state(item=enchanted_item, enchantment=opt_key))
-
-    for opt in options:
-        if opt == 'default' or opt == opt_key:
-            continue
-
-        overrides_usage = usage in opt_gives and usage in options[opt]
-
-        if not overrides_usage:
-            continue
-        
-        unlesses.append(workstation_state(item='tool_slot', enchantment=opt))
 
     if region is not None and tool == '0+':
         for supported_tool in region["supported_tools"]:

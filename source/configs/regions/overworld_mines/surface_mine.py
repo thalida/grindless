@@ -4,7 +4,7 @@ class SurfaceMine(BaseRegion):
     def __init__(self):
         self.name = 'surface_mine'
         self.display_name = 'Surface Mine'
-        self.region_type = 'mine'
+        self.region_type = 'overworld_mine'
         self.y_range = [17, 55]
         self.items = {
             'minecraft:coal': 2,
