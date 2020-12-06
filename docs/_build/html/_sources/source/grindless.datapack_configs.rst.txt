@@ -1,0 +1,11 @@
+.. automodule:: grindless.datapack_configs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Regions
+^^^^^^^^^^
+.. toctree::
+   :maxdepth: 1
+
+   grindless.datapack_configs.regions

@@ -1,0 +1,7 @@
+Config
+=================================
+
+.. automodule:: grindless.config
+   :members:
+   :undoc-members:
+   :show-inheritance:

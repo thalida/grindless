@@ -1,0 +1,22 @@
+Datapack Configs
+=================================
+
+Fetch
+------------------
+.. automodule:: grindless.datapack_configs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Configs
+----------------------
+.. toctree::
+   :maxdepth: 1
+   :caption: Datpack Configs
+
+   datapack_configs/datapack
+   datapack_configs/gather
+   datapack_configs/scoreboards
+   datapack_configs/regions
+
+

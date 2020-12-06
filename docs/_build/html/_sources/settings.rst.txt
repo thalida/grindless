@@ -1,0 +1,15 @@
+Datapack Configs
+=================================
+
+Configs
+----------------------
+.. toctree::
+   :maxdepth: 1
+   :caption: Datpack Configs
+
+   settings/datapack
+   settings/gather
+   settings/scoreboards
+   settings/regions
+
+

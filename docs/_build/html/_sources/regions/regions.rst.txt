@@ -1,0 +1,16 @@
+.. automodule:: grindless.datapack_configs.regions.base_region
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Supported Regions
+------------------------------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   regions.end
+   regions.nether
+   regions.overworld
+   regions.overworld_mines
