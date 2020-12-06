@@ -1,5 +1,5 @@
 """
-Minecraft Datapack
+Minecraft
 ===========================
 
 Tick

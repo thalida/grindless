@@ -1,2 +1,3 @@
 .. automodule:: grindless.config
-   :show-inheritance:
+   :autosummary:
+   :autosummary-members:

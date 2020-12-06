@@ -1,3 +1,11 @@
+"""
+Template Methods
+==================
+
+foo bar bat cat
+
+"""
+
 import json
 import grindless.settings
 

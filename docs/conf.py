@@ -32,9 +32,12 @@ release = '1.0.0'
 # ones.
 extensions = [
     'sphinx.ext.autodoc', 
+    'sphinx.ext.autosummary',
     'sphinx.ext.coverage', 
     'sphinx.ext.napoleon',
-    'sphinx.ext.autosummary',
+    'sphinx.ext.linkcode',
+    'sphinx.ext.doctest',
+    'autodocsumm',
 ]
 
 autodoc_typehints = 'none'
@@ -59,3 +62,18 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+def linkcode_resolve(domain, info):
+    if domain != 'py':
+        return None
+    if not info['module']:
+        return None
+
+    filename = info['module'].replace('.', '/')
+    
+    if info.get('fullname') in ['fetch']:
+        filename = f'{filename}/__init__'
+
+    filename = f'{filename}.py'
+
+    return f'https://github.com/thalida/grindless/tree/staging/{filename}'

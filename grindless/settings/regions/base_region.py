@@ -1,7 +1,11 @@
 """
-Base Region
+BaseRegion
 =============================
 General configs for the data pack
+
+.. autoclass:: grindless.settings.regions.base_region.BaseRegion
+   :members:
+   :undoc-members:
 """
 
 import os
@@ -14,11 +18,6 @@ from ... import helpers as helpers
 from ... import config
 
 class BaseRegion():
-    """base Region
-
-    Returns:
-        [type]: [description]
-    """
     name = 'base'
     display_name = 'Base'
     region_type = 'overworld' #overworld,end,nether,overworld_mine

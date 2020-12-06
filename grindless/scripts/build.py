@@ -1,4 +1,6 @@
 """
+.. _scripts-build:
+
 Build
 ======================
 Generates the datapack.
@@ -76,7 +78,7 @@ def build_general(datapack_configs):
     skip_dirs = [
         '__pycache__',
         config.TEMPLATES_DIR,
-        config.CONFIGS_DIR,
+        config.SETTINGS_DIR,
         config.SCRIPTS_DIR,
     ]
     skip_files = [

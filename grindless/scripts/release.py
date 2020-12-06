@@ -1,4 +1,6 @@
 """
+.. _scripts-release:
+
 Release
 =========================================
 Creates a release version of the build

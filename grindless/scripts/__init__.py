@@ -2,13 +2,12 @@
 Scripts
 =======================
 
-.. automodule:: grindless.scripts.build
-   :members:
-   :undoc-members:
-   :show-inheritance:
+All bout the scripts
 
-.. automodule:: grindless.scripts.release
-   :members:
-   :undoc-members:
-   :show-inheritance:
+----
+
+.. toctree::
+   build
+   release
+
 """

@@ -6,32 +6,15 @@ General configs for the data pack
 
 .. autofunction:: fetch
 
-
-.. raw:: html
-
-   <h2>Regions</h2>
-
-read more about :doc:`regions/index`.
+----
 
 .. toctree::
-    :hidden:
     :maxdepth: 1
 
+    global
+    gather
+    scoreboards
     regions/index
-
-Global
--------------
-global settings
-
-
-Gather
---------------------
-gather settings
-
-
-Scoreboards
-----------------------
-scoreboard settings
 
 """
 
@@ -71,9 +54,9 @@ def fetch(from_console=False):
         "mines_end_y": None,
     }
 
-    datapack_configs["global"] = helpers.read_yaml_file(os.path.join(config.CONFIGS_DIR, 'global.yaml'))
-    datapack_configs["scoreboards"] = helpers.read_yaml_file(os.path.join(config.CONFIGS_DIR, 'scoreboards.yaml'))
-    datapack_configs["gather"] = helpers.read_yaml_file(os.path.join(config.CONFIGS_DIR, 'gather.yaml'))
+    datapack_configs["global"] = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'global.yaml'))
+    datapack_configs["scoreboards"] = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'scoreboards.yaml'))
+    datapack_configs["gather"] = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'gather.yaml'))
 
     # Calc how many ticks should we wait between each grind session
     datapack_configs["gather"]["wait_ticks"] = datapack_configs['gather']['wait_seconds'] * datapack_configs['global']['ticks_per_second']

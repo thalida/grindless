@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Base Region &mdash; Grindless 1.0.0 documentation</title>
+  <title>BaseRegion &mdash; Grindless 1.0.0 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="End" href="end/index.html" />
-    <link rel="prev" title="Regions" href="index.html" /> 
+    <link rel="prev" title="Items" href="items.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -101,18 +101,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../config.html">Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../scripts/index.html">Scripts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Settings</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../global.html">Global</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gather.html">Gather</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scoreboards.html">Scorebaords</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Regions</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="index.html#setup">Setup</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="index.html#items">Items</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="index.html#base-region">Base Region</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="items.html">Items</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">BaseRegion</a></li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#supported-regions">Supported Regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#global">Global</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#gather">Gather</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../index.html#scoreboards">Scoreboards</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../datapacks/index.html">Datapacks</a></li>
@@ -167,7 +164,7 @@
         
           <li><a href="index.html">Regions</a> &raquo;</li>
         
-      <li>Base Region</li>
+      <li>BaseRegion</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -186,9 +183,84 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="module-grindless.settings.regions.base_region"></span><div class="section" id="base-region">
-<h1>Base Region<a class="headerlink" href="#base-region" title="Permalink to this headline">¶</a></h1>
+  <span class="target" id="module-grindless.settings.regions.base_region"></span><div class="section" id="baseregion">
+<h1>BaseRegion<a class="headerlink" href="#baseregion" title="Permalink to this headline">¶</a></h1>
 <p>General configs for the data pack</p>
+<dl class="py class">
+<dt id="grindless.settings.regions.base_region.BaseRegion">
+<em class="property">class </em><code class="sig-prename descclassname">grindless.settings.regions.base_region.</code><code class="sig-name descname">BaseRegion</code><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.ENABLE_ENCHANTMENTS">
+<code class="sig-name descname">ENABLE_ENCHANTMENTS</code><em class="property"> = True</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.ENABLE_ENCHANTMENTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.ENCHANTMENT_MULTIPLIERS">
+<code class="sig-name descname">ENCHANTMENT_MULTIPLIERS</code><em class="property"> = {'damage': {'efficiency': 0.8, 'unbreaking': 0.5}, 'items': {'efficiency': 1.2, 'fortune': 1.4}}</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.ENCHANTMENT_MULTIPLIERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.FALLBACK_SELECTOR">
+<code class="sig-name descname">FALLBACK_SELECTOR</code><em class="property"> = '0+'</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.FALLBACK_SELECTOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.MATERIAL_MULTIPLIERS">
+<code class="sig-name descname">MATERIAL_MULTIPLIERS</code><em class="property"> = {'damage': {'default': 0.5, 'diamond': 0.1, 'golden': 0.08, 'iron': 0.125, 'netherite': 0.09, 'stone': 0.15, 'wooden': 0.25}, 'fortune_looting_damage': 0.8, 'items': {'default': 8, 'diamond': 36, 'golden': 48, 'iron': 32, 'netherite': 40, 'stone': 24, 'wooden': 16}, 'unbreaking_damage': 0.5}</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.MATERIAL_MULTIPLIERS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.SIMPLE_TOOLS">
+<code class="sig-name descname">SIMPLE_TOOLS</code><em class="property"> = ['shears', 'fishing_rod']</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.SIMPLE_TOOLS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.SUPPORED_MATERIALS">
+<code class="sig-name descname">SUPPORED_MATERIALS</code><em class="property"> = ['wooden', 'stone', 'iron', 'diamond', 'netherite', 'golden']</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.SUPPORED_MATERIALS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.SUPPORTED_ENCHANTMENTS">
+<code class="sig-name descname">SUPPORTED_ENCHANTMENTS</code><em class="property"> = {'axe': ['unbreaking', 'efficiency', 'fortune'], 'fishing_rod': ['unbreaking'], 'hoe': ['unbreaking', 'efficiency', 'fortune'], 'pickaxe': ['unbreaking', 'efficiency', 'fortune'], 'shears': ['unbreaking', 'efficiency'], 'shovel': ['unbreaking', 'efficiency', 'fortune']}</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.SUPPORTED_ENCHANTMENTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="grindless.settings.regions.base_region.BaseRegion.create_config">
+<code class="sig-name descname">create_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.create_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="grindless.settings.regions.base_region.BaseRegion.create_tool_key">
+<code class="sig-name descname">create_tool_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tool</span></em>, <em class="sig-param"><span class="n">material</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.create_tool_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.display_name">
+<code class="sig-name descname">display_name</code><em class="property"> = 'Base'</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.display_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.items">
+<code class="sig-name descname">items</code><em class="property"> = {}</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.name">
+<code class="sig-name descname">name</code><em class="property"> = 'base'</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.region_type">
+<code class="sig-name descname">region_type</code><em class="property"> = 'overworld'</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.region_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.y_range">
+<code class="sig-name descname">y_range</code><em class="property"> = None</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.y_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -202,7 +274,7 @@
         <a href="end/index.html" class="btn btn-neutral float-right" title="End" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Regions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="items.html" class="btn btn-neutral float-left" title="Items" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

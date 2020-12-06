@@ -10,6 +10,7 @@ pyyaml = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
 termcolor = "*"
+autodocsumm = "*"
 
 [dev-packages]
 

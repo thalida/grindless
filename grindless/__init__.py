@@ -2,23 +2,20 @@
 Getting Started
 =======================
 
-Source code
-------------------
-getting soruce
-
 Setup
 --------------------
 dev setup and installing
 
-Linking to minecraft
----------------------
+Testing in Minecraft
+-------------------------
 quick guide and undestanding
 
 
-Optional (mcedit)
+Optional
 -----------------------
 where things are and what they do?
 
+----
 
 Quick Reference
 =====================
