@@ -1,7 +1,9 @@
 """
+Config
+=================================
+
 Dev config settings for building and releasing
 """
-
 
 import os
 

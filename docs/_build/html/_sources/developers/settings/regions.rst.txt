@@ -1,6 +1,19 @@
 Regions
-=====================
-Overview of regions
+==========================
+.. automodule:: grindless.settings.regions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+
+.. autosummary::
+   grindless.settings
+   grindless.settings.regions
+   grindless.settings.regions.base_region
+   grindless.settings.regions.end
+   grindless.settings.regions.end.end_barrens
+
 
 Setup
 -----------------------

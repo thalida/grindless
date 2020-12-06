@@ -1,4 +1,0 @@
-Gather
-=================
-
-Describe mcfunction

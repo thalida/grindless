@@ -1,15 +1,15 @@
 execute store result score @s <<scoreboards.yaxis>> run data get entity @s Pos[1]
 
 {% for region in nether_regions %}
-execute if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. if predicate <<datapack.namespace>>:<<region>> run function <<datapack.namespace>>:regions/<<region>>
+execute if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. if predicate <<global.namespace>>:<<region>> run function <<global.namespace>>:regions/<<region>>
 {% endfor %}
 {% for region in end_regions %}
-execute if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. if predicate <<datapack.namespace>>:<<region>> run function <<datapack.namespace>>:regions/<<region>>
+execute if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. if predicate <<global.namespace>>:<<region>> run function <<global.namespace>>:regions/<<region>>
 {% endfor %}
 {% for region in overworld_mine_regions %}
 {% set y_range = regions[region].y_range %}
-execute if score @s <<scoreboards.yaxis>> matches <<y_range[0]>>..<<y_range[1]>> if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. <<region_unlesses('nether_regions')>> <<region_unlesses('end_regions')>> run function <<datapack.namespace>>:regions/<<region>>
+execute if score @s <<scoreboards.yaxis>> matches <<y_range[0]>>..<<y_range[1]>> if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. <<region_unlesses('nether_regions')>> <<region_unlesses('end_regions')>> run function <<global.namespace>>:regions/<<region>>
 {% endfor %}
 {% for region in overworld_regions %}
-execute if score @s <<scoreboards.yaxis>> matches <<mines_end_y>>.. if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. if predicate <<datapack.namespace>>:<<region>> run function <<datapack.namespace>>:regions/<<region>>
+execute if score @s <<scoreboards.yaxis>> matches <<mines_end_y>>.. if <<workstation_state()>> if score <<scoreboards.gathering>> <<scoreboards.gathering>> matches 0 if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches <<gather.wait_ticks>>.. if predicate <<global.namespace>>:<<region>> run function <<global.namespace>>:regions/<<region>>
 {% endfor %}

@@ -25,13 +25,13 @@ talk about what it does at a high level
 
 .. toctree::
    :maxdepth: 2
+   :includehidden:
    :caption: Developer Docs
 
-   developers/getting_started
-   developers/quick_reference
-   developers/scripts
+   developers/index
    developers/config
-   developers/settings
-   developers/datapacks
+   developers/scripts/index
+   developers/settings/index
+   developers/datapacks/index
    developers/helpers
    

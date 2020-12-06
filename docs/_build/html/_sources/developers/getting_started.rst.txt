@@ -1,3 +1,6 @@
+.. automodule:: grindless
+   :show-inheritance:
+
 Getting Started
 =======================
 

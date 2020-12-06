@@ -1,0 +1,5 @@
+namespace: grindless
+display_name: Grindless
+description: an overengineered way to do nothing and yet too much
+pack_format: 6
+ticks_per_second: 20

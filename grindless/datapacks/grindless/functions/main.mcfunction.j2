@@ -1,12 +1,12 @@
-execute as @a if score @s <<scoreboards.help>> matches 1.. run function <<datapack.namespace>>:trigger/help
-execute as @a if score @s <<scoreboards.kit>> matches 1.. run function <<datapack.namespace>>:trigger/kit
+execute as @a if score @s <<scoreboards.help>> matches 1.. run function <<global.namespace>>:triggers/help
+execute as @a if score @s <<scoreboards.kit>> matches 1.. run function <<global.namespace>>:triggers/kit
 
 execute if score <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> matches ..<<gather.wait_ticks>> run scoreboard players add <<scoreboards.elapsed_time>> <<scoreboards.elapsed_time>> 1
 
 {% for x in range(0, gather.activation_radius + 1) %}
 {% for y in range(0, gather.activation_radius + 1) %}
 {% for z in range(0, gather.activation_radius + 1) %}
-execute as @a at @s if <<workstation_state()>> if block ^<<x>> ^<<y>> ^<<z>> <<gather.activation_item.id>>[powered=true] run function <<datapack.namespace>>:gather
+execute as @a at @s if <<workstation_state()>> if block ^<<x>> ^<<y>> ^<<z>> <<gather.activation_item.id>>[powered=true] run function <<global.namespace>>:gather
 {% endfor %}
 {% endfor %}
 {% endfor %}

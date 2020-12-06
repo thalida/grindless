@@ -1,5 +1,9 @@
 """
+Helpers
+=================================
 refactor to be part of the datapack configs
+
+.. autofunction:: read_yaml_file
 """
 
 import yaml

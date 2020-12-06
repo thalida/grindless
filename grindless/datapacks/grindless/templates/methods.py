@@ -19,7 +19,7 @@ def region_unlesses(region_type):
 
     unlesses = []
     for region in datapack_settings[region_type]:
-        unless_region = f"unless predicate {datapack_settings['datapack']['namespace']}:{region}"
+        unless_region = f"unless predicate {datapack_settings['global']['namespace']}:{region}"
         unlesses.append(unless_region)
 
     return ' '.join(unlesses)
