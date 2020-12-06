@@ -77,7 +77,7 @@ def build_general(datapack_configs):
         '__pycache__',
         config.TEMPLATES_DIR,
         config.CONFIGS_DIR,
-        config.SCFRIPTS_DIR,
+        config.SCRIPTS_DIR,
     ]
     skip_files = [
         '__init__.py',

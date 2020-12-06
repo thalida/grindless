@@ -171,6 +171,53 @@
   <span class="target" id="module-grindless.config"></span><div class="section" id="config">
 <h1>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h1>
 <p>Dev config settings for building and releasing</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">VERSION</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span> <span class="c1">#: </span>
+<span class="n">SOURCE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="s1">&#39;./grindless&#39;</span><span class="p">)</span> <span class="c1">#:</span>
+<span class="n">SCRIPTS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SOURCE_DIR</span><span class="p">,</span> <span class="s1">&#39;scripts&#39;</span><span class="p">)</span> <span class="c1">#:</span>
+<span class="n">CONFIGS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SOURCE_DIR</span><span class="p">,</span> <span class="s1">&#39;settings&#39;</span><span class="p">)</span> <span class="c1">#:</span>
+<span class="n">TEMPLATES_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SOURCE_DIR</span><span class="p">,</span> <span class="s1">&#39;datapacks/grindless/templates&#39;</span><span class="p">)</span> <span class="c1">#:</span>
+<span class="n">DIST_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="s1">&#39;./build&#39;</span><span class="p">)</span> <span class="c1">#:</span>
+<span class="n">ZIPS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="s1">&#39;./releases&#39;</span><span class="p">)</span> <span class="c1">#:</span>
+<span class="n">REGIONS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">CONFIGS_DIR</span><span class="p">,</span> <span class="s1">&#39;regions&#39;</span><span class="p">)</span> <span class="c1">#:</span>
+<span class="n">REGION_TEMPLATE_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TEMPLATES_DIR</span><span class="p">,</span> <span class="s1">&#39;region.jinja&#39;</span><span class="p">)</span> <span class="c1">#:</span>
+<span class="n">DIST_REGION_FNS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DIST_DIR</span><span class="p">,</span>  <span class="s1">&#39;data/grindless/functions/regions&#39;</span><span class="p">)</span>  <span class="c1">#:</span>
+</pre></div>
+</div>
+<dl class="py data">
+<dt id="grindless.config.VERSION">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">VERSION</code><em class="property"> = '1.0.0'</em><a class="headerlink" href="#grindless.config.VERSION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.SOURCE_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">SOURCE_DIR</code><em class="property"> = /abs/path/to/grindless/grindless</em><a class="headerlink" href="#grindless.config.SOURCE_DIR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.SCRIPTS_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">SCRIPTS_DIR</code><em class="property"> = /abs/path/to/grindless/grindless/scripts</em><a class="headerlink" href="#grindless.config.SCRIPTS_DIR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.CONFIGS_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">CONFIGS_DIR</code><em class="property"> = /abs/path/to/grindless/grindless/settings</em><a class="headerlink" href="#grindless.config.CONFIGS_DIR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.TEMPLATES_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">TEMPLATES_DIR</code><em class="property"> = /abs/path/to/grindless/grindless/datapacks/grindless/templates</em><a class="headerlink" href="#grindless.config.TEMPLATES_DIR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.DIST_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">DIST_DIR</code><em class="property"> = /abs/path/to/grindless/grindless/datapacks/grindless/templates</em><a class="headerlink" href="#grindless.config.DIST_DIR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.ZIPS_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">ZIPS_DIR</code><em class="property"> = /abs/path/to/grindless/grindless/datapacks/grindless/templates</em><a class="headerlink" href="#grindless.config.ZIPS_DIR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 
 
