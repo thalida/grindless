@@ -1,29 +1,37 @@
-Welcome to Grindless's documentation!
+Grindless: A Minecraft Datapack
 =====================================
-Foo bar bat cat
 
+brief welcome to the the datapack
+screenshots
+talk about what it does at a high level
 
-Table of Contents
------------------
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Datapack Configs
-   :glob:
+   :maxdepth: 2
+   :caption: General
 
-   settings/*
+   general/about
+   general/credits
+   general/faqs
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Development
-
-   config
-   build
-   release
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Everything Else  
+   :maxdepth: 2
+   :caption: Player Guides
 
-   helpers
+   players/installing
+   players/usage
+   players/triggers
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Developer Docs
+
+   developers/getting_started
+   developers/quick_reference
+   developers/scripts
+   developers/config
+   developers/settings
+   developers/datapacks
+   developers/helpers
    
