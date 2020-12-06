@@ -5,11 +5,10 @@ Generates the datapack.
 import os
 import pathlib
 import shutil
-from jinja2 import Environment, FileSystemLoader
 from inspect import getmembers, isfunction
-import math
 
 import colorama 
+from jinja2 import Environment, FileSystemLoader
 from termcolor import colored
 
 import grindless.config as config
