@@ -1,0 +1,15 @@
+wait_seconds: 10
+activation_radius: 4
+activation_item: 
+  <<: &activation_item_id
+    id: minecraft:warped_button
+workstation:
+  item: minecraft:barrel
+  name: Grindless Workstation
+  lore: Gather resources through magic
+  coords: ~ ~-1 ~
+  slot: 0
+  give_items: 
+    - Slot: 0
+      <<: *activation_item_id
+      Count: 1
