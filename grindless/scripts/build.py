@@ -1,26 +1,61 @@
 """
+.. note::
+    Make sure you've completed all the steps 
+    in :ref:`Getting Started <getting-started>` before running!
+
 .. _scripts-build:
 
 Build
 ======================
-Generates the datapack.
+
+Compiles and outputs the datapack.
+
+Usage
+-----------------------
+
+>>> cd /abs/path/to/grindless-repo
+>>> python -m grindless.scripts.build
+Runs datapack build
+
+Jinja Environment
+------------------------
+.. autodata:: grindless.scripts.build.env
+
+.. literalinclude:: /../grindless/scripts/build.py
+    :lines: 57-68
+
+The docs for a Jinja2 Environment are included below, but the `Official Jinja Docs <https://jinja.palletsprojects.com>`_ should be the primary reference.
+
+.. autodata:: jinja2.Environment
+
+
+Functions
+----------------------------
+.. autofunction:: grindless.scripts.build.build
+.. autofunction:: grindless.scripts.build.build_general
+.. autofunction:: grindless.scripts.build.build_regions
+
 """
 
+# Builtins
 import os
 import pathlib
 import shutil
 from inspect import getmembers, isfunction
 
+# Third-party
 import colorama 
 from jinja2 import Environment, FileSystemLoader
 from termcolor import colored
+colorama.init()
 
+# Internal
 import grindless.config as config
 import grindless.settings
 from grindless.datapacks.grindless.templates import methods
 
-colorama.init()
-
+#: An instance of a Jinja2 Environment
+#: The environment globals are extended to include the datapack's custom template methods
 env = Environment(
     variable_start_string='<<',
     variable_end_string='>>',
@@ -31,13 +66,13 @@ env = Environment(
     lstrip_blocks=True,
     loader=FileSystemLoader(config.SOURCE_DIR),
 )
-
 for func_name, fn in getmembers(methods, isfunction):
     env.globals[func_name] = fn
 
-def build_all():
+def build(prints_enabled=False):
     """
-    Builds the datapack
+    Main build script for the datapack. 
+    This script calls build_general() and build_regions().
     """
     title = 'Grindless Minecraft Datapack :: Build'
     title_divider = '.'*20
@@ -55,43 +90,47 @@ def build_all():
 
     print('\n')
     print(colored('2. Getting Datapack Configs', 'grey', 'on_white'))
-    datapack_configs = grindless.settings.fetch(from_console=True)
+    datapack_settings = grindless.settings.fetch(prints_enabled=prints_enabled)
 
     print('\n')
     print(colored('3. Building Datapack', 'grey', 'on_white'))
     print(colored('3.1 General (Everything -Region Functions)', 'white', attrs=['bold']))
-    build_general(datapack_configs)
+    build_general(datapack_settings)
 
     print('\n')
     print(colored('3.2 Region Functions', 'white', attrs=['bold']))
-    build_regions(datapack_configs)
+    build_regions(datapack_settings)
 
     print('\n')
     print(colored('Finished building datapack', color='green', attrs=['bold']))
 
-def build_general(datapack_configs):
-    """General build things
+def build_general(datapack_settings):
+    """Builds all non-region files. This is the default build script for most of the datapack.
 
     Args:
-        datapack_configs ([type]): [description]
+        datapack_settings (dict): formatted datapack settings
     """
+
+    #: These directories should not be built
     skip_dirs = [
         '__pycache__',
         config.TEMPLATES_DIR,
         config.SETTINGS_DIR,
         config.SCRIPTS_DIR,
     ]
+
+    #: These files should not be included in the build
     skip_files = [
         '__init__.py',
-        'build.py',
         'config.py',
-        'release.py',
         'helpers.py'
     ]
 
+    # Loop over all the file in the SOURCE_DIR
     for (dirpath, dirnames, filenames) in os.walk(config.SOURCE_DIR):
         skip = False
         
+        # Check if the current directory is part of any of the skipped dirs
         for skip_dir in skip_dirs:
             if skip_dir in dirpath:
                 skip = True
@@ -102,53 +141,82 @@ def build_general(datapack_configs):
         
         status = colored(f'Handling directory {dirpath}', 'white')
         print(status, '...', end='\r')
+        
+        # Setup the output directory path to point to the dist directory
         output_dir = dirpath.replace(config.SOURCE_DIR, config.DIST_DIR)
+        # Minecraft requires datapack logic to be in a data folder. Let's make that change now.
         output_dir = output_dir.replace('/datapacks', '/data')
-        print(status, '...', end='\r')
+
+        # Let's make sure that directory path exists (and the entire tree is created: parents=True)
         pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
         
         print(colored('DONE', 'green', attrs=['bold']), f'Created directory at {output_dir}')
 
+        # If we've walked over some files, let's process those now...
         for f in filenames:
+            # Well first we skip files we don't need in the final build
             if f in skip_files:
                 continue
             
             print(f'Processing {f}...', end='\r')
-
-            template_path = os.path.join(dirpath, f)
-            # The template path is relative to the env.loader value (source_dir)
-            template_path = template_path.replace(f"{config.SOURCE_DIR}/", '')
-            template = env.get_template(template_path)
             
+            # Create the fullpath to this file (template)
+            template_path = os.path.join(dirpath, f)
+            # Make the path relative to the env.loader value (source_dir) for jinja to work correctly.
+            template_path = template_path.replace(f"{config.SOURCE_DIR}/", '')
+            # With a now, jinja approved template path, let's get the template.
+            # It's okay(-ish) if the file actually isn't jinja.
+            template = env.get_template(template_path)
+
+            # The output file should not incldue the .j2 (jinja2) extension
             output_file = f.replace('.j2', '')
+            # The full output path should use our process output dir from earlier
             output_path = os.path.join(output_dir, output_file)
 
             print(colored(f'Rendering template {template_path}...', 'yellow'), end='\r')
-            output = template.render(**datapack_configs)
-
+            # Here we go! Rendering the file/template with our datapack settings
+            output = template.render(**datapack_settings)
+            
+            # We write the output to the file we created.
             with open(output_path, "w") as fh:
                 fh.write(output)
-            
+
+            # With that one file has been built and output! Let's continue..
             print(colored('DONE', 'green', attrs=['bold']), f'Created file at {output_path}')
 
-def build_regions(datapack_configs):
+
+def build_regions(datapack_settings):
+    """Builds and outputs all of the region datapack functions.
+
+    Args:
+        datapack_settings (dict): formatted datapack settings
+    """
+    
+    #: Each region uses the same base template for rendering it's .mcfunction file
     region_template_path = config.REGION_TEMPLATE_PATH.replace(f"{config.SOURCE_DIR}/", '')
+    #: Use jinja to fetch the template; This is used for rendering later.
     region_template = env.get_template(region_template_path)
 
+    # Make sure the regions dist directory is exists.
     pathlib.Path(config.DIST_REGION_FNS_DIR).mkdir(parents=True, exist_ok=True)
     print(colored('DONE', 'green', attrs=['bold']), f'Created directory at {config.DIST_REGION_FNS_DIR}')
 
-    for region, region_config in datapack_configs['regions'].items():
+    # For each for the regions defined in our settings...
+    for region, region_config in datapack_settings['regions'].items():
         print(colored(f'Processing {region}...'), end='\r')
-
+    
+        # Setup the output path for the region mcfunction
         output_path = os.path.join(config.DIST_REGION_FNS_DIR, f'{region}.mcfunction')
-        output = region_template.render(**datapack_configs, region=region_config)
-
+        # Render the region template given this regions settings
+        output = region_template.render(**datapack_settings, region=region_config)
+        # Write the output to the filesystem
         with open(output_path, "w") as fh:
             fh.write(output)
-            
+        
         print(colored('DONE', 'green', attrs=['bold']), f'Created file at {output_path}')
+        # Rinse and repeat!
 
 
 if __name__ == '__main__':
-    build_all()
+    # If we're running this script from the commandline, run the entire build!
+    build(prints_enabled=True)

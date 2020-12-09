@@ -1,10 +1,13 @@
 """
+.. _getting-started:
+
 Getting Started
 =======================
 
 Setup
 --------------------
 dev setup and installing
+
 
 Testing in Minecraft
 -------------------------
@@ -21,4 +24,5 @@ Quick Reference
 =====================
 
 overview/getting started/how this works
+
 """

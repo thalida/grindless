@@ -34,4 +34,5 @@ talk about what it does at a high level
    developers/settings/index
    developers/datapacks/index
    developers/helpers
+   developers/docs_styleguide
    

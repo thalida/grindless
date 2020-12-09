@@ -8,8 +8,8 @@ Learn more about :doc:`scripts <./scripts/index>`.
 Quick Reference
 --------------------
 .. automodulesumm:: grindless.config
-    :autosummary-sections: Data
     :autosummary-no-titles:
+    :autosummary-sections: Data
 
 ----
 
@@ -17,7 +17,7 @@ Globals
 -------------
 
 .. autodata:: grindless.config.DIST_DIR
-    :annotation: = /abs/path/to/grindless/build
+    :annotation: = /abs/path/to/grindless-repo/build
 
 .. autodata:: grindless.config.DIST_REGION_FNS_DIR
     :annotation: = <DIST_DIR>/data/grindless/functions/regions
@@ -35,7 +35,7 @@ Globals
     :annotation: = <SOURCE_DIR>/settings
 
 .. autodata:: grindless.config.SOURCE_DIR
-    :annotation: = /abs/path/to/grindless/grindless
+    :annotation: = /abs/path/to/grindless-repo/grindless
 
 .. autodata:: grindless.config.TEMPLATES_DIR
     :annotation: = <SOURCE_DIR>/datapacks/grindless/templates
@@ -43,7 +43,7 @@ Globals
 .. autodata:: grindless.config.VERSION
 
 .. autodata:: grindless.config.ZIPS_DIR
-    :annotation: = /abs/path/to/grindless/releases
+    :annotation: = /abs/path/to/grindless-repo/releases
 """
 
 import os
@@ -78,7 +78,7 @@ Used by: :ref:`release script <scripts-release>`
 
 DIST_REGION_FNS_DIR = os.path.join(DIST_DIR,  'data/grindless/functions/regions')
 """
-Output directory of the built regions `mcfunctions`.
+Output directory of the built regions ``mcfunctions``.
 
 Used by: :ref:`build script <scripts-build>`
 """
@@ -107,7 +107,7 @@ Used by: :ref:`build script <scripts-build>`
 
 TEMPLATES_DIR = os.path.join(SOURCE_DIR, 'datapacks/grindless/templates')
 """
-Directory with partial templates and methods
+Directory with partial templates and methods.
 Learn more about :doc:`templates <datapacks/grindless/templates/index>`.
 
 Used by: :ref:`build script <scripts-build>`
@@ -115,7 +115,7 @@ Used by: :ref:`build script <scripts-build>`
 
 REGION_TEMPLATE_PATH = os.path.join(TEMPLATES_DIR, 'region.jinja')
 """
-Absolute path to the region template
+Absolute path to the region template. 
 Learn more about :doc:`templates <datapacks/grindless/templates/index>`.
 
 Used by: :ref:`build script <scripts-build>`

@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Docs Styleguide &mdash; Grindless 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Helpers" href="helpers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Grindless
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/faqs.html">FAQs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Player Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../players/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../players/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../players/triggers.html">Triggers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#quick-reference">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datapacks/index.html">Datapacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">Helpers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Docs Styleguide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#inline-markup">inline markup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lists">lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defintions">defintions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#line-blocks">line blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#literal-blocks">literal blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sidebar">sidebar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pull-quote">pull-quote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tables">tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic">basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-table">list-table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#centered">centered</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hlist">hlist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#doctest">doctest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#codeblock">codeblock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gloassary">gloassary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admonitions">admonitions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Grindless</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Docs Styleguide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developers/docs_styleguide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="docs-styleguide">
+<h1>Docs Styleguide<a class="headerlink" href="#docs-styleguide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="inline-markup">
+<h2>inline markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h2>
+<p>one asterisk: <em>text</em> for emphasis (italics),</p>
+<p>two asterisks: <strong>text</strong> for strong emphasis (boldface), and</p>
+<p>backquotes: <code class="docutils literal notranslate"><span class="pre">text</span></code> for code samples.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="lists">
+<h2>lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>This is a bulleted list.</p></li>
+<li><p>It has two items, the second
+item uses two lines.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>This is a numbered list.</p></li>
+<li><p>It has two items too.</p></li>
+<li><p>This is a numbered list.</p></li>
+<li><p>It has two items too.</p></li>
+</ol>
+<ul class="simple">
+<li><p>this is</p></li>
+<li><p>a list</p>
+<ul>
+<li><p>with a nested list</p></li>
+<li><p>and some subitems</p></li>
+</ul>
+</li>
+<li><p>and here the parent list continues</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="defintions">
+<h2>defintions<a class="headerlink" href="#defintions" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>term (up to a line of text)</dt><dd><p>Definition of the term, which must be indented</p>
+<p>and can even consist of multiple paragraphs</p>
+</dd>
+<dt>next term</dt><dd><p>Description.</p>
+</dd>
+</dl>
+</div>
+<hr class="docutils" />
+<div class="section" id="line-blocks">
+<h2>line blocks<a class="headerlink" href="#line-blocks" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">These lines are</div>
+<div class="line">broken exactly like in</div>
+<div class="line">the source file.</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="literal-blocks">
+<h2>literal blocks<a class="headerlink" href="#literal-blocks" title="Permalink to this headline">¶</a></h2>
+<p>This is a normal text paragraph. The next paragraph is a code sample:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">It</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">processed</span> <span class="ow">in</span> <span class="nb">any</span> <span class="n">way</span><span class="p">,</span> <span class="k">except</span>
+<span class="n">that</span> <span class="n">the</span> <span class="n">indentation</span> <span class="ow">is</span> <span class="n">removed</span><span class="o">.</span>
+
+<span class="n">It</span> <span class="n">can</span> <span class="n">span</span> <span class="n">multiple</span> <span class="n">lines</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This is a normal text paragraph again.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="sidebar">
+<h2>sidebar<a class="headerlink" href="#sidebar" title="Permalink to this headline">¶</a></h2>
+<div class="sidebar">
+<p class="sidebar-title">Optional Sidebar Title</p>
+<p class="sidebar-subtitle">Optional Sidebar Subtitle</p>
+<p>Subsequent indented lines comprise
+the body of the sidebar, and are
+interpreted as body elements.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="pull-quote">
+<h2>pull-quote<a class="headerlink" href="#pull-quote" title="Permalink to this headline">¶</a></h2>
+<blockquote class="pull-quote">
+<div><p>No matter where you go, there you are.</p>
+<p class="attribution">—Buckaroo Banzai</p>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="tables">
+<h2>tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic">
+<h3>basic<a class="headerlink" href="#basic" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto docutils align-default" id="id1">
+<caption><span class="caption-text">Truth table for “not”</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>A</p></th>
+<th class="head"><p>not A</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="list-table">
+<h3>list-table<a class="headerlink" href="#list-table" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Frozen Delights!</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 18%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Treat</p></th>
+<th class="head"><p>Quantity</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Albatross</p></td>
+<td><p>2.99</p></td>
+<td><p>On a stick!</p></td>
+</tr>
+<tr class="row-odd"><td><p>Crunchy Frog</p></td>
+<td><p>1.49</p></td>
+<td><p>If we took the bones out, it wouldn’t be
+crunchy, now would it?</p></td>
+</tr>
+<tr class="row-even"><td><p>Gannet Ripple</p></td>
+<td><p>1.99</p></td>
+<td><p>On a stick!</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="centered">
+<h2>centered<a class="headerlink" href="#centered" title="Permalink to this headline">¶</a></h2>
+<p class="centered">
+<strong>LICENSE AGREEMENT</strong></p></div>
+<hr class="docutils" />
+<div class="section" id="hlist">
+<h2>hlist<a class="headerlink" href="#hlist" title="Permalink to this headline">¶</a></h2>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p>A list of</p></li>
+<li><p>short items</p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p>that should be</p></li>
+<li><p>displayed</p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p>horizontally</p></li>
+</ul>
+</td></tr></table>
+</div>
+<hr class="docutils" />
+<div class="section" id="doctest">
+<h2>doctest<a class="headerlink" href="#doctest" title="Permalink to this headline">¶</a></h2>
+<p>This is an ordinary paragraph.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="s1">&#39;this is a Doctest block&#39;</span>
+<span class="go">this is a Doctest block</span>
+</pre></div>
+</div>
+<p>The following is a literal block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">This</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">recognized</span> <span class="k">as</span> <span class="n">a</span> <span class="n">doctest</span> <span class="n">block</span> <span class="n">by</span>
+<span class="go">reStructuredText.  It *will* be recognized by the doctest</span>
+<span class="go">module, though!</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="codeblock">
+<h2>codeblock<a class="headerlink" href="#codeblock" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
+    <span class="n">interesting</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="hll">    <span class="nb">print</span> <span class="s1">&#39;This line is highlighted.&#39;</span>
+</span>    <span class="nb">print</span> <span class="s1">&#39;This one is not...&#39;</span>
+<span class="hll">    <span class="nb">print</span> <span class="s1">&#39;...but this one is.&#39;</span>
+</span></pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="this-py">
+<div class="code-block-caption"><span class="caption-text">this.py</span><a class="headerlink" href="#this-py" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s1">&#39;Explicit is better than implicit.&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="gloassary">
+<h2>gloassary<a class="headerlink" href="#gloassary" title="Permalink to this headline">¶</a></h2>
+<dl class="glossary simple">
+<dt id="term-environment">environment</dt><dd><p>A structure where information about all documents under the root is
+saved, and used for cross-referencing.  The environment is pickled
+after the parsing stage, so that successive runs only need to read
+and parse new and changed documents.</p>
+</dd>
+<dt id="term-source-directory">source directory</dt><dd><p>The directory which, including its subdirectories, contains all
+source files for one Sphinx project.</p>
+</dd>
+</dl>
+<dl class="glossary simple">
+<dt id="term-term-1">term 1</dt><dt id="term-term-2">term 2</dt><dd><p>Definition of both terms.</p>
+</dd>
+</dl>
+<dl class="glossary simple">
+<dt id="term-term-3">term 3</dt><dt id="term-term-4">term 4</dt><dd><p>Definition of both terms.</p>
+</dd>
+</dl>
+</div>
+<hr class="docutils" />
+<div class="section" id="admonitions">
+<h2>admonitions<a class="headerlink" href="#admonitions" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>ATTENTION: Beware killer rabbits!</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>CAUTION: Beware killer rabbits!</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>WARNING: Beware killer rabbits!</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>DANGER: Beware killer rabbits!</p>
+</div>
+<div class="admonition error">
+<p class="admonition-title">Error</p>
+<p>ERROR: Beware killer rabbits!</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>HINT: Beware killer rabbits!</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>IMPORTANT: Beware killer rabbits!</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>TIP: Beware killer rabbits!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>NOTE: Beware killer rabbits!</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is not suitable for sending spam e-mails.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt>Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">zipfile</span></code></dt><dd><p>Documentation of the <code class="xref py py-mod docutils literal notranslate"><span class="pre">zipfile</span></code> standard module.</p>
+</dd>
+<dt><a class="reference external" href="http://link">GNU tar manual, Basic Tar Format</a></dt><dd><p>Documentation for tar archive files, including GNU tar extensions.</p>
+</dd>
+</dl>
+</div>
+<div class="admonition-admonition-beware-killer-rabbits-stuff-ehre admonition">
+<p class="admonition-title">ADMONITION: Beware killer rabbits!
+STUFF EHRE?</p>
+<p>AND MORE?</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="helpers.html" class="btn btn-neutral float-left" title="Helpers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, thalida
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

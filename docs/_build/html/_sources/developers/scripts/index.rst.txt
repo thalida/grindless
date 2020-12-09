@@ -1,2 +1,5 @@
 .. automodule:: grindless.scripts
-   :show-inheritance:
+   :members:
+   :undoc-members:
+   :autosummary:
+   :autosummary-members:

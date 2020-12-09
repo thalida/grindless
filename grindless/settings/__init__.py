@@ -31,15 +31,15 @@ import grindless.helpers as helpers
 
 
 colorama.init()
-cached_datapack_configs = None
+cached_datapack_settings = None
 
-def fetch(from_console=False):
-    global cached_datapack_configs
+def fetch(yaml_only=False, prints_enabled=False):
+    global cached_datapack_settings
 
-    if cached_datapack_configs is not None:
-        return cached_datapack_configs
+    if cached_datapack_settings is not None:
+        return cached_datapack_settings
     
-    datapack_configs = {
+    datapack_settings = {
         # These configs are pulled from yaml files
         "global": {},
         "scoreboards": {},
@@ -54,17 +54,22 @@ def fetch(from_console=False):
         "mines_end_y": None,
     }
 
-    datapack_configs["global"] = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'global.yaml'))
-    datapack_configs["scoreboards"] = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'scoreboards.yaml'))
-    datapack_configs["gather"] = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'gather.yaml'))
+    datapack_settings["global"] = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'global.yaml'))
+    datapack_settings["scoreboards"] = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'scoreboards.yaml'))
+    datapack_settings["gather"] = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'gather.yaml'))
 
     # Calc how many ticks should we wait between each grind session
-    datapack_configs["gather"]["wait_ticks"] = datapack_configs['gather']['wait_seconds'] * datapack_configs['global']['ticks_per_second']
+    datapack_settings["gather"]["wait_ticks"] = datapack_settings['gather']['wait_seconds'] * datapack_settings['global']['ticks_per_second']
     
+    # If yaml_only then we can stop here.
+    # This is intentionally not cached -- only the full settings dict will be cached.
+    if yaml_only:
+        return datapack_settings
+
     # Get the python module names for each region module
     region_module_names = [region for region, module in getmembers(region_configs, ismodule) if region != 'base_region']
 
-    if from_console:
+    if prints_enabled:
         print(colored(f'Found {len(region_module_names)} Regions...', 'cyan'))
         print(f'{", ".join(region_module_names)}')
         print(colored('\nCreating Region Configs...', 'cyan'))
@@ -77,7 +82,7 @@ def fetch(from_console=False):
     #   store the config in the overall datapack configs
     for region in region_module_names:
         status = colored(f'{region}')
-        if from_console:
+        if prints_enabled:
             print(status, '...', end="\r")
         
         # Get the region python module. From the module get the region class (region class member)
@@ -89,7 +94,7 @@ def fetch(from_console=False):
         #   If this happens, check that the class name in the broken module is a pascal-case verison of the filename
         #   TODO: This should be a test!
         if len(region_class_member) == 0:
-            if from_console:
+            if prints_enabled:
                 print(colored(f'Error! No class found for', 'red', attrs=['bold']), status)
             continue
         
@@ -98,10 +103,10 @@ def fetch(from_console=False):
         region_type = region_class.region_type
         
         # Store the region name in a helper list (for easy looping later on)
-        datapack_configs[f'{region_type}_regions'].append(region)
+        datapack_settings[f'{region_type}_regions'].append(region)
         
         # Store the region config (holds the items given and tools supported for the region)
-        datapack_configs['regions'][region] = region_class.create_config()
+        datapack_settings['regions'][region] = region_class.create_config()
         
         # If the region is an overworld mine, check to see where the mine ends (end_y)
         #   If it's higher up than what's stored save it to mines_ends_y
@@ -113,14 +118,14 @@ def fetch(from_console=False):
             else:
                 mines_end_y = max(y_range[1], mines_end_y)
         
-        if from_console:
+        if prints_enabled:
             print(colored(f'DONE', 'green', attrs=['bold']), status)
 
     # No mining is supported above this y value
-    datapack_configs['mines_end_y'] = mines_end_y + 1
+    datapack_settings['mines_end_y'] = mines_end_y + 1
 
     # Cache all this mess so we don't generate it again
-    cached_datapack_configs = datapack_configs
+    cached_datapack_settings = datapack_settings
 
     # aaaand we're done.
-    return datapack_configs
+    return datapack_settings

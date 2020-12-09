@@ -1,9 +1,25 @@
 """
+.. note::
+    Make sure you've created a build, see :ref:`build script <scripts-build>` before running!
+
 .. _scripts-release:
 
 Release
-=========================================
-Creates a release version of the build
+======================
+
+Zips a build of the datapack for easy sharing / releasing.
+
+Usage
+-----------------------
+
+>>> cd /abs/path/to/grindless-repo
+>>> python -m grindless.scripts.release
+Zips the datapack dist folder
+
+Functions
+----------------------------
+.. autofunction:: grindless.scripts.release.release
+
 """
 
 
@@ -15,23 +31,38 @@ import colorama
 from termcolor import colored
 
 import grindless.config as config
+import grindless.settings
 
 def release():
+    """
+    Creates a zipped release verion of the conents of the datapack DIST directory.
+    """
     title = 'Grindless Minecraft Datapack :: Release Zip'
     title_divider = '.'*20
     print(colored(f'{title_divider} {title} {title_divider}', 'magenta', 'on_grey', attrs=['bold']))
-
-    zip_name = f'chillcraft-v{config.VERSION}.zip'
+    
+    datapack_settings = grindless.settings.fetch(yaml_only=True)
+    # Create the zip name based on the datapack namesapce and current version
+    zip_name = f"{datapack_settings['global']['namespace']}-v{config.VERSION}.zip"
 
     print('\n')
     print(colored(f'Creating {zip_name}...', 'cyan'))
     
+    # Make sure the zip output directory exists
     pathlib.Path(config.ZIPS_DIR).mkdir(parents=True, exist_ok=True)
+    # Create the full zip path including filename (zipname)
     zip_path = os.path.join(config.ZIPS_DIR, zip_name)
+
+    # Use the builtin zip library to create a zip file we'll add files to
     zipf = zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED)
 
+    # Walk the dist directory and add each folder + file to the zip
     for root, dirs, files in os.walk(config.DIST_DIR):
+        # Let's have the zip folders be relative to the dist dir
+        #   without this the entire folder tree from root would be created in the dist.
         zip_root = root.replace(config.DIST_DIR, '')
+        
+        # Loop over each file we've walked over, and output it to he dist
         for f in files:
             print(f'Processing {f}...', end='\r')
             read_filepath = os.path.join(root, f)
@@ -40,6 +71,7 @@ def release():
             print(colored('DONE', 'green', attrs=['bold']), f'Zipped file at {zip_filepath}')
 
     zipf.close()
+    # Annnd we're don! Zip should have been created in the release folder.
 
     print('\n')
     print(colored(f'Finished zipping datapack: {zip_name}', color='green', attrs=['bold']))

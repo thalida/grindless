@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
   
@@ -101,12 +102,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Config</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Scripts</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="build.html">Build</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Release</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Release</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../settings/index.html">Settings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../datapacks/index.html">Datapacks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../helpers.html">Helpers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs_styleguide.html">Docs Styleguide</a></li>
 </ul>
 
             
@@ -174,9 +180,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="module-grindless.scripts.release"></span><div class="section" id="release">
+  <span class="target" id="module-grindless.scripts.release"></span><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure you’ve created a build, see <a class="reference internal" href="build.html#scripts-build"><span class="std std-ref">build script</span></a> before running!</p>
+</div>
+<div class="section" id="release">
 <span id="scripts-release"></span><h1>Release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h1>
-<p>Creates a release version of the build</p>
+<p>Zips a build of the datapack for easy sharing / releasing.</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cd</span> <span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">grindless</span><span class="o">-</span><span class="n">repo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">grindless</span><span class="o">.</span><span class="n">scripts</span><span class="o">.</span><span class="n">release</span>
+<span class="go">Zips the datapack dist folder</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="grindless.scripts.release.release">
+<code class="sig-prename descclassname">grindless.scripts.release.</code><code class="sig-name descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/scripts/release.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.scripts.release.release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a zipped release verion of the conents of the datapack DIST directory.</p>
+</dd></dl>
+
+</div>
 </div>
 
 
