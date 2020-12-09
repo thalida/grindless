@@ -178,14 +178,32 @@
             
   <span class="target" id="module-grindless.settings"></span><div class="section" id="settings">
 <h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
-<p>General configs for the data pack</p>
+<p>This folder includes all of the settings for the datapack.
+Some of the settings, eg. global are in yaml files. Other settings, for example regions, are defined in python classes.</p>
 <dl class="py function">
 <dt id="grindless.settings.fetch">
 <code class="sig-prename descclassname">grindless.settings.</code><code class="sig-name descname">fetch</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">yaml_only</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">prints_enabled</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/__init__.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.fetch" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Fetches and parses all of the settings for the datapack.
+This function is the only (reliable) way to access the datapack settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>yaml_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – Only fetch the yaml settings files. Defaults to False.</p></li>
+<li><p><strong>prints_enabled</strong> (<em>bool</em><em>, </em><em>optional</em>) – Should the function output (pretty) print statements. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The formatted datapack settings dict</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <hr class="docutils" />
 <div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Settings Sections</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="global.html">Global</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gather.html">Gather</a></li>

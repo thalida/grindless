@@ -2,13 +2,15 @@
 Settings
 =================================
 
-General configs for the data pack
+This folder includes all of the settings for the datapack. 
+Some of the settings, eg. global are in yaml files. Other settings, for example regions, are defined in python classes.
 
 .. autofunction:: fetch
 
 ----
 
 .. toctree::
+    :caption: Settings Sections
     :maxdepth: 1
 
     global
@@ -31,13 +33,25 @@ import grindless.helpers as helpers
 
 
 colorama.init()
-cached_datapack_settings = None
+
+# The fetched datapack settings are stored on this variable for easy lookup on the next fetch() run
+_cached_datapack_settings = None
 
 def fetch(yaml_only=False, prints_enabled=False):
-    global cached_datapack_settings
+    """Fetches and parses all of the settings for the datapack.
+    This function is the only (reliable) way to access the datapack settings.
 
-    if cached_datapack_settings is not None:
-        return cached_datapack_settings
+    Args:
+        yaml_only (bool, optional): Only fetch the yaml settings files. Defaults to False.
+        prints_enabled (bool, optional): Should the function output (pretty) print statements. Defaults to False.
+
+    Returns:
+        dict: The formatted datapack settings dict
+    """
+    global _cached_datapack_settings
+
+    if _cached_datapack_settings is not None:
+        return _cached_datapack_settings
     
     datapack_settings = {
         # These configs are pulled from yaml files
@@ -81,8 +95,8 @@ def fetch(yaml_only=False, prints_enabled=False):
     #   generate it's config
     #   store the config in the overall datapack configs
     for region in region_module_names:
-        status = colored(f'{region}')
         if prints_enabled:
+            status = colored(f'{region}')
             print(status, '...', end="\r")
         
         # Get the region python module. From the module get the region class (region class member)
@@ -125,7 +139,7 @@ def fetch(yaml_only=False, prints_enabled=False):
     datapack_settings['mines_end_y'] = mines_end_y + 1
 
     # Cache all this mess so we don't generate it again
-    cached_datapack_settings = datapack_settings
+    _cached_datapack_settings = datapack_settings
 
     # aaaand we're done.
     return datapack_settings
