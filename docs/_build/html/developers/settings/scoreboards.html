@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Scorebaords &mdash; Grindless 1.0.0 documentation</title>
+  <title>Scoreboards &mdash; Grindless 1.0.0 documentation</title>
   
 
   
@@ -87,6 +87,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../general/about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../general/credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../general/faqs.html">FAQs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Player Guides</span></p>
@@ -104,7 +105,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Settings</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="global.html">Global</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gather.html">Gather</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Scorebaords</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Scoreboards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regions/index.html">Regions</a></li>
 </ul>
 </li>
@@ -159,7 +160,7 @@
         
           <li><a href="index.html">Settings</a> &raquo;</li>
         
-      <li>Scorebaords</li>
+      <li>Scoreboards</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -178,9 +179,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="scorebaords">
-<h1>Scorebaords<a class="headerlink" href="#scorebaords" title="Permalink to this headline">¶</a></h1>
-<p>talk about yaml</p>
+  <div class="section" id="scoreboards">
+<h1>Scoreboards<a class="headerlink" href="#scoreboards" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">scoreboards.yaml</span></code> defines all of the keys for the scoreboards used by the datapack.</p>
+<p class="rubric">Settings</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Scoreboard Key</p></th>
+<th class="head"><p>Scoreboard Name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gathering</span></code></p></td>
+<td><p>Used to track if the player is gathering or not.</p>
+<p>Mimics a boolean where 1 is <code class="docutils literal notranslate"><span class="pre">true</span></code> and 0 is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">item_damage</span></code></p></td>
+<td><p>Stores how much damage the item (tool) used during gathering has</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">elapsed_time</span></code></p></td>
+<td><p>Tracks how much time has elapsed since the last gather.</p>
+<p>Maxes out at the <code class="docutils literal notranslate"><span class="pre">wait_seconds</span></code> defined in the Gather settings.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">yaxis</span></code></p></td>
+<td><p>Stores the players <code class="docutils literal notranslate"><span class="pre">y-axis</span></code> at the time of gathering.</p>
+<p>Used when determining what region a player is in.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">help</span></code></p></td>
+<td><p>Tracks if the player has triggered the help command. See functions/triggers/help.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kit</span></code></p></td>
+<td><p>Tracks if the player has triggered the kit command. See functions/triggers/kit.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Entire File:</p>
+<p><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/settings/scoreboards.yaml">View on Github</a></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">gathering</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gl_gathering</span>
+<span class="nt">item_damage</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gl_item_damage</span>
+<span class="nt">elapsed_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gl_elapsed_time</span>
+<span class="nt">yaxis</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gl_yaxis</span>
+<span class="nt">help</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grindless_help</span>
+<span class="nt">kit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">grindless_kit</span>
+</pre></div>
+</div>
 </div>
 
 

@@ -12,6 +12,7 @@ talk about what it does at a high level
 
    general/about
    general/credits
+   general/glossary
    general/faqs
 
 

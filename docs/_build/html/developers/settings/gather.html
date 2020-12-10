@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Scorebaords" href="scoreboards.html" />
+    <link rel="next" title="Scoreboards" href="scoreboards.html" />
     <link rel="prev" title="Global" href="global.html" /> 
 </head>
 
@@ -87,6 +87,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../general/about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../general/credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../general/faqs.html">FAQs</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Player Guides</span></p>
@@ -104,7 +105,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Settings</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="global.html">Global</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Gather</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scoreboards.html">Scorebaords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scoreboards.html">Scoreboards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regions/index.html">Regions</a></li>
 </ul>
 </li>
@@ -181,10 +182,11 @@
   <div class="section" id="gather">
 <h1>Gather<a class="headerlink" href="#gather" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">gather.yaml</span></code> houses the settings for how and when you can quickly gather materials for a region.</p>
-<table class="docutils align-default">
+<p class="rubric">Settings</p>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Variable</p></th>
@@ -206,22 +208,32 @@
 <td><p>What game item do we power to activate gathering the items for a region?</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">workstation</span></code></p></td>
-<td><table class="docutils align-default">
+<td><p>A dict defining the settings for a workstation. See list of supported keys below.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Workstation Settings</p>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Workstation Key</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
 <tbody>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">item</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">item</span></code></p></td>
 <td><p>Must be a Minecraft storage block</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
 <td><p>Custom name for the workstation item.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lore</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lore</span></code></p></td>
 <td><p>The lore that should be displayed when hovered over the item.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">coords</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">coords</span></code></p></td>
 <td><p>Where should the workstation be relative to the player?</p>
 <p><code class="docutils literal notranslate"><span class="pre">~</span> <span class="pre">~-1</span> <span class="pre">~</span></code> means the player should be standing on the item.</p>
 <p>X equals the player’s current X coord.</p>
@@ -229,16 +241,12 @@
 <p>Z equals the player’s current Z coord.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></td>
 <td><p>In which storage slot should we look for the chosen tool?</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">give_items</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">give_items</span></code></p></td>
 <td><p>What other items should be given with a workstation?</p>
 <p>This is used by the <cite>kit</cite> trigger <a class="reference internal" href="../datapacks/grindless/functions/index.html"><span class="doc">Functions</span></a></p>
-</td>
-</tr>
-</tbody>
-</table>
 </td>
 </tr>
 </tbody>
@@ -272,7 +280,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="scoreboards.html" class="btn btn-neutral float-right" title="Scorebaords" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scoreboards.html" class="btn btn-neutral float-right" title="Scoreboards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="global.html" class="btn btn-neutral float-left" title="Global" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
