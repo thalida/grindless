@@ -1,3 +1,147 @@
+a,
+a:visited {
+    /* color: #008aff; */
+    color: #1d339e;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #008aff;
+    /* color: #1d339e; */
+}
+
+table.docutils a.reference.internal {
+    text-decoration: none;
+}
+
+.wy-nav-side {
+    background: #fff;
+    color: #333;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wy-nav-side a {
+    text-decoration: none;
+}
+
+.wy-nav-side a:hover {
+    opacity: 1;
+}
+
+.wy-nav-content,
+.wy-nav-content-wrap {
+    background: #fff;
+}
+
+.wy-side-nav-search {
+    background: transparent;
+    text-align: left;
+    color: #333;
+}
+
+.wy-side-nav-search .wy-dropdown > a,
+.wy-side-nav-search > a {
+    color: #333;
+}
+
+.wy-side-nav-search input[type=text] {
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.wy-side-nav-search input[type=text]:focus {
+    border-color: inherit;
+}
+
+.wy-side-nav-search a.icon.icon-home::before {
+    display: none;
+}
+
+.wy-menu-vertical a,
+.wy-menu-vertical li ul li a,
+.wy-menu-vertical li a {
+    color: #1d339e !important;
+    font-weight: 700;
+}
+
+.wy-menu-vertical header,
+.wy-menu-vertical p.caption {
+    color: #b38400;
+}
+
+.wy-menu-vertical li.current a {
+    border: 0 !important;
+}
+
+.wy-menu-vertical li.current, 
+.wy-menu-vertical li.current > a, 
+.wy-menu-vertical li.on a {
+    /* background: rgb(142 160 255 / 10%) !important; */
+    background: rgb(255 142 142 / 17%) !important;
+    color: #333 !important;
+    border: 0;
+}
+
+.wy-menu-vertical li.current > a.current {
+    text-decoration: underline;
+}
+
+.wy-menu-vertical a:hover, 
+.wy-menu-vertical li.current > a:hover, 
+.wy-menu-vertical li.on a:hover {
+    /* background: #fff4e7 !important; */
+    background: rgb(98 47 255 / 17%) !important;
+}
+
+.wy-menu-vertical li.current li:not(.current):not(:hover) > a {
+    background: transparent !important;   
+}
+
+
+.rst-content table.docutils a.reference.internal code {
+    background: #d7d9ff;
+    border-radius: 15px;
+    border: 0;
+    color: #000;
+}
+.rst-content table.docutils a.reference.internal:hover code {
+    background: #a7beff;
+}
+
+.rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td, .wy-table-backed, .wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td {
+    background-color: transparent;
+}
+
+.rst-content table.docutils td, .rst-content table.field-list td, .wy-table td {
+    background-color: #f9f9f9;
+}
+
+html.writer-html4 .rst-content dl:not(.docutils), html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) {
+    background: #f9f9f9;
+    padding-bottom: 6px;
+}
+
+html.writer-html4 .rst-content dl:not(.docutils)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt {
+    border-top: 0;
+    background: #0000000a;
+    color: #616161;
+    padding: 6px 12px;
+}
+
+html.writer-html4 .rst-content dl:not(.docutils) dl:not(.field-list)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) dl:not(.field-list)>dt {
+    padding: 3px 12px;
+    border-left: 0;
+}
+
+.rst-content .viewcode-back, .rst-content .viewcode-link {
+    padding-left: 12px;
+}
+
+.rst-content dl dd {
+    margin: 12px;
+}
+
+
 .rst-content dl.data dt,
 .rst-content dl.function dt {
     width: 100%;
