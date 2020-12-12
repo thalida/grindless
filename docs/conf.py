@@ -31,12 +31,13 @@ release = '1.0.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc', 
+    'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
-    'sphinx.ext.coverage', 
+    'sphinx.ext.coverage',
     'sphinx.ext.napoleon',
     'sphinx.ext.linkcode',
     'sphinx.ext.doctest',
+    'sphinx.ext.githubpages',
     'autodocsumm',
 ]
 
@@ -67,12 +68,19 @@ html_css_files = [
     'custom.css',
 ]
 
+html_theme_options = {
+    'github_user': 'thalida',
+    'github_repo': 'grindless',
+    'github_button': True,
+    'show_powered_by': False,
+}
+
 
 # Available Pygments Themes:
-# 'default', 'emacs', 'friendly', 'colorful', 'autumn', 'murphy', 'manni', 
+# 'default', 'emacs', 'friendly', 'colorful', 'autumn', 'murphy', 'manni',
 # 'monokai', 'perldoc', 'pastie', 'borland', 'trac', 'native', 'fruity', 'bw',
-# 'vim', 'vs', 'tango', 'rrt', 'xcode', 'igor', 'paraiso-light', 'paraiso-dark', 
-# 'lovelace', 'algol', 'algol_nu', 'arduino', 'rainbow_dash', 'abap', 
+# 'vim', 'vs', 'tango', 'rrt', 'xcode', 'igor', 'paraiso-light', 'paraiso-dark',
+# 'lovelace', 'algol', 'algol_nu', 'arduino', 'rainbow_dash', 'abap',
 # 'solarized-dark', 'solarized-light', 'sas', 'stata', 'stata-light', 'stata-dark', 'inkpot'
 pygments_style = 'paraiso-dark'
 
@@ -84,7 +92,7 @@ def linkcode_resolve(domain, info):
         return None
 
     filename = info['module'].replace('.', '/')
-    
+
     if info.get('fullname') in ['fetch']:
         filename = f'{filename}/__init__'
 
