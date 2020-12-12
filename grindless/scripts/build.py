@@ -1,9 +1,9 @@
 """
+.. _scripts-build:
+
 .. important::
     Make sure you've completed all the steps 
     in :ref:`Getting Started <getting-started>` before running!
-
-.. _scripts-build:
 
 Build
 ======================

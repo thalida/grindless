@@ -1,8 +1,8 @@
 """
+.. _scripts-release:
+
 .. important::
     You'll need to create a build before running this script, see :ref:`build script <scripts-build>` docs for more info.
-
-.. _scripts-release:
 
 Release
 ======================
