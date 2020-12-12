@@ -67,6 +67,16 @@ html_css_files = [
     'custom.css',
 ]
 
+
+# Available Pygments Themes:
+# 'default', 'emacs', 'friendly', 'colorful', 'autumn', 'murphy', 'manni', 
+# 'monokai', 'perldoc', 'pastie', 'borland', 'trac', 'native', 'fruity', 'bw',
+# 'vim', 'vs', 'tango', 'rrt', 'xcode', 'igor', 'paraiso-light', 'paraiso-dark', 
+# 'lovelace', 'algol', 'algol_nu', 'arduino', 'rainbow_dash', 'abap', 
+# 'solarized-dark', 'solarized-light', 'sas', 'stata', 'stata-light', 'stata-dark', 'inkpot'
+pygments_style = 'paraiso-dark'
+
+
 def linkcode_resolve(domain, info):
     if domain != 'py':
         return None

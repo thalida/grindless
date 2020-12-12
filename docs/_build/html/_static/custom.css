@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
+
 a,
 a:visited {
     /* color: #008aff; */
@@ -8,7 +10,22 @@ a:visited {
 
 a:hover {
     color: #008aff;
-    /* color: #1d339e; */
+}
+
+.rst-content .linenodiv pre, 
+.rst-content div[class^=highlight] pre, 
+.rst-content pre.literal-block,
+.rst-content code, 
+.rst-content tt {
+    font-family: 'Fira Code', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.rst-content .linenodiv pre,
+.rst-content div[class^=highlight] pre, 
+.rst-content pre.literal-block {
+    font-size: 14px;
 }
 
 table.docutils a.reference.internal {
@@ -40,10 +57,10 @@ table.docutils a.reference.internal {
     color: #333;
 }
 
-.wy-side-nav-search .wy-dropdown > a,
+/* .wy-side-nav-search .wy-dropdown > a,
 .wy-side-nav-search > a {
     color: #333;
-}
+} */
 
 .wy-side-nav-search input[type=text] {
     border-color: rgba(0, 0, 0, 0.3);
@@ -53,8 +70,8 @@ table.docutils a.reference.internal {
     border-color: inherit;
 }
 
-.wy-side-nav-search a.icon.icon-home::before {
-    display: none;
+a.icon.icon-home {
+    text-decoration: none;
 }
 
 .wy-menu-vertical a,
@@ -97,12 +114,20 @@ table.docutils a.reference.internal {
     background: transparent !important;   
 }
 
+.rst-content code.literal, .rst-content tt.literal {
+    color: #a7003e;
+}
+
+.rst-content table.docutils thead, .rst-content table.field-list thead, .wy-table thead {
+    background: #f4f0ff;
+}
 
 .rst-content table.docutils a.reference.internal code {
-    background: #d7d9ff;
+    background: #dfe1ff;
     border-radius: 15px;
-    border: 0;
+    border: 1px solid rgb(0 0 0 / 0.1);
     color: #000;
+    font-weight: 600;
 }
 .rst-content table.docutils a.reference.internal:hover code {
     background: #a7beff;
@@ -126,6 +151,7 @@ html.writer-html4 .rst-content dl:not(.docutils)>dt, html.writer-html5 .rst-cont
     background: #0000000a;
     color: #616161;
     padding: 6px 12px;
+    font-size: 85%;
 }
 
 html.writer-html4 .rst-content dl:not(.docutils) dl:not(.field-list)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) dl:not(.field-list)>dt {
@@ -137,7 +163,7 @@ html.writer-html4 .rst-content dl:not(.docutils) dl:not(.field-list)>dt, html.wr
     padding-left: 12px;
 }
 
-.rst-content dl dd {
+.rst-content dl:not(.field-list) > dd {
     margin: 12px;
 }
 

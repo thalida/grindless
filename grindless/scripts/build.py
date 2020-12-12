@@ -10,6 +10,7 @@ Build
 
 Compiles and outputs the datapack.
 
+
 Usage
 -----------------------
 
@@ -17,23 +18,29 @@ Usage
 >>> python -m grindless.scripts.build
 Runs datapack build
 
-Jinja Environment
-------------------------
-.. autodata:: grindless.scripts.build.env
-
-.. literalinclude:: /../grindless/scripts/build.py
-    :lines: 57-68
-
-The docs for a Jinja2 Environment are included below, but the `Official Jinja Docs <https://jinja.palletsprojects.com>`_ should be the primary reference.
-
-.. autodata:: jinja2.Environment
-
 
 Functions
 ----------------------------
 .. autofunction:: grindless.scripts.build.build
 .. autofunction:: grindless.scripts.build.build_general
 .. autofunction:: grindless.scripts.build.build_regions
+
+
+Jinja Environment
+------------------------
+Setup
+^^^^^^^^^^^^^^^^^^^^^^^^
+.. autodata:: grindless.scripts.build.env
+
+.. rubric:: ``env`` declaration:
+.. literalinclude:: /../grindless/scripts/build.py
+    :lines: 66-77
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^
+The docs for a Jinja2 Environment are included below, but the `Official Jinja Docs <https://jinja.palletsprojects.com>`_ should be the primary reference.
+
+.. autodata:: jinja2.Environment
 
 """
 
@@ -54,7 +61,7 @@ import grindless.config as config
 import grindless.settings
 from grindless.datapacks.grindless.templates import methods
 
-#: An instance of a Jinja2 Environment
+#: An instance of a Jinja2 Environment.
 #: The environment globals are extended to include the datapack's custom template methods
 env = Environment(
     variable_start_string='<<',
