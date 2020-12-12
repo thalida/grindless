@@ -93,4 +93,4 @@ def linkcode_resolve(domain, info):
 
     filename = f'{filename}.py'
 
-    return f'https://github.com/thalida/grindless/tree/staging/{filename}'
+    return f'https://github.com/thalida/grindless/tree/main/{filename}'
