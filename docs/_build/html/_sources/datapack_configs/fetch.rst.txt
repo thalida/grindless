@@ -1,6 +1,0 @@
-Fetch
-===========================
-.. automodule:: grindless.datapack_configs
-   :members:
-   :undoc-members:
-   :show-inheritance:

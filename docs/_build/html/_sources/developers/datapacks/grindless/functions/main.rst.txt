@@ -1,4 +1,0 @@
-Main
-=================
-
-Describe main mcfunction

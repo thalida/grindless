@@ -1,7 +1,0 @@
-grindless
-=========
-
-.. toctree::
-   :maxdepth: 4
-
-   grindless

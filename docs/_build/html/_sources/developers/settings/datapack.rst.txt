@@ -1,4 +1,0 @@
-Datapack
-=====================
-
-yaml things here

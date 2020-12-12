@@ -1,4 +1,0 @@
-Scoreboards
-=====================
-
-add auto yaml
