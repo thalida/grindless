@@ -1,0 +1,2 @@
+.. automodule:: grindless
+   :show-inheritance:

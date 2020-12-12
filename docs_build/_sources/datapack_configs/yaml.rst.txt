@@ -1,0 +1,18 @@
+YAML
+---------------
+
+Datapack
+^^^^^^^^^^^
+Foo bar bat
+
+Gather
+^^^^^^^^^^^
+Foo bar bat
+
+Scoreboards
+^^^^^^^^^^^
+Foo bar bat
+
+Items
+^^^^^^^^^^^
+Foo bar bat

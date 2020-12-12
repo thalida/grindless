@@ -1,0 +1,53 @@
+grindless.configs.regions.nether package
+========================================
+
+Submodules
+----------
+
+grindless.configs.regions.nether.basalt\_deltas module
+------------------------------------------------------
+
+.. automodule:: grindless.configs.regions.nether.basalt_deltas
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+grindless.configs.regions.nether.crimson\_forest module
+-------------------------------------------------------
+
+.. automodule:: grindless.configs.regions.nether.crimson_forest
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+grindless.configs.regions.nether.nether\_wastes module
+------------------------------------------------------
+
+.. automodule:: grindless.configs.regions.nether.nether_wastes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+grindless.configs.regions.nether.soul\_sand\_valley module
+----------------------------------------------------------
+
+.. automodule:: grindless.configs.regions.nether.soul_sand_valley
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+grindless.configs.regions.nether.warped\_forest module
+------------------------------------------------------
+
+.. automodule:: grindless.configs.regions.nether.warped_forest
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: grindless.configs.regions.nether
+   :members:
+   :undoc-members:
+   :show-inheritance:

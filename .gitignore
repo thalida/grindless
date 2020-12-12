@@ -25,3 +25,4 @@ venv.bak/
 # Project Level
 build/
 releases/
+docs/_build/
