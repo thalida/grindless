@@ -2,7 +2,7 @@
 .. _scripts-build:
 
 .. important::
-    Make sure you've completed all the steps 
+    Make sure you've completed all the steps
     in :ref:`Getting Started <getting-started>` before running!
 
 Build
@@ -34,7 +34,8 @@ Setup
 
 .. rubric:: ``env`` declaration:
 .. literalinclude:: /../grindless/scripts/build.py
-    :lines: 66-77
+    :language: python
+    :lines: 67-78
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -51,7 +52,7 @@ import shutil
 from inspect import getmembers, isfunction
 
 # Third-party
-import colorama 
+import colorama
 from jinja2 import Environment, FileSystemLoader
 from termcolor import colored
 colorama.init()
@@ -78,13 +79,13 @@ for func_name, fn in getmembers(methods, isfunction):
 
 def build(prints_enabled=False):
     """
-    Main build script for the datapack. 
+    Main build script for the datapack.
     This script calls build_general() and build_regions().
     """
     title = 'Grindless Minecraft Datapack :: Build'
     title_divider = '.'*20
     print(colored(f'{title_divider} {title} {title_divider}', 'magenta', 'on_grey', attrs=['bold']))
-    
+
     print('\n')
     print(colored('1. Setting up directories', 'grey', 'on_white'))
     if os.path.isdir(config.DIST_DIR):
@@ -136,19 +137,19 @@ def build_general(datapack_settings):
     # Loop over all the file in the SOURCE_DIR
     for (dirpath, dirnames, filenames) in os.walk(config.SOURCE_DIR):
         skip = False
-        
+
         # Check if the current directory is part of any of the skipped dirs
         for skip_dir in skip_dirs:
             if skip_dir in dirpath:
                 skip = True
                 break
-        
+
         if skip:
             continue
-        
+
         status = colored(f'Handling directory {dirpath}', 'white')
         print(status, '...', end='\r')
-        
+
         # Setup the output directory path to point to the dist directory
         output_dir = dirpath.replace(config.SOURCE_DIR, config.DIST_DIR)
         # Minecraft requires datapack logic to be in a data folder. Let's make that change now.
@@ -156,7 +157,7 @@ def build_general(datapack_settings):
 
         # Let's make sure that directory path exists (and the entire tree is created: parents=True)
         pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
-        
+
         print(colored('DONE', 'green', attrs=['bold']), f'Created directory at {output_dir}')
 
         # If we've walked over some files, let's process those now...
@@ -164,9 +165,9 @@ def build_general(datapack_settings):
             # Well first we skip files we don't need in the final build
             if f in skip_files:
                 continue
-            
+
             print(f'Processing {f}...', end='\r')
-            
+
             # Create the fullpath to this file (template)
             template_path = os.path.join(dirpath, f)
             # Make the path relative to the env.loader value (source_dir) for jinja to work correctly.
@@ -183,7 +184,7 @@ def build_general(datapack_settings):
             print(colored(f'Rendering template {template_path}...', 'yellow'), end='\r')
             # Here we go! Rendering the file/template with our datapack settings
             output = template.render(**datapack_settings)
-            
+
             # We write the output to the file we created.
             with open(output_path, "w") as fh:
                 fh.write(output)
@@ -198,7 +199,7 @@ def build_regions(datapack_settings):
     Args:
         datapack_settings (dict): formatted datapack settings
     """
-    
+
     #: Each region uses the same base template for rendering it's .mcfunction file
     region_template_path = config.REGION_TEMPLATE_PATH.replace(f"{config.SOURCE_DIR}/", '')
     #: Use jinja to fetch the template; This is used for rendering later.
@@ -211,7 +212,7 @@ def build_regions(datapack_settings):
     # For each for the regions defined in our settings...
     for region, region_config in datapack_settings['regions'].items():
         print(colored(f'Processing {region}...'), end='\r')
-    
+
         # Setup the output path for the region mcfunction
         output_path = os.path.join(config.DIST_REGION_FNS_DIR, f'{region}.mcfunction')
         # Render the region template given this regions settings
@@ -219,7 +220,7 @@ def build_regions(datapack_settings):
         # Write the output to the filesystem
         with open(output_path, "w") as fh:
             fh.write(output)
-        
+
         print(colored('DONE', 'green', attrs=['bold']), f'Created file at {output_path}')
         # Rinse and repeat!
 

@@ -6,6 +6,12 @@ Getting Started
 
 Setup
 --------------------
+python
+pyenv
+pipenv
+
+cd docs && make html && cd -
+
 dev setup and installing
 
 
