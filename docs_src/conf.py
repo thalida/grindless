@@ -13,6 +13,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath('../'))
+sys.path.insert(0, os.path.abspath('_ext'))
 
 
 # -- Project information -----------------------------------------------------
@@ -79,6 +80,8 @@ html_theme_options = {}
 # 'solarized-dark', 'solarized-light', 'sas', 'stata', 'stata-light', 'stata-dark', 'inkpot'
 pygments_style = 'paraiso-dark'
 
+edit_on_github_project = 'thalida/grindless'
+edit_on_github_branch = 'main'
 
 def linkcode_resolve(domain, info):
     if domain != 'py':

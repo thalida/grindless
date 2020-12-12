@@ -170,14 +170,12 @@
       <li>Build</li>
     
     
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../../_sources/developers/scripts/build.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
+<li class="wy-breadcrumbs-aside">
+  
+    <a class="fa fa-github" href="https://github.com/thalida/grindless"> View on GitHub</a>
+  
+</li>
+
   </ul>
 
   
@@ -206,14 +204,14 @@ in <a class="reference internal" href="../index.html#getting-started"><span clas
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="grindless.scripts.build.build">
-<code class="sig-prename descclassname">grindless.scripts.build.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prints_enabled</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/scripts/build.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.scripts.build.build" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">grindless.scripts.build.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prints_enabled</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/scripts/build.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.scripts.build.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Main build script for the datapack.
 This script calls build_general() and build_regions().</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="grindless.scripts.build.build_general">
-<code class="sig-prename descclassname">grindless.scripts.build.</code><code class="sig-name descname">build_general</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datapack_settings</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/scripts/build.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.scripts.build.build_general" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">grindless.scripts.build.</code><code class="sig-name descname">build_general</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datapack_settings</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/scripts/build.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.scripts.build.build_general" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds all non-region files. This is the default build script for most of the datapack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -224,7 +222,7 @@ This script calls build_general() and build_regions().</p>
 
 <dl class="py function">
 <dt id="grindless.scripts.build.build_regions">
-<code class="sig-prename descclassname">grindless.scripts.build.</code><code class="sig-name descname">build_regions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datapack_settings</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/scripts/build.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.scripts.build.build_regions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">grindless.scripts.build.</code><code class="sig-name descname">build_regions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">datapack_settings</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/scripts/build.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.scripts.build.build_regions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds and outputs all of the region datapack functions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -240,7 +238,7 @@ This script calls build_general() and build_regions().</p>
 <h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h3>
 <dl class="py data">
 <dt id="grindless.scripts.build.env">
-<code class="sig-prename descclassname">grindless.scripts.build.</code><code class="sig-name descname">env</code><em class="property"> = &lt;jinja2.environment.Environment object&gt;</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/scripts/build.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.scripts.build.env" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">grindless.scripts.build.</code><code class="sig-name descname">env</code><em class="property"> = &lt;jinja2.environment.Environment object&gt;</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/scripts/build.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.scripts.build.env" title="Permalink to this definition">¶</a></dt>
 <dd><p>An instance of a Jinja2 Environment.
 The environment globals are extended to include the datapack’s custom template methods</p>
 </dd></dl>
@@ -266,7 +264,7 @@ The environment globals are extended to include the datapack’s custom template
 <p>The docs for a Jinja2 Environment are included below, but the <a class="reference external" href="https://jinja.palletsprojects.com">Official Jinja Docs</a> should be the primary reference.</p>
 <dl class="py data">
 <dt id="jinja2.Environment">
-<code class="sig-prename descclassname">jinja2.</code><code class="sig-name descname">Environment</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><em class="property"> = &lt;class 'jinja2.environment.Environment'&gt;</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/jinja2.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jinja2.Environment" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">jinja2.</code><code class="sig-name descname">Environment</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><em class="property"> = &lt;class 'jinja2.environment.Environment'&gt;</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/jinja2.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jinja2.Environment" title="Permalink to this definition">¶</a></dt>
 <dd><p>The core component of Jinja is the <cite>Environment</cite>.  It contains
 important shared variables like configuration, filters, tests,
 globals and others.  Instances of this class may be modified if

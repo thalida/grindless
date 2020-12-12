@@ -72,9 +72,15 @@ table.docutils a.reference.internal {
     text-decoration: none;
 }
 
-/* .wy-nav-side a:hover {
-    opacity: 1;
-} */
+.wy-breadcrumbs-aside a {
+    text-decoration: none;
+}
+
+li.wy-breadcrumbs-aside {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
 
 .wy-nav-content,
 .wy-nav-content-wrap {

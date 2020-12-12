@@ -1,0 +1,9 @@
+{%- extends "sphinx_rtd_theme/breadcrumbs.html" %}
+
+{% block breadcrumbs_aside %}
+<li class="wy-breadcrumbs-aside">
+  {% if hasdoc(pagename) %}
+    <a class="fa fa-github" href="https://github.com/thalida/grindless"> {{ _('View on GitHub') }}</a>
+  {% endif %}
+</li>
+{% endblock %}
