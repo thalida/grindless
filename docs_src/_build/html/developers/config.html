@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Config &mdash; Grindless 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scripts" href="scripts/index.html" />
+    <link rel="prev" title="Getting Started" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Grindless
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">General</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/faqs.html">FAQs</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Player Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../players/installing.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../players/usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../players/triggers.html">Triggers</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Docs</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#quick-reference">Quick Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-reference">Quick Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#globals">Globals</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scripts/index.html">Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings/index.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datapacks/index.html">Datapacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="helpers.html">Helpers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docs_styleguide.html">Docs Styleguide</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Grindless</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Config</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developers/config.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="module-grindless.config"></span><div class="section" id="config">
+<h1>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h1>
+<p>These global constants are used by the build and release scripts.
+Learn more about <a class="reference internal" href="scripts/index.html"><span class="doc">scripts</span></a>.</p>
+<div class="section" id="quick-reference">
+<h2>Quick Reference<a class="headerlink" href="#quick-reference" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.config.DIST_DIR" title="grindless.config.DIST_DIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DIST_DIR</span></code></a></p></td>
+<td><p>Output directory of the built datapack.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.config.DIST_REGION_FNS_DIR" title="grindless.config.DIST_REGION_FNS_DIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DIST_REGION_FNS_DIR</span></code></a></p></td>
+<td><p>Output directory of the built regions <code class="docutils literal notranslate"><span class="pre">mcfunctions</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.config.REGIONS_DIR" title="grindless.config.REGIONS_DIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REGIONS_DIR</span></code></a></p></td>
+<td><p>Directory with all of the region specific settings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.config.REGION_TEMPLATE_PATH" title="grindless.config.REGION_TEMPLATE_PATH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">REGION_TEMPLATE_PATH</span></code></a></p></td>
+<td><p>Absolute path to the region template.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.config.SCRIPTS_DIR" title="grindless.config.SCRIPTS_DIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SCRIPTS_DIR</span></code></a></p></td>
+<td><p>Holds all of the comandline-run scripts.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.config.SETTINGS_DIR" title="grindless.config.SETTINGS_DIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SETTINGS_DIR</span></code></a></p></td>
+<td><p>Directory with all of the datapack settings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.config.SOURCE_DIR" title="grindless.config.SOURCE_DIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SOURCE_DIR</span></code></a></p></td>
+<td><p>Subdirectory which includes all of the core logic.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.config.TEMPLATES_DIR" title="grindless.config.TEMPLATES_DIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TEMPLATES_DIR</span></code></a></p></td>
+<td><p>Directory with partial templates and methods.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.config.VERSION" title="grindless.config.VERSION"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VERSION</span></code></a></p></td>
+<td><p>Datapack Version</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.config.ZIPS_DIR" title="grindless.config.ZIPS_DIR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ZIPS_DIR</span></code></a></p></td>
+<td><p>Output directory of the zipped datapack build.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="globals">
+<h2>Globals<a class="headerlink" href="#globals" title="Permalink to this headline">¶</a></h2>
+<dl class="py data">
+<dt id="grindless.config.DIST_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">DIST_DIR</code><em class="property"> = /abs/path/to/grindless-repo/build</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.DIST_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output directory of the built datapack. This folder is gitignored.</p>
+<p>Used by: <a class="reference internal" href="scripts/build.html#scripts-build"><span class="std std-ref">build script</span></a> and <a class="reference internal" href="scripts/release.html#scripts-release"><span class="std std-ref">release script</span></a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.DIST_REGION_FNS_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">DIST_REGION_FNS_DIR</code><em class="property"> = &lt;DIST_DIR&gt;/data/grindless/functions/regions</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.DIST_REGION_FNS_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output directory of the built regions <code class="docutils literal notranslate"><span class="pre">mcfunctions</span></code>.</p>
+<p>Used by: <a class="reference internal" href="scripts/build.html#scripts-build"><span class="std std-ref">build script</span></a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.REGIONS_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">REGIONS_DIR</code><em class="property"> = &lt;SETTINGS_DIR&gt;/regions</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.REGIONS_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Directory with all of the region specific settings.
+Learn more about <a class="reference internal" href="settings/regions/index.html"><span class="doc">regions</span></a>.</p>
+<p>Used by: <a class="reference internal" href="scripts/build.html#scripts-build"><span class="std std-ref">build script</span></a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.REGION_TEMPLATE_PATH">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">REGION_TEMPLATE_PATH</code><em class="property"> = &lt;TEMPLATES_DIR&gt;/region.jinja</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.REGION_TEMPLATE_PATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute path to the region template.
+Learn more about <a class="reference internal" href="datapacks/grindless/templates/index.html"><span class="doc">templates</span></a>.</p>
+<p>Used by: <a class="reference internal" href="scripts/build.html#scripts-build"><span class="std std-ref">build script</span></a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.SCRIPTS_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">SCRIPTS_DIR</code><em class="property"> = &lt;SOURCE_DIR&gt;/scripts</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.SCRIPTS_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds all of the comandline-run scripts.</p>
+<p>Used by: <a class="reference internal" href="scripts/build.html#scripts-build"><span class="std std-ref">build script</span></a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.SETTINGS_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">SETTINGS_DIR</code><em class="property"> = &lt;SOURCE_DIR&gt;/settings</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.SETTINGS_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Directory with all of the datapack settings.</p>
+<p>Used by: <a class="reference internal" href="scripts/build.html#scripts-build"><span class="std std-ref">build script</span></a> and <a class="reference internal" href="settings/index.html"><span class="doc">settings</span></a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.SOURCE_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">SOURCE_DIR</code><em class="property"> = /abs/path/to/grindless-repo/grindless</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.SOURCE_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subdirectory which includes all of the core logic.</p>
+<p>Used by: <a class="reference internal" href="scripts/build.html#scripts-build"><span class="std std-ref">build script</span></a> and <a class="reference internal" href="scripts/release.html#scripts-release"><span class="std std-ref">release script</span></a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.TEMPLATES_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">TEMPLATES_DIR</code><em class="property"> = &lt;SOURCE_DIR&gt;/datapacks/grindless/templates</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.TEMPLATES_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Directory with partial templates and methods.
+Learn more about <a class="reference internal" href="datapacks/grindless/templates/index.html"><span class="doc">templates</span></a>.</p>
+<p>Used by: <a class="reference internal" href="scripts/build.html#scripts-build"><span class="std std-ref">build script</span></a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.VERSION">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">VERSION</code><em class="property"> = '1.0.0'</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.VERSION" title="Permalink to this definition">¶</a></dt>
+<dd><p>Datapack Version</p>
+<p>Used by: <a class="reference internal" href="scripts/release.html#scripts-release"><span class="std std-ref">release script</span></a></p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="grindless.config.ZIPS_DIR">
+<code class="sig-prename descclassname">grindless.config.</code><code class="sig-name descname">ZIPS_DIR</code><em class="property"> = /abs/path/to/grindless-repo/releases</em><a class="reference external" href="https://github.com/thalida/grindless/tree/staging/grindless/config.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.config.ZIPS_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output directory of the zipped datapack build. This folder is gitignored.</p>
+<p>Used by: <a class="reference internal" href="scripts/release.html#scripts-release"><span class="std std-ref">release script</span></a></p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scripts/index.html" class="btn btn-neutral float-right" title="Scripts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, thalida
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

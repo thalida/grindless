@@ -10,7 +10,7 @@ python
 pyenv
 pipenv
 
-cd docs && make html && cd -
+cd docs_src && make build && cd -
 
 dev setup and installing
 

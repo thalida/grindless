@@ -1,0 +1,4 @@
+Datapack
+=====================
+
+add auto yaml

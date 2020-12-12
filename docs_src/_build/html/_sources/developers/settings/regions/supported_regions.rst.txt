@@ -1,0 +1,5 @@
+Supported Regions
+=========================
+
+list of all supported regions and how it works?
+

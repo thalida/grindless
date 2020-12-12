@@ -1,0 +1,29 @@
+grindless.configs.regions.overworld\_mines package
+==================================================
+
+Submodules
+----------
+
+grindless.configs.regions.overworld\_mines.diamond\_mine module
+---------------------------------------------------------------
+
+.. automodule:: grindless.configs.regions.overworld_mines.diamond_mine
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+grindless.configs.regions.overworld\_mines.surface\_mine module
+---------------------------------------------------------------
+
+.. automodule:: grindless.configs.regions.overworld_mines.surface_mine
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: grindless.configs.regions.overworld_mines
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,4 @@
+Scoreboards
+=====================
+
+add auto yaml

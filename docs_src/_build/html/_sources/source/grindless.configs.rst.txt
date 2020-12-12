@@ -1,0 +1,15 @@
+grindless.configs package
+=========================
+
+YAML
+---------------
+Talk about the yaml files
+
+
+Regions
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   grindless.configs.regions
