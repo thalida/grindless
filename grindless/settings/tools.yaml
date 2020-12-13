@@ -1,0 +1,38 @@
+supported_tool_types:
+  - axe
+  - pickaxe
+  - shovel
+  - hoe
+  - shears
+  - fishing_rod
+  - sword
+
+supported_materials:
+  - wooden
+  - stone
+  - iron
+  - diamond
+  - netherite
+  - golden
+
+tools_without_material:
+  - shears
+  - fishing_rod
+
+item_multipliers_by_material:
+  default: 8
+  wooden: 16
+  stone: 24
+  iron: 32
+  diamond: 36
+  netherite: 40
+  golden: 48
+
+damage_multipliers_by_material:
+  default: .5
+  wooden: .25
+  stone: .15
+  iron: .125
+  diamond: .1
+  netherite: .09
+  golden: .08

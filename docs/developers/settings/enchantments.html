@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gather &mdash; Grindless 1.0.0 documentation</title>
+  <title>Enchantments &mdash; Grindless 1.0.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Scoreboards" href="scoreboards.html" />
-    <link rel="prev" title="Global" href="global.html" /> 
+    <link rel="next" title="Regions" href="regions/index.html" />
+    <link rel="prev" title="Tools" href="tools.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -104,10 +104,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Settings</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="global.html">Global</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Gather</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gather.html">Gather</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scoreboards.html">Scoreboards</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html">Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enchantments.html">Enchantments</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Enchantments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regions/index.html">Regions</a></li>
 </ul>
 </li>
@@ -162,7 +162,7 @@
         
           <li><a href="index.html">Settings</a> &raquo;</li>
         
-      <li>Gather</li>
+      <li>Enchantments</li>
     
     
 <li class="wy-breadcrumbs-aside">
@@ -179,9 +179,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="gather">
-<span id="settings-gather"></span><h1>Gather<a class="headerlink" href="#gather" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">gather.yaml</span></code> houses the settings for how and when you can quickly gather materials for a region.</p>
+  <div class="section" id="enchantments">
+<span id="settings-enchantments"></span><h1>Enchantments<a class="headerlink" href="#enchantments" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">enchantments.yaml</span></code> defines which enchantments are supported,
+and how they effect the amount of items and damage given.</p>
 <p class="rubric">Settings</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -194,80 +195,73 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wait_seconds</span></code></p></td>
-<td><p>The number of seconds between each activation.</p>
-<p>This number is converted to ticks.</p>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enabled</span></code></p></td>
+<td><p>Are enchantments enabled on the datapack?</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">false</span></code> enchantments will not affect the items or damage given.</p>
 </td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">activation_radius</span></code></p></td>
-<td><p>How close to the <code class="docutils literal notranslate"><span class="pre">activation_item</span></code> do we need to be?</p>
-<p>This number represents N blocks in all directions (x, y, z)</p>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">supported_enchantments</span></code></p></td>
+<td><p>List of which enchantments are supported by the datapack</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supported_enchantments_by_tool</span></code></p></td>
+<td><p>List of enchantments supported for each tool.</p>
+<p>(Not all tools support the same enchantments in Minecraft.)</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">activation_item</span></code></p></td>
-<td><p>What game item do we power to activate gathering the items for a region?</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">workstation</span></code></p></td>
-<td><p>A dict defining the settings for a workstation. See list of supported keys below.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Workstation Settings</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Workstation Key</p></th>
-<th class="head"><p>Value</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">item</span></code></p></td>
-<td><p>Must be a Minecraft storage block</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
-<td><p>Custom name for the workstation item.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lore</span></code></p></td>
-<td><p>The lore that should be displayed when hovered over the item.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">coords</span></code></p></td>
-<td><p>Where should the workstation be relative to the player?</p>
-<p><code class="docutils literal notranslate"><span class="pre">~</span> <span class="pre">~-1</span> <span class="pre">~</span></code> means the player should be standing on the item.</p>
-<p>X equals the player’s current X coord.</p>
-<p>Y equals 1 block _below_ the player.</p>
-<p>Z equals the player’s current Z coord.</p>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">item_multipliers_by_enchantment</span></code></p></td>
+<td><p>Defines how much more of an item should be given if the tool has the enchantment.</p>
+<p>For example, a tool with <code class="docutils literal notranslate"><span class="pre">efficiency</span></code> will gives 1.2x more items.</p>
 </td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slot</span></code></p></td>
-<td><p>In which storage slot should we look for the chosen tool?</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">give_items</span></code></p></td>
-<td><p>What other items should be given with a workstation?</p>
-<p>This is used by the <cite>kit</cite> trigger <a class="reference internal" href="../datapacks/grindless/functions/index.html"><span class="doc">Functions</span></a></p>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">damage_multipliers_by_enchantment</span></code></p></td>
+<td><p>Defines how much damage a tool will receive</p>
+<p>For example, a tool with <code class="docutils literal notranslate"><span class="pre">unbreaking</span></code> will get 50% less damage</p>
 </td>
 </tr>
 </tbody>
 </table>
 <hr class="docutils" />
-<p class="rubric">Source: (<a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/gather.yaml">View file on Github</a>)</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">wait_seconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="nt">activation_radius</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
-<span class="nt">activation_item</span><span class="p">:</span> 
-  <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nl">&amp;activation_item_id</span>
-    <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">minecraft:warped_button</span>
-<span class="nt">workstation</span><span class="p">:</span>
-  <span class="nt">item</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">minecraft:barrel</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Grindless Workstation</span>
-  <span class="nt">lore</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Gather resources through magic</span>
-  <span class="nt">coords</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">~ ~-1 ~</span>
-  <span class="nt">slot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-  <span class="nt">give_items</span><span class="p">:</span> 
-    <span class="p p-Indicator">-</span> <span class="nt">Slot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-      <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*activation_item_id</span>
-      <span class="nt">Count</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<p class="rubric">Source: (<a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/enchantments.yaml">View file on Github</a>)</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="nt">supported_enchantments</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">silk_touch</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unbreaking</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">efficiency</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">fortune</span>
+
+<span class="nt">supported_enchantments_by_tool</span><span class="p">:</span>
+  <span class="nt">axe</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unbreaking</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">efficiency</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">fortune</span>
+  <span class="nt">pickaxe</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unbreaking</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">efficiency</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">fortune</span>
+  <span class="nt">shovel</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unbreaking</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">efficiency</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">fortune</span>
+  <span class="nt">hoe</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unbreaking</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">efficiency</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">fortune</span>
+  <span class="nt">shears</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unbreaking</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">efficiency</span>
+  <span class="nt">fishing_rod</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unbreaking</span>
+  <span class="nt">sword</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">unbreaking</span>
+
+<span class="nt">item_multipliers_by_enchantment</span><span class="p">:</span>
+  <span class="nt">efficiency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.2</span>
+  <span class="nt">fortune</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.4</span>
+
+<span class="nt">damage_multipliers_by_enchantment</span><span class="p">:</span>
+  <span class="nt">unbreaking</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.5</span>
+  <span class="nt">efficiency</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.8</span>
 </pre></div>
 </div>
 </div>
@@ -280,10 +274,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="scoreboards.html" class="btn btn-neutral float-right" title="Scoreboards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="regions/index.html" class="btn btn-neutral float-right" title="Regions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="global.html" class="btn btn-neutral float-left" title="Global" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tools.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,0 +1,40 @@
+enabled: true
+
+supported_enchantments:
+  - silk_touch
+  - unbreaking
+  - efficiency
+  - fortune
+
+supported_enchantments_by_tool:
+  axe:
+    - unbreaking
+    - efficiency
+    - fortune
+  pickaxe:
+    - unbreaking
+    - efficiency
+    - fortune
+  shovel:
+    - unbreaking
+    - efficiency
+    - fortune
+  hoe:
+    - unbreaking
+    - efficiency
+    - fortune
+  shears:
+    - unbreaking
+    - efficiency
+  fishing_rod:
+    - unbreaking
+  sword:
+    - unbreaking
+
+item_multipliers_by_enchantment:
+  efficiency: 1.2
+  fortune: 1.4
+
+damage_multipliers_by_enchantment:
+  unbreaking: 0.5
+  efficiency: 0.8

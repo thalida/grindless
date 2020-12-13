@@ -13,7 +13,7 @@ execute if <<workstation_state(item=tool)>> run title @s subtitle { "text":"Tool
 # Save Damage
 # ---------------------------------------------------------------------------
 scoreboard players set <<scoreboards.item_damage>> <<scoreboards.item_damage>> 0
-execute if <<workstation_state(item='tool_slot')>> store result score <<scoreboards.item_damage>> <<scoreboards.item_damage>> run data get block <<gather.workstation.coords>> Items[<<gather.workstation.slot>>].tag.Damage 1
+execute if <<workstation_state(item='any_tool')>> store result score <<scoreboards.item_damage>> <<scoreboards.item_damage>> run data get block <<gather.workstation.coords>> Items[<<gather.workstation.slot>>].tag.Damage 1
 
 # ===========
 # Do Gathering
@@ -39,7 +39,7 @@ execute if <<workstation_state(item='tool_slot')>> store result score <<scoreboa
 # ===========
 # Update Damage
 # ---------------------------------------------------------------------------
-execute if <<workstation_state(item='tool_slot')>> store result block <<gather.workstation.coords>> Items[<<gather.workstation["slot"]>>].tag.Damage int 1 run scoreboard players get <<scoreboards.item_damage>> <<scoreboards.item_damage>>
+execute if <<workstation_state(item='any_tool')>> store result block <<gather.workstation.coords>> Items[<<gather.workstation["slot"]>>].tag.Damage int 1 run scoreboard players get <<scoreboards.item_damage>> <<scoreboards.item_damage>>
 
 # ===========
 # Start Wait...

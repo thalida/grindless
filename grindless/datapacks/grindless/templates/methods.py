@@ -8,6 +8,7 @@ foo bar bat cat
 
 import json
 import grindless.settings
+import grindless.helpers as helpers
 
 def set_enchantments(block_dict, enchatments):
     if block_dict.get('Items') is None or len(block_dict['Items']) == 0:
@@ -16,7 +17,7 @@ def set_enchantments(block_dict, enchatments):
     formatted_enchantments = []
     for enchantment in enchatments:
         formatted_enchantments.append({'id': enchantment})
-    
+
     block_dict['Items'][0]['tag'] = {'Enchantments': formatted_enchantments}
 
     return block_dict
@@ -33,7 +34,7 @@ def region_unlesses(region_type):
     return ' '.join(unlesses)
 
 
-def workstation_state(item="0+", enchantments=[], decorated=True):
+def workstation_state(item=helpers.TOOL_SELECTORS['ANY'], enchantments=[], decorated=True):
     datapack_settings = grindless.settings.fetch()
     workstation_configs = datapack_settings['gather']['workstation']
     mcitem = 'minecraft:stone'
@@ -42,16 +43,12 @@ def workstation_state(item="0+", enchantments=[], decorated=True):
         'CustomName': "{'text':'" + workstation_configs['name'] + "'}"
     }
 
-    if item == '0':
-        block_dict['Items'] = []
-    elif item == '1+':
-        block_dict['Items'] = [{}]
-    elif item == 'tool_slot':
+    if item == helpers.TOOL_SELECTORS['ANY_TOOL']:
         block_dict['Items'] = [{'Slot': workstation_configs['slot'] }]
     elif item.find('minecraft:') >= 0:
         block_dict['Items'] = [{'id': item, 'Slot': workstation_configs['slot'] }]
 
-    
+
     if not isinstance(enchantments, list):
         enchantments = [enchantments]
 
@@ -81,16 +78,16 @@ def workstation_conditional(tool, subtype, tool_stanza, region=None):
 
     subtype_parts = subtype.split('/')
     primary_subtype = subtype_parts[0]
-    
+
     enchantments = []
     if primary_subtype != 'default':
         enchantments.append(primary_subtype)
-    
+
     if len(subtype_parts) > 1:
         enchantments = enchantments + subtype_parts[1].split('&')
 
-    if tool == '0+' and primary_subtype == 'default' and len(enchantments) > 0:
-        item = 'tool_slot'
+    if tool == 'any' and primary_subtype == 'default' and len(enchantments) > 0:
+        item = 'any_tool'
     else:
         item = tool
 
@@ -107,11 +104,11 @@ def workstation_conditional(tool, subtype, tool_stanza, region=None):
 
         opt_parts = opt.split('/')
         primary_opt = opt_parts[0]
-        
+
         opt_enchantments = []
         if primary_opt != 'default':
             opt_enchantments.append(primary_opt)
-        
+
         if len(opt_parts) > 1:
             opt_enchantments = opt_enchantments + opt_parts[1].split('&')
 
@@ -122,7 +119,7 @@ def workstation_conditional(tool, subtype, tool_stanza, region=None):
             found_overrides.append(enchantment)
 
 
-    if region is not None and tool == '0+':
+    if region is not None and tool == 'any':
         for supported_tool in region["supported_tools"]:
             unlesses.append(workstation_state(item=supported_tool))
 

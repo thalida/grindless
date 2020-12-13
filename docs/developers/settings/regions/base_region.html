@@ -106,10 +106,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../global.html">Global</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gather.html">Gather</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../scoreboards.html">Scoreboards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../enchantments.html">Enchantments</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Regions</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="items.html">Items</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">BaseRegion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#supported-regions">Supported Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#supported-dimensions">Supported Dimensions</a></li>
 </ul>
 </li>
 </ul>
@@ -185,47 +187,12 @@
            <div itemprop="articleBody">
             
   <span class="target" id="module-grindless.settings.regions.base_region"></span><div class="section" id="baseregion">
-<h1>BaseRegion<a class="headerlink" href="#baseregion" title="Permalink to this headline">¶</a></h1>
+<span id="settings-regions-baseregion"></span><h1>BaseRegion<a class="headerlink" href="#baseregion" title="Permalink to this headline">¶</a></h1>
 <p>General configs for the data pack</p>
 <dl class="py class">
 <dt id="grindless.settings.regions.base_region.BaseRegion">
 <em class="property">class </em><code class="sig-prename descclassname">grindless.settings.regions.base_region.</code><code class="sig-name descname">BaseRegion</code><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py attribute">
-<dt id="grindless.settings.regions.base_region.BaseRegion.ENABLE_ENCHANTMENTS">
-<code class="sig-name descname">ENABLE_ENCHANTMENTS</code><em class="property"> = True</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.ENABLE_ENCHANTMENTS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="grindless.settings.regions.base_region.BaseRegion.ENCHANTMENT_MULTIPLIERS">
-<code class="sig-name descname">ENCHANTMENT_MULTIPLIERS</code><em class="property"> = {'damage': {'efficiency': 0.8, 'unbreaking': 0.5}, 'items': {'efficiency': 1.2, 'fortune': 1.4}}</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.ENCHANTMENT_MULTIPLIERS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="grindless.settings.regions.base_region.BaseRegion.FALLBACK_SELECTOR">
-<code class="sig-name descname">FALLBACK_SELECTOR</code><em class="property"> = '0+'</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.FALLBACK_SELECTOR" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="grindless.settings.regions.base_region.BaseRegion.MATERIAL_MULTIPLIERS">
-<code class="sig-name descname">MATERIAL_MULTIPLIERS</code><em class="property"> = {'damage': {'default': 0.5, 'diamond': 0.1, 'golden': 0.08, 'iron': 0.125, 'netherite': 0.09, 'stone': 0.15, 'wooden': 0.25}, 'fortune_looting_damage': 0.8, 'items': {'default': 8, 'diamond': 36, 'golden': 48, 'iron': 32, 'netherite': 40, 'stone': 24, 'wooden': 16}, 'unbreaking_damage': 0.5}</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.MATERIAL_MULTIPLIERS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="grindless.settings.regions.base_region.BaseRegion.SIMPLE_TOOLS">
-<code class="sig-name descname">SIMPLE_TOOLS</code><em class="property"> = ['shears', 'fishing_rod']</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.SIMPLE_TOOLS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="grindless.settings.regions.base_region.BaseRegion.SUPPORED_MATERIALS">
-<code class="sig-name descname">SUPPORED_MATERIALS</code><em class="property"> = ['wooden', 'stone', 'iron', 'diamond', 'netherite', 'golden']</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.SUPPORED_MATERIALS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="grindless.settings.regions.base_region.BaseRegion.SUPPORTED_ENCHANTMENTS">
-<code class="sig-name descname">SUPPORTED_ENCHANTMENTS</code><em class="property"> = {'axe': ['unbreaking', 'efficiency', 'fortune'], 'fishing_rod': ['unbreaking'], 'hoe': ['unbreaking', 'efficiency', 'fortune'], 'pickaxe': ['unbreaking', 'efficiency', 'fortune'], 'shears': ['unbreaking', 'efficiency'], 'shovel': ['unbreaking', 'efficiency', 'fortune']}</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.SUPPORTED_ENCHANTMENTS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
+<dd><dl class="py method">
 <dt id="grindless.settings.regions.base_region.BaseRegion.create_config">
 <code class="sig-name descname">create_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.create_config" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>

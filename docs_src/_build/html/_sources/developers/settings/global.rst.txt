@@ -1,3 +1,5 @@
+.. _settings-global:
+
 Global
 ==================
 
@@ -26,10 +28,9 @@ Global
    * - ``ticks_per_second``
      - based on the default Minecraft logic
 
+----
 
-.. rubric:: Entire File:
-
-`View on Github <https://github.com/thalida/grindless/tree/staging/grindless/settings/global.yaml>`_
+.. rubric:: Source: (`View file on Github <https://github.com/thalida/grindless/tree/main/grindless/settings/global.yaml>`_)
 
 .. literalinclude:: /../grindless/settings/global.yaml
    :language: yaml

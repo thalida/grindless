@@ -2,20 +2,25 @@
 Settings
 =================================
 
-This folder includes all of the settings for the datapack. 
-Some of the settings, eg. global are in yaml files. Other settings, for example regions, are defined in python classes.
+This folder includes all of the settings for the datapack.
+Settings are defined using either yaml or python classes.
+
+For example, the :ref:`Global<settings-global>` settings are defined
+using yaml, while the :ref:`Regions<settings-regions>` settings are in python classes.
 
 .. autofunction:: fetch
 
 ----
 
 .. toctree::
-    :caption: Settings Sections
+    :caption: Setting Categories
     :maxdepth: 1
 
     global
     gather
     scoreboards
+    tools
+    enchantments
     regions/index
 
 """
@@ -24,7 +29,7 @@ Some of the settings, eg. global are in yaml files. Other settings, for example 
 import os
 from inspect import getmembers, ismodule
 # Installed
-import colorama 
+import colorama
 from termcolor import colored
 # Internal
 from . import regions as region_configs
@@ -52,7 +57,7 @@ def fetch(yaml_only=False, prints_enabled=False):
 
     if _cached_datapack_settings is not None:
         return _cached_datapack_settings
-    
+
     datapack_settings = {
         # These configs are pulled from yaml files
         "global": {},
@@ -74,7 +79,7 @@ def fetch(yaml_only=False, prints_enabled=False):
 
     # Calc how many ticks should we wait between each grind session
     datapack_settings["gather"]["wait_ticks"] = datapack_settings['gather']['wait_seconds'] * datapack_settings['global']['ticks_per_second']
-    
+
     # If yaml_only then we can stop here.
     # This is intentionally not cached -- only the full settings dict will be cached.
     if yaml_only:
@@ -98,7 +103,7 @@ def fetch(yaml_only=False, prints_enabled=False):
         if prints_enabled:
             status = colored(f'{region}')
             print(status, '...', end="\r")
-        
+
         # Get the region python module. From the module get the region class (region class member)
         region_module = getattr(region_configs, region)
         region_classname = region.replace("_", "")
@@ -111,27 +116,27 @@ def fetch(yaml_only=False, prints_enabled=False):
             if prints_enabled:
                 print(colored(f'Error! No class found for', 'red', attrs=['bold']), status)
             continue
-        
+
         # Create an instance of the region
         region_class = region_class_member[0][1]()
         region_type = region_class.region_type
-        
+
         # Store the region name in a helper list (for easy looping later on)
         datapack_settings[f'{region_type}_regions'].append(region)
-        
+
         # Store the region config (holds the items given and tools supported for the region)
         datapack_settings['regions'][region] = region_class.create_config()
-        
+
         # If the region is an overworld mine, check to see where the mine ends (end_y)
         #   If it's higher up than what's stored save it to mines_ends_y
         if region_type == 'overworld_mine':
             y_range = region_class.y_range
-            
+
             if mines_end_y is None:
                 mines_end_y = y_range[1]
             else:
                 mines_end_y = max(y_range[1], mines_end_y)
-        
+
         if prints_enabled:
             print(colored(f'DONE', 'green', attrs=['bold']), status)
 

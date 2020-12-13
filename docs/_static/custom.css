@@ -51,6 +51,14 @@ b, strong {
     background: #221c2d;
 }
 
+p {
+    margin: 0 0 12px;
+}
+
+.rst-content .line-block {
+    margin-bottom: 6px;
+}
+
 .rst-content .linenodiv pre,
 .rst-content div[class^=highlight] pre,
 .rst-content pre.literal-block {
@@ -59,6 +67,30 @@ b, strong {
 
 table.docutils a.reference.internal {
     text-decoration: none;
+}
+
+.wy-nav-top {
+    flex-flow: row nowrap;
+    background: #fff;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wy-nav-top i {
+    color: #000;
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.wy-nav-top a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px){
+    .wy-nav-top {
+        display: flex;
+    }
 }
 
 .wy-nav-side {
@@ -196,6 +228,7 @@ html.writer-html5 .rst-content table.docutils th {
 html.writer-html4 .rst-content dl:not(.docutils), html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple) {
     background: #f9f9f9;
     padding-bottom: 6px;
+    margin-top: 24px;
 }
 
 html.writer-html4 .rst-content dl:not(.docutils)>dt, html.writer-html5 .rst-content dl[class]:not(.option-list):not(.field-list):not(.footnote):not(.glossary):not(.simple)>dt {

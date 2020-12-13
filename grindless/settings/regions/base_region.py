@@ -1,4 +1,6 @@
 """
+.. _settings-regions-baseregion:
+
 BaseRegion
 =============================
 General configs for the data pack
@@ -24,60 +26,8 @@ class BaseRegion():
     y_range = None
     items = {}
 
-    FALLBACK_SELECTOR = '0+'
-    SUPPORED_MATERIALS = [
-        'wooden',
-        'stone',
-        'iron',
-        'diamond',
-        'netherite',
-        'golden',
-    ]
-    SIMPLE_TOOLS = ['shears', 'fishing_rod']
-    MATERIAL_MULTIPLIERS = {
-        'items': {
-            'default': 8,
-            'wooden': 16,
-            'stone': 24,
-            'iron': 32,
-            'diamond': 36,
-            'netherite': 40,
-            'golden': 48
-        },
-        'damage': {
-            'default': .5,
-            'wooden': .25,
-            'stone': .15,
-            'iron': .125,
-            'diamond': .1,
-            'netherite': .09,
-            'golden': .08
-        },
-        'fortune_looting_damage': .8,
-        'unbreaking_damage': .5,
-    }
-    ENABLE_ENCHANTMENTS = True
-    ENCHANTMENT_MULTIPLIERS = {
-        'items': {
-            'efficiency': 1.2,
-            'fortune': 1.4,
-        },
-        'damage': {
-            'unbreaking': 0.5,
-            'efficiency': 0.8,
-        }
-    }
-    SUPPORTED_ENCHANTMENTS = {
-        'axe': ['unbreaking', 'efficiency', 'fortune'],
-        'pickaxe': ['unbreaking', 'efficiency', 'fortune'],
-        'shovel': ['unbreaking', 'efficiency', 'fortune'],
-        'hoe': ['unbreaking', 'efficiency', 'fortune'],
-        'shears': ['unbreaking', 'efficiency'],
-        'fishing_rod': ['unbreaking']
-    }
-    
     def create_tool_key(self, tool, material=None):
-        if tool == self.FALLBACK_SELECTOR:
+        if tool == helpers.TOOL_SELECTORS['ANY']:
             return tool
 
         if material is None or len(material) == 0:
@@ -85,7 +35,7 @@ class BaseRegion():
 
         return f'minecraft:{material}_{tool}'
 
-    
+
     def create_config(self):
         region_config = {
             'id': self.name,
@@ -95,39 +45,52 @@ class BaseRegion():
             'resources': {},
             'supported_tools': [],
         }
-        
+
         items_config = helpers.read_yaml_file(os.path.join(config.REGIONS_DIR, 'items.yaml'))
+        tools_config = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'tools.yaml'))
+        enchantments_config = helpers.read_yaml_file(os.path.join(config.SETTINGS_DIR, 'enchantments.yaml'))
 
         for item, region_multiplier in self.items.items():
             item_config = items_config[item]
 
             for tool, subtypes in item_config.items():
-                if tool == self.FALLBACK_SELECTOR or tool in self.SIMPLE_TOOLS:
+                if tool == helpers.TOOL_SELECTORS['ANY'] or tool in tools_config['tools_without_material']:
                     tool_type = tool
                     tool_materials = [None]
                 else:
                     tool_material = None
-                    for material in self.SUPPORED_MATERIALS:
+                    for material in tools_config['supported_materials']:
                         if tool.find(material) >= 0:
                             tool_material = material
                             break
-                    
+
                     if tool_material is not None:
                         tool_type = tool.replace(f'{tool_material}_', '')
                         tool_materials = [tool_material]
                     else:
                         tool_type = tool
-                        tool_materials = self.SUPPORED_MATERIALS
+                        tool_materials = tools_config['supported_materials']
+
+                if tool_type not in tools_config['supported_tool_types']:
+                    # TODO: THROW ERROR
+                    continue
 
                 for material in tool_materials:
                     tool_key = self.create_tool_key(tool_type, material=material)
-                    
+
                     if material is None:
-                        material_multiplier = self.MATERIAL_MULTIPLIERS['items']['default']
+                        material_multiplier = tools_config['item_multipliers_by_material']['default']
                     else:
-                        material_multiplier = self.MATERIAL_MULTIPLIERS['items'][material]
-                    
+                        material_multiplier = tools_config['item_multipliers_by_material'][material]
+
                     for subtype, gives in subtypes.items():
+                        if not enchantments_config['enabled'] and subtype in enchantments_config['supported_enchantments']:
+                            continue
+
+                        if subtype not in enchantments_config['supported_enchantments'] and subtype != 'default':
+                            # TODO: THROW ERROR
+                            continue
+
                         item_amount = math.ceil(gives * region_multiplier * material_multiplier)
 
                         if item_amount <= 0:
@@ -145,17 +108,17 @@ class BaseRegion():
 
                         region_config['resources'][tool_key][subtype]['items'][item] = item_amount
 
-                        if not self.ENABLE_ENCHANTMENTS:
+                        if not enchantments_config['enabled']:
                             continue
 
                         found_enchantments = []
-                        for enchantment in sorted(self.ENCHANTMENT_MULTIPLIERS['items'].keys()):
+                        for enchantment in sorted(enchantments_config['item_multipliers_by_enchantment'].keys()):
                             enchantment_key = f'{subtype}/minecraft:{enchantment}'
-                            enchantment_multiplier = self.ENCHANTMENT_MULTIPLIERS['items'][enchantment]
+                            enchantment_multiplier = enchantments_config['item_multipliers_by_enchantment'][enchantment]
 
-                            if enchantment not in self.SUPPORTED_ENCHANTMENTS.get(tool_type, []):
+                            if enchantment not in enchantments_config['supported_enchantments_by_tool'].get(tool_type, []):
                                 continue
-                            
+
                             if enchantment_key not in region_config['resources'][tool_key]:
                                 region_config['resources'][tool_key][enchantment_key] = {
                                     'tool_type': tool_type,
@@ -178,8 +141,8 @@ class BaseRegion():
                             combo_multiplier = 1
 
                             for enchantment in enchantments:
-                                combo_multiplier *= self.ENCHANTMENT_MULTIPLIERS['items'][enchantment]
-                            
+                                combo_multiplier *= enchantments_config['item_multipliers_by_enchantment'][enchantment]
+
                             if combo_key not in region_config['resources'][tool_key]:
                                 region_config['resources'][tool_key][combo_key] = {
                                     'tool_type': tool_type,
@@ -197,33 +160,33 @@ class BaseRegion():
                 num_items_given = sum(subtype_stanza['items'].values())
 
                 if material is None:
-                    damage_multiplier = self.MATERIAL_MULTIPLIERS['damage']['default']
+                    damage_multiplier = tools_config['damage_multipliers_by_material']['default']
                 else:
-                    damage_multiplier = self.MATERIAL_MULTIPLIERS['damage'][material]
+                    damage_multiplier = tools_config['damage_multipliers_by_material'][material]
 
                 damage = math.floor(num_items_given * damage_multiplier)
                 region_config['resources'][tool_key][subtype]['damage'] = damage
 
-                if not self.ENABLE_ENCHANTMENTS:
+                if not enchantments_config['enabled']:
                     continue
-                
-                for enchantment in sorted(self.ENCHANTMENT_MULTIPLIERS['damage'].keys()): 
-                    if enchantment not in self.SUPPORTED_ENCHANTMENTS.get(tool_type, []):
+
+                for enchantment in sorted(enchantments_config['damage_multipliers_by_enchantment'].keys()):
+                    if enchantment not in enchantments_config['supported_enchantments_by_tool'].get(tool_type, []):
                         continue
 
-                    if enchantment in self.ENCHANTMENT_MULTIPLIERS['items']:
+                    if enchantment in enchantments_config['item_multipliers_by_enchantment']:
                         continue
-                    
+
                     if subtype.find('/') < 0:
                         enchantment_key = f'{subtype}/minecraft:{enchantment}'
                     else:
                         enchantment_key = f'{subtype}&minecraft:{enchantment}'
-                    
-                    enchantment_multiplier = self.ENCHANTMENT_MULTIPLIERS['damage'][enchantment]
+
+                    enchantment_multiplier = enchantments_config['damage_multipliers_by_enchantment'][enchantment]
                     enchantment_damage = math.floor(damage * enchantment_multiplier)
 
                     region_config['resources'][tool_key][enchantment_key] = deepcopy(subtype_stanza)
                     region_config['resources'][tool_key][enchantment_key]['damage'] = enchantment_damage
 
-        region_config["supported_tools"] = [tool for tool in region_config["resources"].keys() if tool != self.FALLBACK_SELECTOR]
+        region_config["supported_tools"] = [tool for tool in region_config["resources"].keys() if tool != helpers.TOOL_SELECTORS['ANY']]
         return region_config

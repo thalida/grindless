@@ -106,10 +106,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../global.html">Global</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gather.html">Gather</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../scoreboards.html">Scoreboards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../enchantments.html">Enchantments</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Regions</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Items</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Items</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sample-item-definitions">Sample Item Definitions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#supported-extends">Supported Extends</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="base_region.html">BaseRegion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#supported-regions">Supported Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#supported-dimensions">Supported Dimensions</a></li>
 </ul>
 </li>
 </ul>
@@ -185,8 +191,156 @@
            <div itemprop="articleBody">
             
   <div class="section" id="items">
-<h1>Items<a class="headerlink" href="#items" title="Permalink to this headline">¶</a></h1>
-<p>talk about items yaml</p>
+<span id="settings-regions-items"></span><h1>Items<a class="headerlink" href="#items" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">items.yaml</span></code> includes every supported item in the datapack.</p>
+<p>Each item defines what tools are supported, and provides a multiplier
+from 0 to 1 of how much the tool provides. <code class="docutils literal notranslate"><span class="pre">1</span></code> is the default item multiplier</p>
+<p>The item multiplier is used in conjunction with the region,
+<a class="reference internal" href="../tools.html#settings-tools"><span class="std std-ref">tool</span></a>, and <a class="reference internal" href="../enchantments.html#settings-enchantments"><span class="std std-ref">enchantment</span></a>
+multipliers to calculate exactly how much of an item should be given.</p>
+<p><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/items.yaml">View items.yaml on Github</a></p>
+<hr class="docutils" />
+<div class="section" id="sample-item-definitions">
+<h2>Sample Item Definitions<a class="headerlink" href="#sample-item-definitions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="simple">
+<h3>Simple<a class="headerlink" href="#simple" title="Permalink to this headline">¶</a></h3>
+<p>The following code defines <code class="docutils literal notranslate"><span class="pre">basalt</span></code>:</p>
+<ul class="simple">
+<li><p>as only given by a pickaxe</p></li>
+<li><p>and by default gives 100% (1) of what the region and pickaxe normally would produce</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">minecraft:basalt</span><span class="p p-Indicator">:</span>
+  <span class="nt">pickaxe</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="any-tool">
+<h3>Any Tool<a class="headerlink" href="#any-tool" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">any</span></code> is a unique in that it is a fallback that’s captured if any tool is put into the
+tool slot of the workstation.</p>
+<p>The following code defines <code class="docutils literal notranslate"><span class="pre">apple</span></code>:</p>
+<ul class="simple">
+<li><p>as an item given by any tool or an axe</p></li>
+<li><p>and by default gives 100% (1) of what the region and axe normally would produce</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">minecraft:apple</span><span class="p p-Indicator">:</span>
+  <span class="nt">any</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">axe</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specific-material-and-tool">
+<h3>Specific Material and Tool<a class="headerlink" href="#specific-material-and-tool" title="Permalink to this headline">¶</a></h3>
+<p>Some items require a specific material and tool type combination in order to be
+given.</p>
+<p>The following code defines <code class="docutils literal notranslate"><span class="pre">diamond</span></code>:</p>
+<ul class="simple">
+<li><p>as an item given by only iron, diamond, gold, and netherite pickaxes</p></li>
+<li><p>and by default gives 100% (1) of what the region and pickaxe normally would produce</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">minecraft:diamond</span><span class="p p-Indicator">:</span>
+  <span class="nt">iron_pickaxe</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">diamond_pickaxe</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">golden_pickaxe</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">netherite_pickaxe</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="silk-touch">
+<h3>Silk Touch<a class="headerlink" href="#silk-touch" title="Permalink to this headline">¶</a></h3>
+<p>Some items require the silk touch enchantment in order to be mined, while others
+may give a reduced quantity of items when mined with silk touch.</p>
+<p>The following code defines <code class="docutils literal notranslate"><span class="pre">gravel</span></code>:</p>
+<ul class="simple">
+<li><p>as an item given by any tool or a shovel</p></li>
+<li><p>by default the amount of gravel produced is 20% of what would normally be given</p></li>
+<li><p>if the tool has silk touch then the amount of gravel is produced 80% of what would be given</p></li>
+</ul>
+<p>The following code defines <code class="docutils literal notranslate"><span class="pre">flint</span></code>:</p>
+<ul class="simple">
+<li><p>as an item given by any tool or a shovel</p></li>
+<li><p>by default the amount of flint produced is 80% of what would normally be given</p></li>
+<li><p>if the tool has silk touch then the amount of flint is produced 20% of what would be given</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">minecraft:gravel</span><span class="p p-Indicator">:</span>
+  <span class="nt">any</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.2</span>
+    <span class="l l-Scalar l-Scalar-Plain">minecraft:silk_touch</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.8</span>
+  <span class="nt">shovel</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.2</span>
+    <span class="l l-Scalar l-Scalar-Plain">minecraft:silk_touch</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.8</span>
+
+<span class="l l-Scalar l-Scalar-Plain">minecraft:flint</span><span class="p p-Indicator">:</span>
+  <span class="nt">any</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.8</span>
+    <span class="l l-Scalar l-Scalar-Plain">minecraft:silk_touch</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.2</span>
+  <span class="nt">shovel</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.8</span>
+    <span class="l l-Scalar l-Scalar-Plain">minecraft:silk_touch</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.2</span>
+</pre></div>
+</div>
+<p>With both of these item definitions, if the tool in the workbench is a shovel…</p>
+<ul class="simple">
+<li><p>and it <strong>does not</strong> have silk touch: then the player will be given 20% gravel and 80% flint</p></li>
+<li><p>and it <strong>does</strong> have silk touch: then the player will be given 20% flint and 80% gravel</p></li>
+</ul>
+<p>In the following example, <code class="docutils literal notranslate"><span class="pre">melon</span></code> is defined as:</p>
+<ul class="simple">
+<li><p>as an item given by any tool or an axe</p></li>
+<li><p>by default it gives 100% of would normally be produced</p></li>
+<li><p>if the tool has silk touch then zero melon slices will be given</p></li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">minecraft:melon_slice</span><span class="p p-Indicator">:</span>
+  <span class="nt">any</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="l l-Scalar l-Scalar-Plain">minecraft:silk_touch</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+  <span class="nt">axe</span><span class="p">:</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+    <span class="l l-Scalar l-Scalar-Plain">minecraft:silk_touch</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-extends">
+<h3>Using Extends<a class="headerlink" href="#using-extends" title="Permalink to this headline">¶</a></h3>
+<p>There are many items whose definitions share common characteristics.
+The <code class="docutils literal notranslate"><span class="pre">items</span></code> yaml file uses the extends feature built into yaml to reduce duplications.</p>
+<p>The code snippet below defines all of the oak variants as extensions of the default
+leaves, logs, and sappling item definitions.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">minecraft:oak_leaves</span><span class="p p-Indicator">:</span>
+  <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*leaves</span>
+<span class="l l-Scalar l-Scalar-Plain">minecraft:oak_log</span><span class="p p-Indicator">:</span>
+  <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*logs</span>
+<span class="l l-Scalar l-Scalar-Plain">minecraft:oak_sapling</span><span class="p p-Indicator">:</span>
+  <span class="nt">&lt;&lt;</span><span class="p">:</span> <span class="nv">*sappling</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="supported-extends">
+<h2>Supported Extends<a class="headerlink" href="#supported-extends" title="Permalink to this headline">¶</a></h2>
+<p>There are only a handful of groups currently defined for quick extending:</p>
+<ul class="simple">
+<li><p>Leaves</p></li>
+<li><p>Logs</p></li>
+<li><p>Sappling</p></li>
+<li><p>Flowers</p></li>
+<li><p>Coral</p></li>
+<li><p>Coral Block</p></li>
+<li><p>Coral Fan</p></li>
+<li><p>Mushroom</p></li>
+<li><p>Mushroom Block</p></li>
+<li><p>Sand</p></li>
+<li><p>Terracotta</p></li>
+</ul>
+</div>
 </div>
 
 

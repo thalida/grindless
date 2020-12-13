@@ -8,6 +8,13 @@ refactor to be part of the datapack configs
 
 import yaml
 
+
+TOOL_SELECTORS = {
+    'ANY': 'any',
+    'ANY_TOOL': 'any_tool',
+}
+
+
 def read_yaml_file(filename):
     with open(filename, 'r') as stream:
         try:
