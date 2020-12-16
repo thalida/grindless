@@ -1,8 +1,7 @@
 from .bamboo_jungle import BambooJungle
 
 class BambooJungleHills(BambooJungle):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'bamboo_jungle_hills'
         self.display_name = 'Bamboo Jungle Hills'
-        

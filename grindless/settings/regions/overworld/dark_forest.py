@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class DarkForest(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'dark_forest'
         self.display_name = 'Dark Forest'
 

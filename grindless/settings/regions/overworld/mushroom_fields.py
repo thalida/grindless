@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class MushroomFields(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'mushroom_fields'
         self.display_name = 'Mushroom Fields'
 

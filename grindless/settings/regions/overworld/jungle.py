@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class Jungle(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'jungle'
         self.display_name = 'Jungle'
 

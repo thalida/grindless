@@ -1,7 +1,7 @@
 from .forest import Forest
 
 class BirchForest(Forest):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'birch_forest'
         self.display_name = 'Birch Forest'
 

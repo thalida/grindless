@@ -7,6 +7,10 @@ supported_enchantments:
   - fortune
 
 supported_enchantments_by_tool:
+  default:
+    - unbreaking
+    - efficiency
+    - fortune
   axe:
     - unbreaking
     - efficiency

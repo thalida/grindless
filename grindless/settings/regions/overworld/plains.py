@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class Plains(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'plains'
         self.display_name = 'Plains'
 

@@ -1,7 +1,7 @@
 from .ocean import Ocean
 
 class DeepFrozenOcean(Ocean):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'deep_frozen_ocean'
         self.display_name = 'Deep Frozen Ocean'
 

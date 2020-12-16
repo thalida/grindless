@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class WarpedForest(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'warped_forest'
         self.display_name = 'Warped Forest'
         self.region_type = 'nether'

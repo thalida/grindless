@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class SurfaceMine(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'surface_mine'
         self.display_name = 'Surface Mine'
         self.region_type = 'overworld_mine'

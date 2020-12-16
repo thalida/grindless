@@ -1,8 +1,7 @@
 from .jungle import Jungle
 
 class JungleHills(Jungle):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'jungle_hills'
         self.display_name = 'Jungle Hills'
-        

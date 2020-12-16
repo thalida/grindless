@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class Mountains(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'mountains'
         self.display_name = 'Mountains'
 

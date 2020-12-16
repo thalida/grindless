@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class Desert(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'desert'
         self.display_name = 'Desert'
 

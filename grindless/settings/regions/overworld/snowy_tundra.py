@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class SnowyTundra(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'snowy_tundra'
         self.display_name = 'Snowy Tundra'
 

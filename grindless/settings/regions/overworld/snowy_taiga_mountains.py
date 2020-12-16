@@ -1,8 +1,7 @@
 from .snowy_taiga import SnowyTaiga
 
 class SnowyTaigaMountains(SnowyTaiga):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'snowy_taiga_mountains'
         self.display_name = 'Snowy Taiga Mountains'
-        

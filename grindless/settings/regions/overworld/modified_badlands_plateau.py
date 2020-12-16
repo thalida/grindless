@@ -1,8 +1,8 @@
 from .badlands_plateau import BadlandsPlateau
 
 class ModifiedBadlandsPlateau(BadlandsPlateau):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'modified_badlands_plateau'
         self.display_name = 'Modified Badlands Plateau'
 

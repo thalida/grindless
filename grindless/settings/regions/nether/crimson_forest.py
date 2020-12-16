@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class CrimsonForest(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'crimson_forest'
         self.display_name = 'Crimson Forest'
         self.region_type = 'nether'

@@ -1,8 +1,8 @@
 from .savanna import Savanna
 
 class ShatteredSavanna(Savanna):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'shattered_savanna'
         self.display_name = 'Shattered Savanna'
 

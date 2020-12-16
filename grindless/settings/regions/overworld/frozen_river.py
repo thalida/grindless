@@ -1,7 +1,7 @@
 from .river import River
 
 class FrozenRiver(River):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'frozen_river'
         self.display_name = 'Frozen River'
 

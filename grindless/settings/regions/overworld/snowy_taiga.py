@@ -1,7 +1,7 @@
 from .taiga import Taiga
 
 class SnowyTaiga(Taiga):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'snowy_taiga'
         self.display_name = 'Snowy Taiga'
 

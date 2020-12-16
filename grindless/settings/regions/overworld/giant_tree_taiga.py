@@ -1,7 +1,7 @@
 from .taiga import Taiga
 
 class GiantTreeTaiga(Taiga):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'giant_tree_taiga'
         self.display_name = 'Giant Tree Taiga'
 

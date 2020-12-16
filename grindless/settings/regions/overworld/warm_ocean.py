@@ -1,7 +1,7 @@
 from .ocean import Ocean
 
 class WarmOcean(Ocean):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'warm_ocean'
         self.display_name = 'Warm Ocean'
 

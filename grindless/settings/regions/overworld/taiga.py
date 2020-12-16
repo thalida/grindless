@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class Taiga(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'taiga'
         self.display_name = 'Taiga'
 

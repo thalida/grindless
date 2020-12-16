@@ -1,7 +1,7 @@
 from .savanna import Savanna
 
 class SavannaPlateau(Savanna):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'savanna_plateau'
         self.display_name = 'Savanna Plateau'

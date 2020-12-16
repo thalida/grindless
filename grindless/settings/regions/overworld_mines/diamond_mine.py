@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class DiamondMine(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'diamond_mine'
         self.display_name = 'Diamond Mine'
         self.region_type = 'overworld_mine'

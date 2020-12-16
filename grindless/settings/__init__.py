@@ -125,7 +125,7 @@ def fetch(yaml_only=False, prints_enabled=False):
         datapack_settings[f'{region_type}_regions'].append(region)
 
         # Store the region config (holds the items given and tools supported for the region)
-        datapack_settings['regions'][region] = region_class.create_config()
+        datapack_settings['regions'][region] = region_class.config
 
         # If the region is an overworld mine, check to see where the mine ends (end_y)
         #   If it's higher up than what's stored save it to mines_ends_y

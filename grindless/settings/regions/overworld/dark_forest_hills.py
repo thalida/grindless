@@ -1,8 +1,7 @@
 from .dark_forest import DarkForest
 
 class DarkForestHills(DarkForest):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'dark_forest_hills'
         self.display_name = 'Dark Forest Hills'
-        

@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class Savanna(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'savanna'
         self.display_name = 'Savanna'
 

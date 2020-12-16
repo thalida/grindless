@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class SoulSandValley(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'soul_sand_valley'
         self.display_name = 'Soul Sand Valley'
         self.region_type = 'nether'

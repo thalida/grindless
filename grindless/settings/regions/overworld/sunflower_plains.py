@@ -1,12 +1,12 @@
 from .plains import Plains
 
 class SunflowerPlains(Plains):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'sunflower_plains'
         self.display_name = 'Sunflower Plains'
 
-        self.items = { 
+        self.items = {
             'minecraft:oak_log': 1,
             'minecraft:oak_leaves': 1,
             'minecraft:oak_sapling': 0.5,

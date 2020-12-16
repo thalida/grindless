@@ -1,8 +1,7 @@
 from .swamp import Swamp
 
 class SwampHills(Swamp):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'swamp_hills'
         self.display_name = 'Swamp Hills'
-        

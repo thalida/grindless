@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class NetherWastes(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'nether_wastes'
         self.display_name = 'Nether Wastes'
         self.region_type = 'nether'

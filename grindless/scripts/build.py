@@ -228,3 +228,5 @@ def build_regions(datapack_settings):
 if __name__ == '__main__':
     # If we're running this script from the commandline, run the entire build!
     build(prints_enabled=True)
+    # from grindless.settings.regions.overworld.badlands import Badlands
+    # Badlands().create_config()

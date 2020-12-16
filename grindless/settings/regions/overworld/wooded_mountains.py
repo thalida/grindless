@@ -1,8 +1,7 @@
 from .mountains import Mountains
 
 class WoodedMountains(Mountains):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'wooded_mountains'
         self.display_name = 'Wooded Mountains'
-        

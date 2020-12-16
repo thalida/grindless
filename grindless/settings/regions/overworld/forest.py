@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class Forest(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'forest'
         self.display_name = 'Forest'
 

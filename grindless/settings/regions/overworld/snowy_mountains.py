@@ -1,7 +1,7 @@
 from .snowy_tundra import SnowyTundra
 
 class SnowyMountains(SnowyTundra):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'snowy_mountains'
         self.display_name = 'Snowy Mountains'

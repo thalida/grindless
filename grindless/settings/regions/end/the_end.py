@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class TheEnd(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'the_end'
         self.display_name = 'The End'
         self.region_type = 'end'

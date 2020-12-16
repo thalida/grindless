@@ -1,8 +1,7 @@
 from .giant_spruce_taiga import GiantSpruceTaiga
 
 class GiantSpruceTaigaHills(GiantSpruceTaiga):
-    def __init__(self):
-        super().__init__()
+    def setup_region(self):
+        super().setup_region()
         self.name = 'giant_spruce_taiga_hills'
         self.display_name = 'Giant Spruce Taiga Hills'
-        

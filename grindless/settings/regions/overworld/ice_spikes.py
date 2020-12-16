@@ -1,7 +1,7 @@
 from ..base_region import BaseRegion
 
 class IceSpikes(BaseRegion):
-    def __init__(self):
+    def setup_region(self):
         self.name = 'ice_spikes'
         self.display_name = 'Ice Spikes'
 
