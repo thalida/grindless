@@ -5,6 +5,11 @@ Config
 These global constants are used by the build and release scripts.
 Learn more about :doc:`scripts <./scripts/index>`.
 
+Quick Reference
+--------------------
+.. automodulesumm:: grindless.config
+    :autosummary-no-titles:
+    :autosummary-sections: Data
 
 ----
 
