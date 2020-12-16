@@ -270,7 +270,8 @@ html.writer-html5 .rst-content dl.field-list>dt, html.writer-html5 .rst-content 
 
 
 .rst-content dl.data dt,
-.rst-content dl.function dt {
+.rst-content dl.function dt,
+.rst-content dl.class dt {
     width: 100%;
 }
 

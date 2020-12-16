@@ -10,12 +10,12 @@ import json
 import grindless.settings
 import grindless.helpers as helpers
 
-def set_enchantments(block_dict, enchatments):
+def set_enchantments(block_dict, enchantments):
     if block_dict.get('Items') is None or len(block_dict['Items']) == 0:
         block_dict['Items'] = [{}]
 
     formatted_enchantments = []
-    for enchantment in enchatments:
+    for enchantment in enchantments:
         formatted_enchantments.append({'id': enchantment})
 
     block_dict['Items'][0]['tag'] = {'Enchantments': formatted_enchantments}
@@ -65,8 +65,8 @@ def workstation_state(item=helpers.TOOL_SELECTORS['ANY'], enchantments=[], decor
     block_dict_str = block_dict_str.replace("'" + workstation_configs['name'] + "'}\"", '"' + workstation_configs['name'] + '"}\'')
     block_dict_str = block_dict_str.replace(f'"Slot": {workstation_configs["slot"]}', f'"Slot": {workstation_configs["slot"]}b')
 
-    conditonal = f'data block {workstation_configs["coords"]} {block_dict_str}'
-    return conditonal
+    conditional = f'data block {workstation_configs["coords"]} {block_dict_str}'
+    return conditional
 
 
 def workstation_conditional(tool, subtype, tool_stanza, region=None):

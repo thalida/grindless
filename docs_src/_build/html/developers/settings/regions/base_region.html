@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>BaseRegion &mdash; Grindless 1.0.0 documentation</title>
+  <title>Base Region &mdash; Grindless 1.0.0 documentation</title>
   
 
   
@@ -110,7 +110,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../enchantments.html">Enchantments</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Regions</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="items.html">Items</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">BaseRegion</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Base Region</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-overview">Module Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#baseregion-class">BaseRegion Class</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="index.html#supported-dimensions">Supported Dimensions</a></li>
 </ul>
 </li>
@@ -169,7 +173,7 @@
         
           <li><a href="index.html">Regions</a> &raquo;</li>
         
-      <li>BaseRegion</li>
+      <li>Base Region</li>
     
     
 <li class="wy-breadcrumbs-aside">
@@ -186,49 +190,332 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <span class="target" id="module-grindless.settings.regions.base_region"></span><div class="section" id="baseregion">
-<span id="settings-regions-baseregion"></span><h1>BaseRegion<a class="headerlink" href="#baseregion" title="Permalink to this headline">¶</a></h1>
-<p>General configs for the data pack</p>
+  <span class="target" id="module-grindless.settings.regions.base_region"></span><div class="section" id="base-region">
+<span id="settings-regions-baseregion"></span><h1>Base Region<a class="headerlink" href="#base-region" title="Permalink to this headline">¶</a></h1>
+<p>The base class extended by all regions.
+This class contains the logic for generating region configs,
+which are passed to the jinja templates during build.</p>
+<div class="section" id="module-overview">
+<h2>Module Overview<a class="headerlink" href="#module-overview" title="Permalink to this headline">¶</a></h2>
+<p><strong>Classes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion" title="grindless.settings.regions.base_region.BaseRegion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseRegion</span></code></a>()</p></td>
+<td><p>Base class for all region config classes.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">enchantments_config</span></code></p></td>
+<td><p>Parsed settings/enchantments.yaml file</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">items_config</span></code></p></td>
+<td><p>Parsed settings/items.yaml file</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">tools_config</span></code></p></td>
+<td><p>Parsed settings/tools.yaml file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="baseregion-class">
+<h2>BaseRegion Class<a class="headerlink" href="#baseregion-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="quick-reference">
+<h3>Quick Reference<a class="headerlink" href="#quick-reference" title="Permalink to this headline">¶</a></h3>
+<p><strong>Attributes:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.config" title="grindless.settings.regions.base_region.BaseRegion.config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">config</span></code></a></p></td>
+<td><p>Generated region config</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.display_name" title="grindless.settings.regions.base_region.BaseRegion.display_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">display_name</span></code></a></p></td>
+<td><p>Human-readable name</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.items" title="grindless.settings.regions.base_region.BaseRegion.items"><code class="xref py py-obj docutils literal notranslate"><span class="pre">items</span></code></a></p></td>
+<td><p>Houses the items given by the region</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.name" title="grindless.settings.regions.base_region.BaseRegion.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code></a></p></td>
+<td><p>Region namespace</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.region_type" title="grindless.settings.regions.base_region.BaseRegion.region_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">region_type</span></code></a></p></td>
+<td><p>Defines the group the region is in Defaults to ‘overworld’.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.y_range" title="grindless.settings.regions.base_region.BaseRegion.y_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">y_range</span></code></a></p></td>
+<td><p>y-axis range the region is contained by (only used for mines)</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods:</strong></p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.create_config" title="grindless.settings.regions.base_region.BaseRegion.create_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_config</span></code></a>()</p></td>
+<td><p>Creates the region config based on the items produced (self.items)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.create_enchantment_damage_configs" title="grindless.settings.regions.base_region.BaseRegion.create_enchantment_damage_configs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_enchantment_damage_configs</span></code></a>(tool_type, …)</p></td>
+<td><p>Creates dictionary of where the key is the tools with enchantments</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.create_enchantment_drops_configs" title="grindless.settings.regions.base_region.BaseRegion.create_enchantment_drops_configs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_enchantment_drops_configs</span></code></a>(…)</p></td>
+<td><p>Creates a dictionary were the keys are the tools with enchantments</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.create_tool_key" title="grindless.settings.regions.base_region.BaseRegion.create_tool_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_tool_key</span></code></a>(tool[, tool_material])</p></td>
+<td><p>Creates a tool key like <code class="docutils literal notranslate"><span class="pre">minecraft:wooden_pickaxe</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.get_damage_amount" title="grindless.settings.regions.base_region.BaseRegion.get_damage_amount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_damage_amount</span></code></a>(items[, tool_material])</p></td>
+<td><p>Calculates how much damage should be given based on the number of items given.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.get_give_amount" title="grindless.settings.regions.base_region.BaseRegion.get_give_amount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_give_amount</span></code></a>(item_multiplier, …[, …])</p></td>
+<td><p>Calculates how much of an item should be given</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.get_tool_info" title="grindless.settings.regions.base_region.BaseRegion.get_tool_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_tool_info</span></code></a>(tool)</p></td>
+<td><p>Get the tool type and material from a tool key</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#grindless.settings.regions.base_region.BaseRegion.setup_region" title="grindless.settings.regions.base_region.BaseRegion.setup_region"><code class="xref py py-obj docutils literal notranslate"><span class="pre">setup_region</span></code></a>()</p></td>
+<td><p>Sets all region variables (name, display_name, region_type, items, etc.)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="detailed-overview">
+<h3>Detailed Overview<a class="headerlink" href="#detailed-overview" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="grindless.settings.regions.base_region.BaseRegion">
 <em class="property">class </em><code class="sig-prename descclassname">grindless.settings.regions.base_region.</code><code class="sig-name descname">BaseRegion</code><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
+<dd><dl class="simple">
+<dt>Base class for all region config classes.</dt><dd><p>On init this class generates the config file for the region.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – setup_region() must be implemented by child classes</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="grindless.settings.regions.base_region.BaseRegion.config">
+<code class="sig-name descname">config</code><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generated region config</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="grindless.settings.regions.base_region.BaseRegion.create_config">
 <code class="sig-name descname">create_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.create_config" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates the region config based on the items produced (self.items)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary of the parsed and formatted region data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="grindless.settings.regions.base_region.BaseRegion.create_enchantment_damage_configs">
+<em class="property">static </em><code class="sig-name descname">create_enchantment_damage_configs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tool_type</span></em>, <em class="sig-param"><span class="n">tool_option</span></em>, <em class="sig-param"><span class="n">damage_amount</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.create_enchantment_damage_configs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Creates dictionary of where the key is the tools with enchantments</dt><dd><p>and the value is the original damage modified by the enchantments.
+For example, having an unbreaking enchantment will cause the tool
+to receive less damage.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tool_type</strong> (<em>str</em>) – The base type of the tool (eg. pickaxe)</p></li>
+<li><p><strong>tool_option</strong> (<em>str</em>) – The current version of the tool (eg. default or silk_touch)</p></li>
+<li><p><strong>damage_amount</strong> (<em>float</em>) – How much damage is given by default to this tool</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dict of enchantment keys mapped to modified damage amount</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="grindless.settings.regions.base_region.BaseRegion.create_enchantment_drops_configs">
+<em class="property">static </em><code class="sig-name descname">create_enchantment_drops_configs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tool_option</span></em>, <em class="sig-param"><span class="n">give_amount</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.create_enchantment_drops_configs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Creates a dictionary were the keys are the tools with enchantments</dt><dd><p>and the values are how much of an item should be given.
+For example, having an efficiency enchantment will cause the tool to give more items.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tool_option</strong> (<em>str</em>) – What version of the tool are we modifying?</p></li>
+<li><p><strong>give_amount</strong> (<em>float</em>) – How much of the item is given by this tool already?</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dict of the enchantment keys mapped to the modified give amount</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="grindless.settings.regions.base_region.BaseRegion.create_tool_key">
-<code class="sig-name descname">create_tool_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tool</span></em>, <em class="sig-param"><span class="n">material</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.create_tool_key" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<em class="property">static </em><code class="sig-name descname">create_tool_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tool</span></em>, <em class="sig-param"><span class="n">tool_material</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.create_tool_key" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Creates a tool key like <code class="docutils literal notranslate"><span class="pre">minecraft:wooden_pickaxe</span></code></dt><dd><p>based on the tool and material provided.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tool</strong> (<em>str</em>) – The tool type (eg. pickaxe, shears, etc)</p></li>
+<li><p><strong>material</strong> (<em>str</em><em>, </em><em>optional</em>) – The material the tool is made from</p></li>
+<li><p><strong>wooden</strong> (<em>(</em><em>eg.</em>) – </p></li>
+<li><p><strong>golden</strong> – </p></li>
+<li><p><strong>Defaults to None.</strong> (<em>iron</em><em>)</em><em></em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Formatted tool key</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>[str]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="grindless.settings.regions.base_region.BaseRegion.display_name">
-<code class="sig-name descname">display_name</code><em class="property"> = 'Base'</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.display_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">display_name</code><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.display_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human-readable name</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="grindless.settings.regions.base_region.BaseRegion.get_damage_amount">
+<em class="property">static </em><code class="sig-name descname">get_damage_amount</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">items</span></em>, <em class="sig-param"><span class="n">tool_material</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.get_damage_amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates how much damage should be given based on the number of items given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>items</strong> (<em>dict</em>) – Dictionary of all the items and how much is given per item</p></li>
+<li><p><strong>tool_material</strong> (<em>str</em><em>, </em><em>optional</em>) – Material of the tool being used. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>How much damage should be given</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="grindless.settings.regions.base_region.BaseRegion.get_give_amount">
+<em class="property">static </em><code class="sig-name descname">get_give_amount</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">item_multiplier</span></em>, <em class="sig-param"><span class="n">region_multiplier</span></em>, <em class="sig-param"><span class="n">tool_material</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.get_give_amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates how much of an item should be given</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item_multiplier</strong> (<em>float</em>) – Multiplier specificed on the item (see items.yaml)</p></li>
+<li><p><strong>region_multiplier</strong> (<em>float</em>) – Multiplier specificed by the region items config</p></li>
+<li><p><strong>tool_material</strong> (<em>str</em><em>, </em><em>optional</em>) – Material of the tool being used. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>How much of the item should be given</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="grindless.settings.regions.base_region.BaseRegion.get_tool_info">
+<em class="property">static </em><code class="sig-name descname">get_tool_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tool</span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.get_tool_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the tool type and material from a tool key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tool</strong> (<em>str</em>) – A tool key like minecraft:wooden_pickaxe, pickaxe, or shears.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>tool_type, supported_materials - where tool_type is the base</dt><dd><p>tool (eg. pickaxe, shovel) and supported_materials is the
+specified material (eg. wooden, shovel). If no material is
+found the entire list of supported materials for the tool
+is returned.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="grindless.settings.regions.base_region.BaseRegion.items">
-<code class="sig-name descname">items</code><em class="property"> = {}</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.items" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">items</code><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Houses the items given by the region</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="grindless.settings.regions.base_region.BaseRegion.name">
-<code class="sig-name descname">name</code><em class="property"> = 'base'</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">name</code><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Region namespace</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="grindless.settings.regions.base_region.BaseRegion.region_type">
-<code class="sig-name descname">region_type</code><em class="property"> = 'overworld'</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.region_type" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">region_type</code><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.region_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the group the region is in
+Defaults to ‘overworld’.
+Supported options are: end, nether, overworld, overworld_mine</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="grindless.settings.regions.base_region.BaseRegion.setup_region">
+<em class="property">abstract </em><code class="sig-name descname">setup_region</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.setup_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets all region variables (name, display_name, region_type, items, etc.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – Child classes are required to override this method.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="grindless.settings.regions.base_region.BaseRegion.y_range">
-<code class="sig-name descname">y_range</code><em class="property"> = None</em><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.y_range" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-name descname">y_range</code><a class="reference external" href="https://github.com/thalida/grindless/tree/main/grindless/settings/regions/base_region.py"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#grindless.settings.regions.base_region.BaseRegion.y_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>y-axis range the region is contained by (only used for mines)</p>
+</dd></dl>
 
 </dd></dl>
 
+</div>
+</div>
 </div>
 
 
